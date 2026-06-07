@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SDD-Workshop · Vom Vibe zum Vertrag</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap');
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+      background: #fff; color: #111; padding: 6vh 8vw; line-height: 1.4;
+    }
+    .bar { width: 6px; height: 2.4em; background: #1ee9a0; display: inline-block;
+           vertical-align: middle; margin-right: 0.4em; border-radius: 2px; }
+    h1 { font-size: 3em; font-weight: 900; letter-spacing: -0.02em; display: flex; align-items: center; }
+    .sub { color: #6b7280; font-weight: 500; font-size: 1.2em; margin: 0.4em 0 2.2em 0; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1em; }
+    a.card {
+      display: block; text-decoration: none; color: #111;
+      border: 2px solid #111; border-radius: 16px; padding: 1.1em 1.3em;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    a.card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+    .no { font-weight: 800; color: #6b7280; font-size: .8em; }
+    .ti { font-weight: 800; font-size: 1.35em; margin: .15em 0 .3em; letter-spacing: -0.01em; }
+    .me { color: #6b7280; font-size: .9em; }
+    .dot { display:inline-block; width:.7em; height:.7em; border-radius:50%; margin-right:.4em; }
+    .y{background:#f4e87a}.b{background:#8fd3f4}.g{background:#9ef0c8}.p{background:#f7afc4}
+    .foot { margin-top: 3em; color: #6b7280; font-weight: 700; font-size: .9em;
+            display:flex; align-items:center; gap:.4em; }
+    .mark { width:1em; height:1em; border:.2em solid #111; border-radius:50% 50% 50% 0; display:inline-block; }
+    .tip { margin-top: 1.5em; color:#6b7280; font-size:.85em; }
+  </style>
+</head>
+<body>
+  <h1><span class="bar"></span>Vom Vibe zum Vertrag</h1>
+  <div class="sub">SDD-Workshop · Ganztag · ~6,5 h · codecentric</div>
+
+  <div class="grid">
+    <a class="card" href="akt0-context-engineering.html">
+      <div class="no">00 · 09:00 · 45'</div>
+      <div class="ti"><span class="dot b"></span>Context Engineering</div>
+      <div class="me">Vokabular &amp; Werkzeug · Smart Zone</div>
+    </a>
+    <a class="card" href="akt1-der-schmerz.html">
+      <div class="no">01 · 09:45 · 30' · 🛠</div>
+      <div class="ti"><span class="dot p"></span>Der Schmerz</div>
+      <div class="me">Vibe-coden ohne Spec → Mehrdeutigkeit</div>
+    </a>
+    <a class="card" href="akt2-warum-sdd.html">
+      <div class="no">02 · 10:30 · 45'</div>
+      <div class="ti"><span class="dot y"></span>Warum SDD</div>
+      <div class="me">Gojko · Framework-Vergleich · Contract</div>
+    </a>
+    <a class="card" href="akt3a-example-mapping.html">
+      <div class="no">03a · 11:15 · 75' · 🛠</div>
+      <div class="ti"><span class="dot g"></span>Example Mapping</div>
+      <div class="me">4er-Gruppen · die richtigen Regeln</div>
+    </a>
+    <a class="card" href="akt3b-gherkin.html">
+      <div class="no">03b · 13:30 · 45' · 🛠</div>
+      <div class="ti"><span class="dot y"></span>Grüne Karten → Gherkin</div>
+      <div class="me">Lesbare Spec · stack-neutral</div>
+    </a>
+    <a class="card" href="akt3c-binden-rot-gruen.html">
+      <div class="no">03c · 14:15 · 90' · 🛠</div>
+      <div class="ti"><span class="dot g"></span>Binden → rot/grün</div>
+      <div class="me">Cucumber · strict · Drift-Moment</div>
+    </a>
+    <a class="card" href="schluss-synthese.html">
+      <div class="no">04 · 16:00 · 45'</div>
+      <div class="ti"><span class="dot p"></span>Synthese &amp; Transfer</div>
+      <div class="me">Gesamtbild · Grenzen · Montag</div>
+    </a>
+  </div>
+
+  <div class="tip">Navigation in den Decks: Pfeiltasten · <b>F</b> Vollbild · <b>S</b> Speaker-Notes · <b>ESC</b> Übersicht</div>
+  <div class="foot"><span class="mark"></span>codecentric</div>
+</body>
+</html>

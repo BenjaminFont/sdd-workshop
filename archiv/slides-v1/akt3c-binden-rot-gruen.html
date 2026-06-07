@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akt 3c · Binden → rot/grün</title>
+  <link rel="stylesheet" href="assets/reset.css">
+  <link rel="stylesheet" href="assets/reveal.css">
+  <link rel="stylesheet" href="assets/theme.css">
+  <link rel="stylesheet" href="assets/plugin/highlight/monokai.css">
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+  <!-- Titel -->
+  <section class="title-slide" data-nologo>
+    <span class="secno">03 · c</span>
+    <h1>Binden →<br>rot / grün</h1>
+    <div class="subtitle">Die Spec wird erzwungen — Drift zum Anfassen · 90 min · 🛠 einzeln, mit AI</div>
+    <div class="footer-logo"><span class="mark"></span><span>codecentric</span></div>
+  </section>
+
+  <!-- generieren vs binden -->
+  <section>
+    <span class="secno">03 · c</span>
+    <h2 class="slash">Generieren vs. Binden</h2>
+    <div class="two-col">
+      <div class="card p"><h3>Generieren</h3>Szenario erzeugt Testdatei → zwei Artefakte → <strong>driftet</strong>.</div>
+      <div class="card g"><h3>Binden</h3>Szenario <em>ist</em> der Test → ein Artefakt → <strong>kein Drift</strong>.</div>
+    </div>
+    <p class="note">Nur Binden schließt die Schleife.</p>
+  </section>
+
+  <!-- zwei Schichten -->
+  <section>
+    <span class="secno">03 · c</span>
+    <h2 class="slash">Zwei Schichten</h2>
+    <ul class="dots">
+      <li class="y"><code class="inline">*.feature</code> — Prosa, lesbar. <strong>Die Spec.</strong></li>
+      <li class="b"><code class="inline">steps/*</code> — Code, einmal geschrieben, wiederverwendbar.</li>
+    </ul>
+    <p class="note">Der Runner verbindet beide zur Laufzeit. Die Leserlichkeit leidet nicht.</p>
+  </section>
+
+  <!-- Step definition code -->
+  <section>
+    <span class="secno">03 · c</span>
+    <h2 class="slash">Die Übersetzungsschicht</h2>
+    <pre><code class="language-javascript" data-trim>Given("a logged-in user", function () {
+  this.system.login();
+});
+When("{int} minutes pass without activity", function (m) {
+  this.system.advanceMinutes(m);   // {int} = aus dem Szenario
+});
+Then("the session is invalid", function () {
+  assert.strictEqual(this.system.sessionIsValid(), false);
+});</code></pre>
+    <p class="note">Die Zahl steht NIE im Code — sie kommt zur Laufzeit aus der .feature.</p>
+  </section>
+
+  <!-- wann rot -->
+  <section class="center-text">
+    <span class="secno">03 · c</span>
+    <p class="big">ROT entsteht ⟺</p>
+    <p class="huge">Szenario ≠ Code</p>
+    <p class="lead" style="margin-top:0.6em">Nicht bei jeder Änderung — nur bei einem <em class="u">Widerspruch</em>.</p>
+  </section>
+
+  <!-- rot/grün Beispiele -->
+  <section>
+    <span class="secno">03 · c</span>
+    <h2 class="slash">Wann rot, wann grün?</h2>
+    <ul class="plain">
+      <li><span class="pill red">ROT</span> &nbsp;<code class="inline">15 min → still valid</code> (Code sagt invalid)</li>
+      <li><span class="pill red">ROT</span> &nbsp;<code class="inline">20 min → still valid</code> (über die Grenze)</li>
+      <li><span class="pill green">GRÜN</span> &nbsp;<code class="inline">30 min → invalid</code> (gleiche Seite)</li>
+      <li><span class="pill green">GRÜN</span> &nbsp;nur Titel / Kommentar geändert</li>
+    </ul>
+  </section>
+
+  <!-- DER Drift-Moment -->
+  <section class="center-text">
+    <span class="secno">03 · c</span>
+    <p class="lead">Der Moment des Tages</p>
+    <p class="huge">grün → ändere<br>eine Zahl → <span class="red">ROT</span></p>
+    <p class="big" style="margin-top:0.6em">Die Spec kann nicht mehr<br>unbemerkt falsch werden.</p>
+  </section>
+
+  <!-- strict -->
+  <section>
+    <span class="secno">03 · c</span>
+    <h2 class="slash">strict ist konstituierend</h2>
+    <ul class="dots">
+      <li class="g"><code class="inline">strict: true</code> in <code class="inline">cucumber.json</code> — nicht im Step-File.</li>
+      <li class="p">Szenario <strong>ohne</strong> Step-Definition → <span class="pill red">ROT</span>.</li>
+      <li class="b">Ohne strict: rutscht still als <span class="pill green">GRÜN</span> durch → Drift kehrt zurück.</li>
+    </ul>
+    <p class="note">Nicht auf den Default verlassen — explizit setzen.</p>
+  </section>
+
+  <!-- Aufgabe -->
+  <section>
+    <span class="secno">03 · c</span>
+    <h2 class="slash">Eure Aufgabe — 90 min</h2>
+    <ul class="dots">
+      <li class="y">Agent bootstrappt Cucumber + <code class="inline">strict</code>.</li>
+      <li class="b">Step Definitions im eigenen Stack <span class="lead">(Vorlage: <code class="inline">examples-for-bdd/bdd/</code>)</span>.</li>
+      <li class="g">Agent baut <strong>gegen-grün</strong> bis alles grün ist.</li>
+      <li class="p">Dann: eine Zahl in der Spec ändern → <span class="red">rot</span> erleben.</li>
+    </ul>
+  </section>
+
+  <!-- Brücke -->
+  <section class="center-text">
+    <span class="secno">03 · c</span>
+    <p class="big">Ihr habt jetzt eine</p>
+    <p class="huge">erzwungene,<br>lebende Spec.</p>
+    <p class="lead" style="margin-top:0.6em">Die kein Framework von Haus aus liefert.</p>
+  </section>
+
+</div></div>
+<script type="module" src="assets/deck.js"></script>
+</body>
+</html>

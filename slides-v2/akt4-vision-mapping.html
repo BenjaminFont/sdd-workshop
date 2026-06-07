@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akt 4 · Vision &amp; Discovery</title>
+  <link rel="stylesheet" href="assets/reset.css">
+  <link rel="stylesheet" href="assets/reveal.css">
+  <link rel="stylesheet" href="assets/theme.css">
+  <link rel="stylesheet" href="assets/plugin/highlight/monokai.css">
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+  <!-- Titel -->
+  <section class="title-slide" data-nologo>
+    <span class="secno">04</span>
+    <h1>Vision &amp; Discovery</h1>
+    <div class="subtitle">Ein Schnitt, eine Discovery · 🛠</div>
+    <div class="footer-logo"><img src="assets/img/logo-black.svg" alt="codecentric"></div>
+    <aside class="notes">
+      Titelfolie zu Akt 4 — Start des Hands-on-Teils.<br>
+      <strong>Ziel:</strong> Den Wechsel vom Konzept-Bogen in die praktische Gruppenarbeit markieren und die Leitidee setzen: ein Schnitt, eine gemeinsame Discovery, die später zwei Pfade speist.
+      <br>Was du sagen kannst:
+      <br>• Ab jetzt arbeiten wir selbst — erst Setup, dann gemeinsam Example Mapping.
+      <br>• Wir bauen heute nichts fertig; wir üben an EINEM kleinen Schnitt, den wir gleich gemeinsam aufschließen.
+      <br>• Diese eine Discovery ist der gemeinsame Ausgangspunkt für Pfad A (BMAD) und Pfad B (unsere Form) — so wird der Vergleich später sauber.
+    </aside>
+  </section>
+
+  <!-- Unser Tool -->
+  <section>
+    <span class="secno">04</span>
+    <h2 class="slash">Die Vision: ein Katalog für AI-Artefakte</h2>
+    <p class="body">Teams sammeln über die Zeit <strong>Skills, Rule-Files, CLAUDE.md&shy;s und
+    MCP-Server-Configs</strong> an — verstreut über jedes Repo, von Hand kopiert, veraltet, nie synchron.
+    Unser CLI-Tool verwaltet sie an <em class="u">einem zentralen Ort</em> und bringt sie per Kommando
+    dorthin, wo sie gebraucht werden.</p>
+    <div class="flow" style="margin-top:1em">
+      <span class="step"><code class="inline">import</code> — Artefakt ins Repo holen</span>
+      <span class="step"><code class="inline">augment</code> — bestehende ergänzen</span>
+      <span class="step"><code class="inline">diff</code> — Abweichung zeigen</span>
+      <span class="step"><code class="inline">mcp add</code></span>
+    </div>
+    <aside class="notes">
+      Diese Folie stellt das durchgehende Projekt vor: eine CLI, die AI-Coding-Artefakte zentral verwaltet — jetzt mit mehr Kontext zur Produktvision.<br>
+      <strong>Ziel:</strong> Die Teilnehmer sollen die Idee des Tools wirklich verstehen, damit der gleich folgende verengte Schnitt als bewusster Fokus auf <em>einen</em> Befehl erkennbar wird — nicht als das ganze Tool.
+      <br>Was du sagen kannst:
+      <br>• Das Problem: In jedem Projekt sammeln sich AI-Artefakte — Skills, Rules, <code class="inline">CLAUDE.md</code>, MCP-Configs. Sie liegen verstreut, werden kopiert, driften auseinander, niemand pflegt sie zentral.
+      <br>• Die Lösung: ein zentraler Katalog + eine CLI, die diese Artefakte per Kommando in Ziel-Repos bringt: <code class="inline">import</code> (holen), <code class="inline">augment</code> (bestehende ergänzen), <code class="inline">diff</code> (Abweichungen zeigen), <code class="inline">mcp add</code> / <code class="inline">list</code>.
+      <br>• Warum die Idee passt: Meta-Dogfooding — das Tool verwaltet genau die Artefakte, über die der Workshop lehrt; existiert real in Ansätzen (Stichwort <code class="inline">.claude/</code>-dotfiles, ruler).
+      <br>• Wichtig zu betonen: Das wird heute nicht fertig — es ist nur das Vehikel, an dem wir die Methoden üben. Gleich verengen wir auf einen einzigen Befehl.
+    </aside>
+  </section>
+
+  <!-- Aufgabe heute -->
+  <section>
+    <span class="secno">04</span>
+    <h2 class="slash">Aufgabe heute</h2>
+
+    <p class="body" style="margin-top:0.2em">Aus der Vision nehmen wir <strong>einen</strong> Befehl:
+    <strong>import</strong> — ein Artefakt (Rule, Skill, <strong>CLAUDE.md</strong>, MCP-Config)
+    aus dem Katalog in ein bestehendes Repo holen. Klingt simpel, steckt aber voller <strong>Geschäftsregeln</strong>:
+    Existiert es schon? In welcher Version? Bei Konflikt per <em class="u">SemVer</em> überschreiben, überspringen
+    oder abbrechen?</p>
+
+    <p class="body" style="margin-top:0.8em">Denselben Schnitt entwickeln wir <strong>zweimal</strong> — aus derselben Aufgabe:</p>
+    <div class="two-col" style="margin-top:0.4em">
+      <div class="card p"><h3>Pfad A — mit BMAD</h3><p class="lead">Anforderungen über das BMAD-<strong>PRD</strong>. Rollen, Architektur, Epics → Stories. Schwer per Default — ihr spürt die volle Zeremonie.</p></div>
+      <div class="card g"><h3>Pfad B — schlanke Form</h3><p class="lead">Startet mit <strong>Example Mapping</strong> in der Gruppe → Gherkin → gebundener Contract. Leicht, drift-fest.</p></div>
+    </div>
+
+    <aside class="notes">
+      Diese Folie ist der Kern des Hands-on-Setups: Sie beschreibt die heute zu lösende Aufgabe als Fließtext und erklärt die zentrale Idee — denselben Schnitt zweimal bauen.<br>
+      <strong>Ziel:</strong> Den Teilnehmern eine große, klare Idee der Aufgabe geben und den dualen Bau (mit/ohne BMAD) verständlich machen, bevor es in die Gruppenarbeit geht.
+      <br>Was du sagen kannst:
+      <br>• Die Aufgabe: aus der Vision nur <strong>import</strong> — ein beliebiges Artefakt (Rule, Skill, CLAUDE.md, MCP-Config) aus dem Katalog in ein bestehendes Repo holen.
+      <br>• Warum es nicht trivial ist: die Geschäftsregeln — Existiert das Ziel? Welche Version (major/minor/patch)? Überschreiben, überspringen, abbrechen? Was macht <code class="inline">--dry-run</code>? Klein genug für die Zeit, regelreich genug für echte Methodik.
+      <br>• Die zentrale Idee — <strong>dual bauen</strong>: Denselben Schnitt fahren wir einmal mit <strong>BMAD</strong> (Pfad A) und einmal mit unserer <strong>schlanken, contract-getriebenen Form</strong> (Pfad B).
+      <br>• Wichtig — die beiden Pfade starten unterschiedlich: <strong>Pfad B</strong> beginnt mit <strong>Example Mapping</strong> in der Gruppe; die grünen Karten werden direkt zur Spec (→ Gherkin → Contract). <strong>Pfad A (BMAD)</strong> leitet seine Anforderungen über sein eigenes <strong>PRD</strong> ab — Example Mapping ist kein BMAD-Artefakt. Das gemeinsame Mapping liefert beiden Pfaden dasselbe Domänenverständnis, aber nur Pfad B nutzt die Karten als formale Spec.
+      <br>• Stopp-Punkt (erst auf den späteren Aufgaben-Folien betonen): beide Pfade nur bis zum charakteristischen Punkt, nicht bis zum fertigen Feature.
+    </aside>
+  </section>
+
+  <!-- Example Mapping -->
+  <section>
+    <span class="secno">04</span>
+    <h2 class="slash">Example Mapping</h2>
+    <div class="cards">
+      <div class="card y"><h3>Story</h3><p class="lead">Was wollen wir? Eine gelbe Karte.</p></div>
+      <div class="card b"><h3>Rules</h3><p class="lead">Die Geschäftsregeln dahinter.</p></div>
+      <div class="card g"><h3>Examples</h3><p class="lead">Konkrete Fälle pro Regel.</p></div>
+      <div class="card p"><h3>Open Questions</h3><p class="lead">Was wir (noch) nicht wissen.</p></div>
+    </div>
+    <aside class="notes">
+      Diese Folie führt die Technik Example Mapping mit ihren vier Kartenfarben ein.<br>
+      <strong>Ziel:</strong> Den Gruppen ein einfaches, gemeinsames Format geben, um den <code class="inline">import</code>-Schnitt strukturiert aufzuschließen, bevor irgendein Tool ins Spiel kommt.
+      <br>Was du sagen kannst:
+      <br>• Gelb = Story (was wollen wir?), blau = Rules (die Geschäftsregeln dahinter), grün = Examples (konkrete Fälle pro Regel), rot = Open Questions (was noch offen ist).
+      <br>• Der Fluss: eine Story nehmen, Regeln benennen, jede Regel mit konkreten Beispielen abklopfen — Unklarheiten werden zu roten Karten.
+      <br>• Moderationshinweis: timeboxen, eine Karte nach der anderen; lieber viele kleine konkrete Beispiele als abstrakte Regeln.
+    </aside>
+  </section>
+
+  <!-- Example Mapping HOW (Beispiel in unserer Domäne) -->
+  <section>
+    <span class="secno">04</span>
+    <h2 class="slash">So sieht das aus — am import</h2>
+    <div class="two-col" style="margin-top:0.5em;gap:1.5em;align-items:flex-start">
+      <div style="flex:1.05">
+        <p class="note" style="margin:0 0 0.4em">Gemeinsam im Team gemappt</p>
+        <div class="em-card em-story">🟡 <strong>Story:</strong> Nutzer importiert eine Rule ins Repo</div>
+        <div class="em-row">
+          <div class="em-card em-rule">🔵 <strong>Rule 1</strong><br>existiert nicht → kopieren</div>
+          <div class="em-card em-rule">🔵 <strong>Rule 2</strong><br>Konflikt → höhere SemVer gewinnt</div>
+        </div>
+        <div class="em-row">
+          <div class="em-card em-ex">🟢 leer → kopiert ✓</div>
+          <div class="em-card em-ex">🟢 v1.2 ↔ v1.0 → überschreiben ✓</div>
+          <div class="em-card em-ex">🟢 v1.0 ↔ v1.2 → skip ✗</div>
+        </div>
+        <div class="em-card em-q">🔴 Was bei <em>gleicher</em> Version?</div>
+      </div>
+      <div style="flex:1">
+        <p class="note" style="margin:0 0 0.4em">Wird in Pfad B zur Spec</p>
+        <pre style="margin:0"><code class="language-gherkin">Feature: Rule importieren
+
+  Scenario: Konflikt, neuere Version
+    Given Rule "x" v1.0 liegt im Repo
+    When ich "x" v1.2 importiere
+    Then wird sie überschrieben
+
+  Scenario: Konflikt, ältere Version
+    Given Rule "x" v1.2 liegt im Repo
+    When ich "x" v1.0 importiere
+    Then wird sie übersprungen</code></pre>
+      </div>
+    </div>
+    <p class="note" style="margin-top:0.6em">Grüne Karten → Gherkin-Szenarien → später gebundener Contract.</p>
+    <aside class="notes">
+      Konkretes Beispiel, wie Example Mapping am <code class="inline">import</code>-Schnitt aussieht — nachgebaut nach dem EXACT-Coding-Schaubild, aber in unserer Domäne.<br>
+      <strong>Ziel:</strong> Den Gruppen ein greifbares Muster zeigen, bevor sie selbst mappen — links die vier Kartenfarben am echten Beispiel, rechts wohin die grünen Karten in Pfad B wandern.
+      <br>Was du sagen kannst:
+      <br>• Links, gemeinsam im Team entwickelt: eine gelbe <strong>Story</strong>, darunter blaue <strong>Rules</strong> (z. B. „existiert nicht → kopieren", „Konflikt → höhere SemVer gewinnt"), pro Regel grüne <strong>Examples</strong> mit konkretem Ergebnis (✓/✗), und eine rote <strong>offene Frage</strong> („Was bei gleicher Version?").
+      <br>• Rechts: In Pfad B wird jedes grüne Beispiel zu einem <strong>Gherkin-Szenario</strong> (Given/When/Then) — und das ist später die Grundlage für den gebundenen, erzwungenen Contract.
+      <br>• Wichtig nochmal klarstellen: Diese Gherkin-Umsetzung gehört zu <strong>Pfad B</strong>. In Pfad A (BMAD) fließt dasselbe Domänenwissen stattdessen ins PRD.
+      <br>• Die rote Karte ist bewusst drin — sie zeigt: Unsicherheit wird dokumentiert, nicht geraten.
+    </aside>
+  </section>
+
+  <!-- facilitate -->
+  <section class="center-text">
+    <span class="secno">04</span>
+    <p class="big">„facilitate, don't invent."</p>
+    <p class="lead" style="margin-top:0.7em">Du kennst die Domäne nicht — <strong>frag</strong>.<br>Rote Karten sind ehrlicher als geratene Regeln.</p>
+    <aside class="notes">
+      Diese Folie gibt die Moderationshaltung für die Discovery vor: „facilitate, don't invent."<br>
+      <strong>Ziel:</strong> Verhindern, dass Gruppen (oder die KI) Domänenwissen erfinden — gerade bei Entwickler:innen mit erster AI-Coding-Erfahrung ist die Versuchung groß, Lücken schnell mit Annahmen zu füllen.
+      <br>Was du sagen kannst:
+      <br>• Als Moderator:in kennst du die Domäne oft selbst nicht — deine Aufgabe ist fragen und strukturieren, nicht Antworten liefern.
+      <br>• Eine rote Karte (offene Frage) ist wertvoller als eine geratene Regel — sie ist ehrlich und wird später bewusst geklärt.
+      <br>• Auch beim KI-Einsatz gilt das: lieber explizit offene Punkte markieren, als das Modell raten lassen.
+    </aside>
+  </section>
+
+  <!-- Eure Aufgabe -->
+  <section>
+    <span class="secno">04</span>
+    <h2 class="slash">Eure Aufgabe — jetzt in Gruppen</h2>
+    <p class="body">Findet euch in <strong>Vierergruppen</strong> zusammen. Für jede Gruppe haben wir
+    ein <strong>Miro-Board</strong> bereitgestellt — ihr seid bereits darauf. Mappt dort gemeinsam
+    den <strong>import</strong>-Schnitt: Story oben, dann die <strong>Geschäftsregeln</strong> (existiert das Ziel?
+    welche Version? Konflikt? <strong>dry-run</strong>?), pro Regel konkrete Beispiele — und alles Unklare
+    wird eine <em class="u">rote Karte</em>.</p>
+    <div class="two-col" style="margin-top:0.5em">
+      <div class="card y"><h3>Format</h3><p class="lead">Gelb Story · Blau Rules · Grün Examples · Rot offene Fragen. ~20–30 min, eine Karte nach der anderen.</p></div>
+      <div class="card b"><h3>Danach</h3><p class="lead">Die Karten sind euer Domänenverständnis für beide Pfade. In <strong>Pfad B</strong> werden die grünen Karten direkt zur Spec.</p></div>
+    </div>
+    <aside class="notes">
+      Übergangsfolie: Sie übersetzt die Technik in den konkreten Arbeitsauftrag und leitet in die Gruppenarbeit über.<br>
+      <strong>Ziel:</strong> Die Gruppen organisatorisch sauber loslassen — Vierergruppen, Miro-Board, klarer Mapping-Auftrag.
+      <br>Was du sagen kannst:
+      <br>• Organisation: Bitte in <strong>Vierergruppen</strong> zusammenfinden. Jede Gruppe hat ein eigenes <strong>Miro-Board</strong> — ihr seid bereits draufgekommen, dort arbeitet ihr gemeinsam.
+      <br>• Auftrag: Mappt den <code class="inline">import</code>-Schnitt — Story, Geschäftsregeln (Existiert das Ziel? Welche Version? Wie bei Konflikt? Was macht <code class="inline">dry-run</code>?), konkrete Beispiele pro Regel, rote Karten für alles Offene.
+      <br>• Format/Timebox: vier Kartenfarben, ~20–30 min, eine Karte nach der anderen; lieber viele kleine konkrete Beispiele als abstrakte Regeln.
+      <br>• Was danach passiert: Die Karten sind das gemeinsame Domänenverständnis. <strong>Wichtig:</strong> In <strong>Pfad B</strong> werden die grünen Karten direkt zur formalen Spec (→ Gherkin → Contract); <strong>Pfad A (BMAD)</strong> nutzt dasselbe Verständnis, formuliert aber sein eigenes PRD — Example Mapping ist kein BMAD-Schritt.
+      <br>• Setup-Hinweis: Repo steht, BMAD ist vorab installiert — hier nur verifizieren, nicht installieren.
+    </aside>
+  </section>
+
+</div></div>
+<script type="module" src="assets/deck.js"></script>
+</body>
+</html>

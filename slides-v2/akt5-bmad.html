@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akt 5 · Pfad A: BMAD</title>
+  <link rel="stylesheet" href="assets/reset.css">
+  <link rel="stylesheet" href="assets/reveal.css">
+  <link rel="stylesheet" href="assets/theme.css">
+  <link rel="stylesheet" href="assets/plugin/highlight/monokai.css">
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+  <!-- Titel -->
+  <section class="title-slide" data-nologo>
+    <span class="secno">05</span>
+    <h1>Pfad A — BMAD</h1>
+    <div class="subtitle">Schwer per Default · 🛠</div>
+    <div class="footer-logo"><img src="assets/img/logo-black.svg" alt="codecentric"></div>
+    <aside class="notes">
+      Titelfolie für Akt 5 „Pfad A: BMAD" — der erste der beiden Hands-on-Pfade.<br>
+      <strong>Ziel:</strong> Den Rahmen setzen — wir fahren jetzt denselben <code>import</code>-Schnitt aus dem gemeinsamen Example Mapping durch BMAD. Das Stichwort „schwer per Default" ist programmatisch.
+      <ul>
+        <li>BMAD bewusst zuerst — dramaturgisch, damit ihr die Schwere/Zeremonie körperlich spürt, bevor in Akt 6 die schlanke Form die Erleichterung bringt.</li>
+        <li>70 Minuten, Einzelarbeit. Wir bauen <strong>nicht</strong> bis zum fertigen Feature.</li>
+        <li>Erinnern: BMAD ist vorab installiert, hier nur loslegen.</li>
+      </ul>
+    </aside>
+  </section>
+
+  <!-- Kern -->
+  <section class="center-text">
+    <span class="secno">05</span>
+    <p class="huge">Pfad A:<br>BMAD</p>
+    <p class="lead" style="margin-top:0.7em">Dieselben Karten — jetzt durch BMAD gefahren.</p>
+    <aside class="notes">
+      Kernaussage des Akts: Es ist <strong>dieselbe Discovery</strong> wie zuvor — die grünen Example-Mapping-Karten — die jetzt durch BMAD läuft.<br>
+      <strong>Ziel:</strong> Den Vergleich sauber isolieren. Gleicher Ausgangspunkt, zwei Formalisierungen — so wird der Unterschied selbst erlebt, nicht behauptet.
+      <ul>
+        <li>Betonen: gleicher Input wie in Akt 6 — der Unterschied liegt allein im Weg der Methode.</li>
+        <li>Brücke zur nächsten Folie: Schauen wir uns an, mit welchen <strong>Rollen</strong> BMAD diesen Weg organisiert.</li>
+      </ul>
+    </aside>
+  </section>
+
+  <!-- Rollen -->
+  <section>
+    <span class="secno">05</span>
+    <h2 class="slash">BMAD — Rollen</h2>
+    <ul class="dots">
+      <li class="y"><strong>Analyst</strong></li>
+      <li class="b"><strong>PM</strong></li>
+      <li class="g"><strong>Architect</strong></li>
+      <li class="p"><strong>Dev</strong></li>
+    </ul>
+    <p class="note">Spezialisierte Rollen + strukturierte Artefakte — jede Phase ihr eigener Hut.</p>
+    <aside class="notes">
+      Die vier BMAD-Rollen in v6 (BMM): <strong>Analyst, PM, Architect, Dev</strong> — einen separaten Scrum Master gibt es in v6 nicht mehr.<br>
+      <strong>Ziel:</strong> Zeigen, dass BMAD über spezialisierte Personas plus strukturierte Artefakte arbeitet — genau das macht die Methode mächtig <em>und</em> schwer.
+      <ul>
+        <li>Jede Phase trägt ihren eigenen „Hut": Analyst/PM für die Planung, Architect für die Lösung, Dev für die Umsetzung.</li>
+        <li>Jede Rolle läuft typischerweise in einem frischen Chat — das ist Teil des Gewichts, das ihr gleich spürt.</li>
+        <li>Vorteil dieser Schwere: lückenlose Traceability von der Anforderung bis zur Story.</li>
+      </ul>
+    </aside>
+  </section>
+
+  <!-- Flow -->
+  <section>
+    <span class="secno">05</span>
+    <h2 class="slash">Der Flow</h2>
+    <div class="flow" style="margin-top:0.8em">
+      <span class="step">prd</span><span class="arrow">→</span>
+      <span class="step">architecture</span><span class="arrow">→</span>
+      <span class="step">epics &amp; stories</span><span class="arrow">→</span>
+      <span class="step">create-story</span><span class="arrow">→</span>
+      <span class="step">dev-story</span>
+    </div>
+    <aside class="notes">
+      Der BMAD-BMM-Flow am <code>import</code>-Schnitt: <code>prd</code> → <code>architecture</code> → <code>epics &amp; stories</code> → <code>create-story</code> → <code>dev-story</code>.<br>
+      <strong>Ziel:</strong> Den konkreten Weg vorzeichnen, den ihr gleich abfahrt — vom PRD über die Architektur bis zum ersten umgesetzten Story-Lauf.
+      <ul>
+        <li><code>prd</code>: Anforderungen als FR1, FR2 … aus den Karten ableiten.</li>
+        <li><code>architecture</code>: Tech-Entscheidungen + ADRs — kommt in v6 bewusst <strong>vor</strong> den Stories (nächste Folie).</li>
+        <li><code>epics &amp; stories</code>: Epics in Stories brechen, mit FR-Coverage-Map.</li>
+        <li><code>create-story</code> / <code>dev-story</code>: eine Story konkretisieren, dann der erste Umsetzungs-Loop.</li>
+      </ul>
+    </aside>
+  </section>
+
+  <!-- Architecture first -->
+  <section class="center-text">
+    <span class="secno">05</span>
+    <p class="big">Architecture <em class="u">vor</em> Stories.</p>
+    <p class="lead" style="margin-top:0.7em">Tech-Entscheidungen prägen das Breakdown (v6).</p>
+    <aside class="notes">
+      Eine Eigenheit von BMAD v6: Die <strong>Architektur entsteht vor den Stories</strong>, nicht danach.<br>
+      <strong>Ziel:</strong> Erklären, warum die Reihenfolge bewusst so gewählt ist — und was das für das Story-Breakdown bedeutet.
+      <ul>
+        <li>Die Logik: getroffene Tech-Entscheidungen (z. B. SemVer-Vergleich beim Konflikt) prägen, wie sinnvoll man Epics in Stories schneidet.</li>
+        <li>Andere Frameworks ziehen Plan/Design teils nach hinten — BMAD stellt die Lösungsphase bewusst voran.</li>
+        <li>Brücke: Mit diesem Fahrplan im Kopf — jetzt eure konkrete Aufgabe.</li>
+      </ul>
+    </aside>
+  </section>
+
+  <!-- Aufgabe -->
+  <section>
+    <span class="secno">05</span>
+    <h2 class="slash">Eure Aufgabe</h2>
+    <ul class="dots">
+      <li class="g">Den <code class="inline">import</code>-Schnitt durch BMAD fahren.</li>
+      <li class="b">Bis <strong>Stories vorliegen</strong>.</li>
+      <li class="p">Ein erster <code class="inline">dev-story</code>-Lauf.</li>
+    </ul>
+    <p class="note">Charakteristischer Punkt — <strong>nicht</strong> bis zum fertigen Feature.</p>
+    <aside class="notes">
+      Die konkrete Hands-on-Aufgabe: Den <code>import</code>-Schnitt durch BMAD fahren, bis <strong>Stories vorliegen</strong>, plus ein erster <code>dev-story</code>-Lauf.<br>
+      <strong>Ziel:</strong> Den Stopp-Punkt glasklar setzen — der „charakteristische Punkt" ist nicht das fertige Feature.
+      <ul>
+        <li>Der Aha liegt im <strong>Weg</strong>: Rollen, PRD→Arch→Epics, Traceability, frische Chats, viele Approvals — nicht im fertigen Code.</li>
+        <li>Stoppt bewusst, sobald Stories liegen und ihr <code>dev-story</code> einmal angestoßen habt.</li>
+        <li><strong>Notausgang</strong>, falls die Zeit kippt: <code>bmad-quick-dev</code> überspringt die Phasen 1–3 — aber dann verliert ihr genau die Rollen/Artefakte. Primär den vollen Pfad fahren.</li>
+      </ul>
+    </aside>
+  </section>
+
+  <!-- So startet ihr konkret -->
+  <section>
+    <span class="secno">05</span>
+    <h2 class="slash">So startet ihr — konkret</h2>
+    <p class="body">BMAD ist installiert (<code class="inline">npx bmad-method install</code>, Modul BMM).
+    Ihr ruft die Workflows in der IDE über ihren <strong>Skill-Namen</strong> auf — <strong>je Workflow ein frischer Chat</strong>.
+    Unsicher, was als Nächstes dran ist? <code class="inline">bmad-help</code> navigiert euch.</p>
+    <ol class="steps">
+      <li><strong>Planning</strong> — <code class="inline">bmad-prd</code> → PRD mit FR1, FR2 … aus eurem Domänenverständnis</li>
+      <li><strong>Solutioning</strong> — <code class="inline">bmad-create-architecture</code>, dann <code class="inline">bmad-create-epics-and-stories</code></li>
+      <li><strong>Readiness</strong> — <code class="inline">bmad-check-implementation-readiness</code></li>
+      <li><strong>Implementation</strong> — <code class="inline">bmad-sprint-planning</code>, dann der Loop:<br>
+        <code class="inline">bmad-create-story</code> → <code class="inline">bmad-dev-story</code> → <code class="inline">bmad-code-review</code></li>
+    </ol>
+    <p class="note">Stopp bei vorliegenden Stories + erstem <code class="inline">bmad-dev-story</code>-Lauf. Notausgang bei Zeitnot: <code class="inline">bmad-quick-dev</code> (überspringt Planung). · <strong>Spürt das Gewicht: wie viel Prozess pro Zeile Code?</strong></p>
+    <aside class="notes">
+      Konkrete Vorgehens-Folie: Wie startet man den BMAD-Prozess praktisch, nachdem BMAD aufgesetzt ist — mit den echten v6/BMM-Befehlen.<br>
+      <strong>Ziel:</strong> Die Teilnehmer handlungsfähig machen — sie sollen wissen, welche Skills sie in welcher Reihenfolge aufrufen, statt vor einer leeren IDE zu sitzen.
+      <br><strong>Faktenbasis:</strong> recherchiert aus offizieller BMAD-Doku (docs.bmad-method.org) und README; Aufruf in v6 erfolgt über <code class="inline">bmad-*</code>-Skill-Namen (kein <code class="inline">/bmad:</code>-Slash, kein <code class="inline">@agent</code>), primär in der IDE (Claude Code / Cursor).
+      <br>Was du sagen kannst:
+      <br>• Voraussetzung: BMAD ist vorab via <code class="inline">npx bmad-method install</code> (Modul „BMad Method / BMM") eingerichtet — heute nur verifizieren.
+      <br>• Aufruf-Mechanik: Workflows ruft ihr über ihren Skill-Namen auf, die IDE erkennt sie. Faustregel: <strong>pro Workflow ein frischer Chat</strong> (sauberer Kontext). <code class="inline">bmad-help</code> ist der Navigator und sagt euch kontextabhängig den nächsten Schritt.
+      <br>• Reihenfolge (BMM, v6): <strong>Planning</strong> <code class="inline">bmad-prd</code> → <strong>Solutioning</strong> <code class="inline">bmad-create-architecture</code> + <code class="inline">bmad-create-epics-and-stories</code> (Architektur bewusst vor den Stories) → <code class="inline">bmad-check-implementation-readiness</code> → <strong>Implementation</strong> <code class="inline">bmad-sprint-planning</code>, dann pro Story der Loop <code class="inline">bmad-create-story</code> → <code class="inline">bmad-dev-story</code> → <code class="inline">bmad-code-review</code>.
+      <br>• Optionale Analysis-Phase (Analyst: <code class="inline">bmad-brainstorming</code>, <code class="inline">bmad-product-brief</code>) überspringen wir heute — euer Domänenverständnis aus dem Mapping reicht als Input fürs PRD.
+      <br>• Stopp-Punkt: Sobald Stories vorliegen und ihr <code class="inline">bmad-dev-story</code> einmal angestoßen habt — nicht bis zum fertigen Feature.
+      <br>• Notausgang bei Zeitnot: <code class="inline">bmad-quick-dev</code> bündelt Planung + Umsetzung und überspringt Architektur/getrennte Phasen — dann verliert ihr aber genau die Rollen/Artefakte, die den Aha ausmachen. Primär den vollen Pfad fahren.
+      <br>• Reflexion zum Schluss (Brücke zu Akt 6): „Spürt das Gewicht — wie viel Prozess pro Zeile Code?" Gleich dieselbe Domäne durch die schlanke, contract-getriebene Form, dann urteilt ihr selbst.
+    </aside>
+  </section>
+
+</div></div>
+<script type="module" src="assets/deck.js"></script>
+</body>
+</html>

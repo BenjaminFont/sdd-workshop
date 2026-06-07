@@ -1,0 +1,14 @@
+# Playwright-CLI Temp/Cache
+.playwright-cli/
+.playwright/
+
+# IDE
+.idea/
+
+# Screenshots (temporär)
+**/_shots/
+**/_shots2/
+**/_shots3/
+
+# OS
+.DS_Store

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akt 2 · Warum SDD</title>
+  <link rel="stylesheet" href="assets/reset.css">
+  <link rel="stylesheet" href="assets/reveal.css">
+  <link rel="stylesheet" href="assets/theme.css">
+  <link rel="stylesheet" href="assets/plugin/highlight/monokai.css">
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+  <!-- Titel -->
+  <section class="title-slide" data-nologo>
+    <span class="secno">02</span>
+    <h1>Warum SDD</h1>
+    <div class="subtitle">Vom Raten zur geteilten Sprache · 45 min</div>
+    <div class="footer-logo"><span class="mark"></span><span>codecentric</span></div>
+  </section>
+
+  <!-- ============ (a) FUNDAMENT ============ -->
+  <section class="center-text" data-nologo>
+    <span class="secno">02 · a</span>
+    <p class="lead">Teil a</p>
+    <p class="huge">Das Fundament</p>
+    <div class="footer-logo"><span class="mark"></span><span>codecentric</span></div>
+  </section>
+
+  <!-- Gojko -->
+  <section>
+    <span class="secno">02 · a</span>
+    <h2 class="slash">Specification by Example</h2>
+    <p class="big">Beispiele sind die präziseste Sprache,<br>in der sich Mensch &amp; Maschine über<br><span class="accent">Verhalten</span> einigen.</p>
+    <p class="note">Gojko Adzic — und dasselbe Beispiel ist zugleich der Akzeptanztest.</p>
+  </section>
+
+  <!-- SDD definition -->
+  <section>
+    <span class="secno">02 · a</span>
+    <h2 class="slash">Spec Driven Development</h2>
+    <div class="flow" style="margin-top:0.6em">
+      <span class="step">Spec</span><span class="arrow">→</span>
+      <span class="step">Plan</span><span class="arrow">→</span>
+      <span class="step">Implement</span>
+    </div>
+    <p class="big" style="margin-top:0.8em">Spezifikation <em class="u">vor</em> Code.</p>
+  </section>
+
+  <!-- Spec vs Plan -->
+  <section>
+    <span class="secno">02 · a</span>
+    <h2 class="slash">Spec vs. Plan</h2>
+    <div class="two-col">
+      <div>
+        <h3>Spec</h3>
+        <p class="lead">WAS / WARUM — Business, Domänensprache. Ein Domänenexperte stimmt zu.</p>
+      </div>
+      <div>
+        <h3>Plan</h3>
+        <p class="lead">WIE — Dateien, Schritte, Technik. Was ein Entwickler baut.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Litmus -->
+  <section>
+    <span class="secno">02 · a</span>
+    <h2 class="slash">Der Litmustest</h2>
+    <p class="big">Lösche einen Satz.</p>
+    <ul class="dots">
+      <li class="b">Ändert sich, was ein <strong>Domänenexperte</strong> zustimmt? → <strong>Spec</strong></li>
+      <li class="g">Ändert sich nur, was ein <strong>Entwickler</strong> baut? → <strong>Plan</strong></li>
+    </ul>
+  </section>
+
+  <!-- Zwei Achsen -->
+  <section>
+    <span class="secno">02 · a</span>
+    <h2 class="slash">Zwei Achsen</h2>
+    <ul class="dots">
+      <li class="y"><strong>Abstraktion</strong> — WAS/WARUM vs. WIE</li>
+      <li class="b"><strong>Enforcement</strong> — generativer Input vs. erzwungener Contract</li>
+    </ul>
+    <p class="note">Die zweite Achse wird oft übersehen — sie ist die entscheidende.</p>
+  </section>
+
+  <!-- ============ (b) FRAMEWORK-VERGLEICH ============ -->
+  <section class="center-text" data-nologo>
+    <span class="secno">02 · b</span>
+    <p class="lead">Teil b</p>
+    <p class="huge">Die Landschaft<br>&amp; ihr blinder Fleck</p>
+    <div class="footer-logo"><span class="mark"></span><span>codecentric</span></div>
+  </section>
+
+  <!-- Alle predigen das Gleiche -->
+  <section class="center-text">
+    <span class="secno">02 · b</span>
+    <p class="big">Alle predigen:</p>
+    <p class="huge">„Spec = Source<br>of Truth"</p>
+    <p class="lead" style="margin-top:0.7em">Wer hält das wirklich ein?</p>
+  </section>
+
+  <!-- Vergleichstabelle -->
+  <section>
+    <span class="secno">02 · b</span>
+    <h2 class="slash">Drei Frameworks, drei Probleme</h2>
+    <table>
+      <thead><tr><th>Framework</th><th>Spec lebt?</th><th>Source of Truth</th><th>Das Problem</th></tr></thead>
+      <tbody>
+        <tr><td><strong>spec-kit</strong></td><td>❌ Snapshot/Branch</td><td>faktisch der Code</td><td>kein Merge zurück → Specs widersprechen sich</td></tr>
+        <tr><td><strong>BMAD</strong></td><td>❌ Wegwerf</td><td>der Code</td><td>zieht Doku rückwärts aus dem Code</td></tr>
+        <tr><td><strong>OpenSpec</strong></td><td>✅ Delta-Merge</td><td>die Spec</td><td>verify ist LLM-basiert → mahnt, erzwingt nicht</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- spec-kit detail -->
+  <section>
+    <span class="secno">02 · b</span>
+    <h2 class="slash">spec-kit</h2>
+    <p class="big">Lauteste Behauptung,<br>schwächste Mechanik.</p>
+    <p class="note">Spec pro Feature/Branch — <strong>kein Merge zurück</strong> in eine lebende Spec. Feature 007 widerspricht Feature 001, nichts gleicht ab.</p>
+  </section>
+
+  <!-- BMAD detail -->
+  <section>
+    <span class="secno">02 · b</span>
+    <h2 class="slash">BMAD</h2>
+    <p class="big">Planungsdokumente<br>zum <span class="red">Wegwerfen</span>.</p>
+    <p class="note"><code class="inline">document-project</code> scannt den Code und erzeugt Doku neu → der Code ist die Source of Truth. Das Gegenteil von Drift-Detection.</p>
+  </section>
+
+  <!-- OpenSpec detail -->
+  <section>
+    <span class="secno">02 · b</span>
+    <h2 class="slash">OpenSpec</h2>
+    <p class="big">Das einzige mit lebender<br>Verhaltens-Spec.</p>
+    <p class="note">Aber <code class="inline">verify</code> ist eine LLM-Prüfung „on demand": <em class="u">mahnt, erzwingt nicht</em>. „won’t block archive, but surfaces issues."</p>
+  </section>
+
+  <!-- Pointe -->
+  <section class="center-text">
+    <span class="secno">02 · b</span>
+    <p class="huge">lebend<br>≠<br>erzwungen</p>
+    <p class="lead" style="margin-top:0.6em">Deterministische Drift-Detection hat <strong>keines</strong> der drei.</p>
+  </section>
+
+  <!-- ============ (c) DER SPRUNG ============ -->
+  <section class="center-text" data-nologo>
+    <span class="secno">02 · c</span>
+    <p class="lead">Teil c</p>
+    <p class="huge">Der Sprung</p>
+    <div class="footer-logo"><span class="mark"></span><span>codecentric</span></div>
+  </section>
+
+  <!-- Warum Prosa driftet -->
+  <section>
+    <span class="secno">02 · c</span>
+    <h2 class="slash">Warum Prosa-Specs driften</h2>
+    <ul class="dots">
+      <li class="b">Eine Prosa-Spec ist <strong>passiv</strong>.</li>
+      <li class="p">Keine Maschine prüft je, ob der Code ihr noch entspricht.</li>
+      <li class="g">„Lebendig" heißt nicht „gepflegt" — sondern <em class="u">kann nicht unbemerkt falsch werden</em>.</li>
+    </ul>
+  </section>
+
+  <!-- Contract -->
+  <section class="center-text">
+    <span class="secno">02 · c</span>
+    <p class="big">Eine Spec, die sich selbst erzwingt …</p>
+    <p class="huge">… hat einen Namen:<br>ein <span class="accent">Contract</span>.</p>
+  </section>
+
+  <!-- Evidenz -->
+  <section>
+    <span class="secno">02 · c</span>
+    <h2 class="slash">Struktur schlägt Vibe — gemessen</h2>
+    <div class="two-col" style="margin-top:0.6em">
+      <div class="card p"><h3>Vibe Coding</h3><p style="font-size:1.8em;font-weight:900;margin:0.2em 0">0.28</p><p class="lead">externe Verifikation</p></div>
+      <div class="card g"><h3>Struktur + Example Mapping</h3><p style="font-size:1.8em;font-weight:900;margin:0.2em 0">1.00</p><p class="lead">externe Verifikation</p></div>
+    </div>
+    <p class="note">EXACT — 659 Runs, Claude Code headless. (Der volle AI-TDD-Loop: eigener Folge-Workshop.)</p>
+  </section>
+
+</div></div>
+<script type="module" src="assets/deck.js"></script>
+</body>
+</html>

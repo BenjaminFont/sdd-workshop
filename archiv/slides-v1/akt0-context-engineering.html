@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akt 0 · Context Engineering</title>
+  <link rel="stylesheet" href="assets/reset.css">
+  <link rel="stylesheet" href="assets/reveal.css">
+  <link rel="stylesheet" href="assets/theme.css">
+  <link rel="stylesheet" href="assets/plugin/highlight/monokai.css">
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+  <!-- Titel -->
+  <section class="title-slide" data-nologo>
+    <span class="secno">00</span>
+    <h1>Context<br>Engineering</h1>
+    <div class="subtitle">Das Vokabular &amp; das Werkzeug für den ganzen Tag · 45 min</div>
+    <div class="footer-logo"><span class="mark"></span><span>codecentric</span></div>
+  </section>
+
+  <!-- Warum zuerst -->
+  <section>
+    <span class="secno">00</span>
+    <span class="timing">45 min</span>
+    <h2 class="slash">Warum das zuerst?</h2>
+    <ul class="dots">
+      <li>Wir bauen heute ein Tool, das <strong>Skills, Subagents, Rules &amp; Context Files</strong> verwaltet.</li>
+      <li>Diese Begriffe sind unsere <strong>Domäne</strong> — wir müssen sie kennen, bevor wir bauen.</li>
+      <li>Und: Sie erklären, <em class="u">warum</em> wir klein schneiden.</li>
+    </ul>
+  </section>
+
+  <!-- Was der Agent "weiß" -->
+  <section>
+    <span class="secno">00</span>
+    <h2 class="slash">Der Agent kennt nur sein Kontextfenster</h2>
+    <p class="big">Alles, was er „weiß", steht in einem<br>begrenzten Fenster.</p>
+    <p class="note">Prompt + Dateien + Historie + Tool-Ausgaben — alles teilt sich denselben Platz.</p>
+  </section>
+
+  <!-- More is not better -->
+  <section class="center-text">
+    <span class="secno">00</span>
+    <p class="huge">More ≠ better</p>
+    <p class="lead">Mehr Kontext macht den Agenten nicht klüger — oft schlechter.</p>
+  </section>
+
+  <!-- Lost in the middle -->
+  <section>
+    <span class="secno">00</span>
+    <h2 class="slash">Lost in the middle</h2>
+    <ul class="dots">
+      <li class="g">Anfang wird gut erinnert <span class="lead">(Primacy)</span></li>
+      <li class="p">Ende wird gut erinnert <span class="lead">(Recency)</span></li>
+      <li class="b">Die <strong>Mitte</strong> fällt durch <span class="lead">(schwacher Recall)</span></li>
+    </ul>
+    <p class="note">Je voller das Fenster, desto mehr verschwindet in dieser toten Mitte.</p>
+  </section>
+
+  <!-- Smart zone -->
+  <section class="center-text">
+    <span class="secno">00</span>
+    <p class="huge">Smart Zone<br><span class="lead" style="font-size:0.5em">statt Dumb Zone</span></p>
+    <p class="big" style="margin-top:0.6em">Kurzer, <span class="accent">kuratierter</span> Kontext<br>schlägt langen, vollen.</p>
+  </section>
+
+  <!-- Mini-Demo Marker -->
+  <section data-nologo>
+    <span class="secno">00</span>
+    <h2 class="slash">🔬 Mini-Demo</h2>
+    <div class="cards">
+      <div class="card p"><h3>Überladen</h3>Agent bekommt alles auf einmal → rät, verliert den Faden.</div>
+      <div class="card g"><h3>Kuratiert</h3>Agent bekommt nur das Nötige → trifft.</div>
+    </div>
+    <p class="note">Live am Beamer. Gleiche Aufgabe, zwei Kontexte.</p>
+    <div class="footer-logo"><span class="mark"></span><span>codecentric</span></div>
+  </section>
+
+  <!-- 4 Strategien -->
+  <section>
+    <span class="secno">00</span>
+    <h2 class="slash">Kontext kuratieren — 4 Strategien</h2>
+    <ul class="dots">
+      <li class="y"><strong>Write</strong> — Wichtiges festhalten (Dateien, Memory)</li>
+      <li class="b"><strong>Select</strong> — nur Relevantes hereinholen</li>
+      <li class="g"><strong>Compress</strong> — verdichten, zusammenfassen</li>
+      <li class="p"><strong>Delegate</strong> — an Subagents auslagern</li>
+    </ul>
+  </section>
+
+  <!-- Context File Kategorien -->
+  <section>
+    <span class="secno">00</span>
+    <h2 class="slash">Context Files — die Kategorien</h2>
+    <ul class="dots">
+      <li>Plans <span class="lead">— was als Nächstes</span></li>
+      <li>AGENT.md / CLAUDE.md <span class="lead">— Dauerwissen</span></li>
+      <li>Docs <span class="lead">— Nachschlagewissen</span></li>
+      <li>Rules <span class="lead">— Verhaltensregeln</span></li>
+    </ul>
+  </section>
+
+  <!-- CLAUDE.md -->
+  <section>
+    <span class="secno">00</span>
+    <h2 class="slash">CLAUDE.md</h2>
+    <ul class="dots">
+      <li>Das Dauergedächtnis des Agenten im Repo.</li>
+      <li>Drei Levels: <strong>Enterprise · Project · User</strong></li>
+      <li>Befehle: <code class="inline">/init</code> · <code class="inline">/memory</code> · <code class="inline">@import</code></li>
+    </ul>
+  </section>
+
+  <!-- Rules + progressive disclosure -->
+  <section>
+    <span class="secno">00</span>
+    <h2 class="slash">Rules &amp; Progressive Disclosure</h2>
+    <ul class="dots">
+      <li class="b"><strong>Conditional Rules</strong> — gelten nur für bestimmte Pfade <span class="lead">(<code class="inline">applyTo</code> / <code class="inline">paths:</code>)</span></li>
+      <li class="g"><strong>Progressive Disclosure</strong> — SKILL.md verweist auf Details, die <em class="u">nur bei Bedarf</em> geladen werden</li>
+    </ul>
+    <p class="note">Beides hält die Smart Zone schlank.</p>
+  </section>
+
+  <!-- Subagents vs Teams -->
+  <section>
+    <span class="secno">00</span>
+    <h2 class="slash">Subagents &amp; Agent Teams</h2>
+    <div class="two-col">
+      <div>
+        <h3>Subagent</h3>
+        <p class="lead">Eigener Kontext, berichtet zurück. Günstiger, ergebnis-orientiert.</p>
+      </div>
+      <div>
+        <h3>Agent Team</h3>
+        <p class="lead">Mehrere autonome Agenten über geteilte Task-Liste. Teurer, für echte Kollaboration.</p>
+      </div>
+    </div>
+    <p class="note">Heute nur als Begriffe — sie sind die Domäne unseres Tools.</p>
+  </section>
+
+  <!-- Überleitung -->
+  <section class="center-text">
+    <span class="secno">00</span>
+    <p class="big">Das ist die <span class="accent">Domäne</span> unseres Tools —</p>
+    <p class="huge">und der Grund,<br>warum wir klein schneiden.</p>
+    <p class="lead" style="margin-top:0.8em">Als Nächstes: bauen wir’s einfach mal. Ohne Spec.</p>
+  </section>
+
+</div></div>
+<script type="module" src="assets/deck.js"></script>
+</body>
+</html>

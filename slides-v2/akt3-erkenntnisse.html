@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akt 3 · Unsere Erkenntnisse</title>
+  <link rel="stylesheet" href="assets/reset.css">
+  <link rel="stylesheet" href="assets/reveal.css">
+  <link rel="stylesheet" href="assets/theme.css">
+  <link rel="stylesheet" href="assets/plugin/highlight/monokai.css">
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+  <!-- Titel -->
+  <section class="title-slide" data-nologo>
+    <span class="secno">03</span>
+    <h1>Von lebend zu erzwungen</h1>
+    <div class="subtitle">Unsere Erkenntnisse</div>
+    <div class="footer-logo"><img src="assets/img/logo-black.svg" alt="codecentric"></div>
+    <aside class="notes">
+      Titelfolie zu Akt 3 „Von lebend zu erzwungen" (~20 min).<br>
+      <strong>Ziel:</strong> Die in Akt 2 aufgezeigte Framework-Lücke mit unseren eigenen Erkenntnissen schließen und den Bauplan unserer Form auf den Tisch legen.<br>
+      Sag etwas wie: „Ihr habt drei Frameworks gesehen — keines erzwingt das Verhalten wirklich. In den nächsten 20 Minuten zeige ich, warum Fließtext zwangsläufig driftet und wie wir aus einem Szenario einen echten, erzwungenen Contract machen." Das ist der theoretische Teil vor dem dualen Hands-on.
+    </aside>
+  </section>
+
+  <!-- Warum Fließtext driftet -->
+  <section>
+    <span class="secno">03</span>
+    <h2 class="slash">Warum eine Fließtext-Spec driftet</h2>
+    <ul class="dots">
+      <li class="b">Eine Fließtext-Spec ist <strong>passiv</strong>.</li>
+      <li class="p">Keine Maschine prüft je, ob der Code ihr noch entspricht.</li>
+      <li class="g">„Lebendig" heißt: <em class="u">kann nicht unbemerkt falsch werden</em>.</li>
+    </ul>
+    <aside class="notes">
+      Die Folie zeigt den Kerndefekt jeder Fließtext-Spec: Sie ist passiv.<br>
+      <strong>Ziel:</strong> Klarmachen, warum „eine schöne Markdown-Spec" das Drift-Problem nicht löst — und damit den Bedarf an Erzwingung motivieren.<br>
+      Sprech-Faden: Eine Fließtext-Spec beschreibt nur, sie prüft nichts — keine Maschine sieht je nach, ob der Code ihr noch entspricht. Code ändert sich, das Dokument bleibt stehen, beide laufen auseinander (Drift). „Lebendig" ist kein Gefühl, sondern eine harte Eigenschaft: Eine Spec ist genau dann lebendig, wenn sie nicht unbemerkt falsch werden kann — und das geht nur durch Erzwingung.
+    </aside>
+  </section>
+
+  <!-- Der Sprung: Szenario = Test -->
+  <section class="center-text">
+    <span class="secno">03</span>
+    <p class="big">Ein Szenario ist zu 90&nbsp;%<br>schon ein Test.</p>
+    <p class="huge" style="margin-top:0.6em">binden statt generieren<br>→ <span class="accent">Contract</span></p>
+    <aside class="notes">
+      Die zentrale Aha-Folie: Ein Given-When-Then-Szenario ist zu ~90&nbsp;% schon ein ausführbarer Test.<br>
+      <strong>Ziel:</strong> Den gedanklichen Sprung verankern — der Weg zum erzwungenen Contract ist viel kürzer, als man denkt.<br>
+      Stichpunkte: Ein Szenario hat bereits Vorbedingung, Aktion und erwartetes Ergebnis — es fehlt nur die Bindung an den echten Code. Entscheidend ist „<strong>binden statt generieren</strong>": Wir lassen die KI den Test nicht aus der Spec generieren (dann driftet er wieder weg), sondern binden das Szenario fest an den Code. Aus „⚠ wahrscheinlich korrekt" wird ein deterministisches rot/grün — ein Contract. Das „binden vs. generieren" greifen wir auf der nächsten Folie konkret auf.
+    </aside>
+  </section>
+
+  <!-- Die Brücke -->
+  <section>
+    <span class="secno">03</span>
+    <h2 class="slash">Die Brücke</h2>
+    <div class="flow" style="margin-top:0.8em">
+      <span class="step">Specification by Example</span><span class="arrow">→</span>
+      <span class="step">Example Mapping</span><span class="arrow">→</span>
+      <span class="step">Gherkin</span>
+    </div>
+    <div class="flow" style="margin-top:0.8em">
+      <span class="step">gebunden — Cucumber, strict</span><span class="arrow">→</span>
+      <span class="pill green">grün</span><span class="pill red">rot</span>
+    </div>
+    <p class="note">Aus „⚠ wahrscheinlich" wird ein deterministisches Urteil.</p>
+    <aside class="notes">
+      Die Folie zeigt den konkreten Bauweg unserer Form vom Beispiel bis zum CI-Urteil.<br>
+      <strong>Ziel:</strong> Die Mechanik greifbar machen — wie aus einer Domänenform ein erzwungener Contract wird.<br>
+      Sprech-Faden: Aus Specification by Example und Example Mapping entstehen konkrete Beispiele, die wir in Gherkin (Given-When-Then) fassen. Dieses Feature-File wird via Cucumber im strict-Modus an den Code gebunden — Step Definitions sind die Übersetzungsschicht. In der CI gibt es nur noch zwei Zustände: grün oder rot. „strict" ist wichtig: undefinierte oder ausstehende Schritte lassen den Lauf fehlschlagen statt durchzurutschen. So wird aus dem unsicheren „⚠ wahrscheinlich" ein deterministisches Urteil — das ist die fehlende Frontlinie gegen Drift.
+    </aside>
+  </section>
+
+  <!-- Woher das kommt -->
+  <section>
+    <span class="secno">03</span>
+    <h2 class="slash">Woher das kommt</h2>
+    <ul class="dots">
+      <li class="y"><strong>ATDD</strong> — Cunningham, 2002</li>
+      <li class="b"><strong>BDD</strong> — North, 2006</li>
+      <li class="g"><strong>Specification by Example</strong> — Adzic, 2011 (popularisiert)</li>
+      <li class="p"><strong>Example Mapping</strong> — Wynne, ~2015</li>
+    </ul>
+    <p class="note">Verwandt: <em class="u">Ubiquitous Language</em> — Evans, 2003.</p>
+    <aside class="notes">
+      Die Folie ordnet unsere Form historisch ein — nichts davon ist neu, wir kombinieren Bewährtes.<br>
+      <strong>Ziel:</strong> Glaubwürdigkeit geben und zeigen, dass die Idee „erzwingbares Beispiel als Spec" eine 20-jährige Lineage hat.<br>
+      Lineage sauber benennen: ATDD (Ward Cunningham, 2002) → BDD (Dan North, 2006) → Specification by Example (Gojko Adzic, 2011 — er hat den Begriff <strong>popularisiert</strong>, nicht geprägt) → Example Mapping (Matt Wynne, ~2015). Verwandt, aber aus anderer Ecke: Ubiquitous Language von Eric Evans (DDD, 2003) — die gemeinsame Sprache von Fachseite und Code. Kernbotschaft: Wir erfinden kein neues Framework, wir spannen erprobte Praktiken auf KI-Coding.
+    </aside>
+  </section>
+
+  <!-- Ehrliche Grenze -->
+  <section class="center-text">
+    <span class="secno">03</span>
+    <p class="huge">Grün = Konformität,<br>nicht Korrektheit.</p>
+    <p class="lead" style="margin-top:0.6em">Korrektheit holt Example Mapping.</p>
+    <p class="big" style="margin-top:0.7em"><span class="accent">Erzwingen</span>, wo eine Maschine prüfen kann.<br>Beschreiben, wo nicht.</p>
+    <aside class="notes">
+      Die ehrliche Grenze unserer Form — bewusst keine Überverkaufsfolie.<br>
+      <strong>Ziel:</strong> Erwartungen kalibrieren: Ein grüner Contract ist stark, aber er beweist nicht, dass die Absicht richtig war.<br>
+      Stichpunkte: Grün beweist nur <strong>Konformität</strong> (Code tut, was das Szenario sagt), nicht <strong>Korrektheit</strong> (ob das Szenario das Richtige sagt). Ein falsches, aber grünes Szenario ist immer noch falsch. Korrektheit holt man <em>vorher</em> ab — durch Example Mapping, das die richtigen Regeln und Beispiele abringt. Zwei verschiedene Jobs.<br>
+      Merksatz „Erzwingen, wo eine Maschine prüfen kann. Beschreiben, wo nicht.": An den formalen Grenzen (API, Daten, Verhalten an der Kante) wird das Verhalten als Contract erzwungen; Kontext, Begründung und alles ohne prüfbare Grenze bleibt lesbarer Fließtext. Nicht alles lässt sich erzwingen — und das ist in Ordnung.
+    </aside>
+  </section>
+
+  <!-- Überleitung zum dualen Bau -->
+  <section class="center-text">
+    <span class="secno">03</span>
+    <p class="big">Jetzt baut ihr denselben Schnitt zweimal —<br>mit <strong>BMAD</strong> und mit <strong>unserer Form</strong>.</p>
+    <p class="huge" style="margin-top:0.7em">Urteilt selbst.</p>
+    <aside class="notes">
+      Übergangsfolie vom Theorieteil in den dualen Hands-on-Teil.<br>
+      <strong>Ziel:</strong> Die Brücke schlagen — die Erkenntnisse werden jetzt selbst erlebt, nicht geglaubt.<br>
+      Brücke benennen: „Ihr baut gleich denselben Schnitt zweimal — einmal mit <strong>BMAD</strong> (Rollen, PRD, Epics, viele Approvals) und einmal mit <strong>unserer schlanken, contract-getriebenen Form</strong> (Gherkin → gebunden via Cucumber → Drift erleben). Gleicher Ausgangspunkt aus dem gemeinsamen Example Mapping, zwei Formalisierungen — so isoliert der Vergleich sauber." Wichtig: Wir geben kein Urteil vor, ihr urteilt selbst. Nächster Schritt ist die geteilte Discovery in Akt 4.
+    </aside>
+  </section>
+
+</div></div>
+<script type="module" src="assets/deck.js"></script>
+</body>
+</html>

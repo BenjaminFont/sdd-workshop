@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akt 3b · Grüne Karten → Gherkin</title>
+  <link rel="stylesheet" href="assets/reset.css">
+  <link rel="stylesheet" href="assets/reveal.css">
+  <link rel="stylesheet" href="assets/theme.css">
+  <link rel="stylesheet" href="assets/plugin/highlight/monokai.css">
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+  <!-- Titel -->
+  <section class="title-slide" data-nologo>
+    <span class="secno">03 · b</span>
+    <h1>Grüne Karten<br>→ Gherkin</h1>
+    <div class="subtitle">Aus Beispielen wird eine lesbare Spec · 45 min · 🛠 einzeln, mit AI</div>
+    <div class="footer-logo"><span class="mark"></span><span>codecentric</span></div>
+  </section>
+
+  <!-- Domänen-Form -->
+  <section>
+    <span class="secno">03 · b</span>
+    <h2 class="slash">Die Domänen-Form</h2>
+    <div class="flow" style="margin-top:0.6em">
+      <span class="step">Domäne (Datei)</span><span class="arrow">→</span>
+      <span class="step">Requirement</span><span class="arrow">→</span>
+      <span class="step">Scenario</span>
+    </div>
+    <p class="note">OpenSpec-Form: nach Domäne sortiert, nicht pro Feature.</p>
+  </section>
+
+  <!-- Gherkin Beispiel -->
+  <section>
+    <span class="secno">03 · b</span>
+    <h2 class="slash">Eine grüne Karte → ein Szenario</h2>
+    <pre><code class="language-gherkin" data-trim>Feature: Skill-Import
+
+  Scenario: Ziel existiert bereits in älterer Version
+    Given ein Repo mit Skill "lint" in Version 1.2.0
+    When ich Skill "lint" Version 1.4.0 importiere
+    Then wird die Datei überschrieben</code></pre>
+    <p class="note">Lesbar für jeden — das ist die Spezifikation selbst.</p>
+  </section>
+
+  <!-- Die Disziplin -->
+  <section class="center-text">
+    <span class="secno">03 · b</span>
+    <p class="big">Eine Anforderung gehört in</p>
+    <p class="huge">Given / When / Then</p>
+    <p class="big" style="margin-top:0.6em">niemals in den <span class="red">Freitext</span>.</p>
+  </section>
+
+  <!-- warum -->
+  <section>
+    <span class="secno">03 · b</span>
+    <h2 class="slash">Warum diese Disziplin?</h2>
+    <ul class="dots">
+      <li class="p">Freitext unter <code class="inline">Feature:</code> wird <strong>still ignoriert</strong>.</li>
+      <li class="b">Eine Anforderung dort steht da — wird aber <em class="u">nie geprüft</em>.</li>
+      <li class="g">Nur Given/When/Then wird später zum Test.</li>
+    </ul>
+  </section>
+
+  <!-- stack-neutral -->
+  <section class="center-text">
+    <span class="secno">03 · b</span>
+    <p class="big">Die <code class="inline" style="font-size:0.8em">.feature</code> ist</p>
+    <p class="huge">stack-neutral.</p>
+    <p class="lead" style="margin-top:0.6em">Dieselbe Datei läuft bei TS, Python, Java, .NET.<br>Die Spec ist der stabile Vertrag.</p>
+  </section>
+
+  <!-- Aufgabe -->
+  <section>
+    <span class="secno">03 · b</span>
+    <h2 class="slash">Eure Aufgabe — 45 min</h2>
+    <ul class="dots">
+      <li class="g">Grüne Karten in Gherkin-Szenarien übersetzen.</li>
+      <li class="b">Agent hilft formulieren — <strong>ihr prüft</strong>.</li>
+      <li class="y">Eine <code class="inline">.feature</code>-Datei im eigenen Repo.</li>
+    </ul>
+  </section>
+
+</div></div>
+<script type="module" src="assets/deck.js"></script>
+</body>
+</html>

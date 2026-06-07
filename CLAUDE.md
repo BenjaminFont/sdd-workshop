@@ -1,0 +1,1 @@
+## Halte dich in deinen Antworten kurz versuche nicht zu ausschweifend zu sein, kommuniziere klar und mit genügen Details aber schweife nicht aus

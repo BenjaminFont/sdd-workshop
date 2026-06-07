@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akt 1 · Was ist eine Spec?</title>
+  <link rel="stylesheet" href="assets/reset.css">
+  <link rel="stylesheet" href="assets/reveal.css">
+  <link rel="stylesheet" href="assets/theme.css">
+  <link rel="stylesheet" href="assets/plugin/highlight/monokai.css">
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+  <!-- 1 Titel -->
+  <section class="title-slide" data-nologo>
+    <span class="secno">01</span>
+    <h1>Was ist eine Spec?</h1>
+    <div class="subtitle">Die Wurzel — und ihr Zweck</div>
+    <div class="footer-logo"><img src="assets/img/logo-black.svg" alt="codecentric"></div>
+    <aside class="notes">
+      Titelfolie für Akt 1 „Was ist eine Spec & warum?" (30 min).<br>
+      <strong>Ziel:</strong> Den Begriff „Spec" von der Wurzel her aufladen, damit „Contract" später als logische Konsequenz erscheint — nicht als Tool-Feature.
+      <br>Sagen kann man:
+      Wir steigen bewusst nicht beim Werkzeug ein, sondern bei der Frage, was eine Spezifikation eigentlich ist und warum es sie seit Jahrhunderten gibt.
+      Die Leitidee des ganzen Tages: Eine Spec überbrückt eine Verständnisgrenze und ist erst dann wertvoll, wenn man gegen sie abnehmen kann.
+      Der KI-Agent ist dabei nur der neueste „Bauer" in einer langen Reihe.
+    </aside>
+  </section>
+
+  <!-- 2 Frage -->
+  <section class="center-text">
+    <span class="secno">01</span>
+    <p class="huge">„Was ist eine<br>Spezifikation?"</p>
+    <aside class="notes">
+      Eröffnungsfrage als Vollbild — ein bewusster Denkanstoß ins Publikum.<br>
+      <strong>Ziel:</strong> Das Publikum kurz selbst überlegen lassen und die intuitive Antwort („ein Dokument, das beschreibt, was zu bauen ist") aktivieren, bevor wir sie schärfen.
+      <br>Sagen kann man:
+      Stellt die Frage offen, lasst 10–15 Sekunden Stille oder sammelt zwei, drei Zurufe.
+      Die meisten denken an ein Dokument. Wir werden gleich sehen: Schon das Wort selbst und seine Geschichte erzählen mehr — es geht ums Bestimmen und ums Prüfen, nicht ums Dokument an sich.
+    </aside>
+  </section>
+
+  <!-- 3 Wurzel -->
+  <section>
+    <span class="secno">01</span>
+    <h2 class="slash">Die Wurzel</h2>
+    <div class="flow etym" style="margin-top:0.7em">
+      <span class="step">specere <span class="gl">sehen</span></span><span class="arrow">→</span>
+      <span class="step">species <span class="gl">Art</span></span><span class="arrow">→</span>
+      <span class="step">specificare <span class="gl">zuordnen</span></span><span class="arrow">→</span>
+      <span class="step">specificatio <span class="gl">Bestimmung</span></span>
+    </div>
+    <p class="note">Etymologie belegt: vom Sehen zum Bestimmen einer Art.</p>
+    <aside class="notes">
+      Die Wortwurzel als Kette: lat. <strong>specere</strong> (sehen) → <strong>species</strong> (Art/Gestalt) → spätlat. <strong>specificare</strong> (einer Art zuordnen) → <strong>specificatio</strong>.<br>
+      <strong>Ziel:</strong> Zeigen, dass „spezifizieren" wörtlich heißt, das Unbestimmte sichtbar und einzeln bestimmbar zu machen — das ist kein moderner Methoden-Begriff, sondern uralt.
+      <br>Sagen kann man:
+      Es beginnt beim Sehen. Aus dem Sehen wird das Erkennen einer Art, daraus das Zuordnen zu einer Art, daraus die Spezifikation.
+      Spezifizieren heißt: aus dem Allgemeinen das Einzelne, Sichtbare, Bestimmte machen — das Vage greifbar machen.
+      Diese Bedeutung tragen wir den ganzen Tag mit.
+    </aside>
+  </section>
+
+  <!-- 4 Bedeutung -->
+  <section class="center-text">
+    <span class="secno">01</span>
+    <p class="huge">Das Unbestimmte<br>bestimmt machen.</p>
+    <p class="lead" style="margin-top:0.7em">spezifizieren — wörtlich.</p>
+    <aside class="notes">
+      Die Kernbedeutung als Vollbild-Aussage: „Das Unbestimmte bestimmt machen."<br>
+      <strong>Ziel:</strong> Die Etymologie auf einen einprägsamen Satz verdichten, der als roter Faden hängenbleibt.
+      <br>Sagen kann man:
+      Das ist die ganze Wurzel in einem Satz. Spezifizieren ist nichts anderes, als Unbestimmtes bestimmt zu machen.
+      Haltet diesen Gedanken fest — gleich wird daraus ein <strong>prüfbarer</strong> Anspruch, und das ist der entscheidende Schritt vom netten Dokument zur belastbaren Spec.
+    </aside>
+  </section>
+
+  <!-- 5 1833 Patentrecht -->
+  <section class="center-text">
+    <span class="secno">01</span>
+    <p class="lead">„specification" — technisch ab 1833</p>
+    <p class="huge">im Patentrecht</p>
+    <p class="big" style="margin-top:0.7em">Ein <em class="u">prüfbarer Anspruch</em>.</p>
+    <p class="note">Nicht ein gut gemeintes Dokument.</p>
+    <aside class="notes">
+      Das erste technische Auftreten des Wortes: „specification" ab <strong>1833 im Patentrecht</strong> (belegt, §10). „spec" als Kurzform ab 1956.<br>
+      <strong>Ziel:</strong> Den Aha-Moment setzen — schon die allererste technische Spec war ein rechtlich <strong>prüfbarer</strong> Anspruch, kein gut gemeintes Beschreibungsdokument.
+      <br>Sagen kann man:
+      Im Patentrecht musste die „specification" so präzise sein, dass man einen Anspruch dagegen prüfen und durchsetzen konnte.
+      Das ist die DNA der Spec: nicht „ungefähr so soll es sein", sondern „dagegen kann man abnehmen".
+      Genau diese Prüfbarkeit ist es, die heute beim KI-Coding wieder gebraucht wird — und an der die meisten Fließtext-Specs scheitern.
+    </aside>
+  </section>
+
+  <!-- 6 Fünf Zwecke -->
+  <section>
+    <span class="secno">01</span>
+    <h2 class="slash">Wozu Specs? Fünf Zwecke</h2>
+    <ul class="dots">
+      <li class="y"><strong>Arbeitsteilung</strong> — einer beschreibt das WAS, ein anderer baut</li>
+      <li class="b"><strong>Abnahme</strong> — objektives Kriterium für „fertig &amp; richtig"</li>
+      <li class="g"><strong>Haftung</strong> — das geschuldete Werk; Abweichung = Mangel</li>
+      <li class="p"><strong>Austauschbarkeit</strong> — gleiche Spec → ersetzbare Teile</li>
+      <li class="y"><strong>Kommunikation</strong> — geteiltes, eindeutiges Wissen über Grenzen</li>
+    </ul>
+    <p class="note">Tragend für heute: <strong>Arbeitsteilung</strong> + <strong>Abnahme</strong>.</p>
+    <aside class="notes">
+      Die fünf Zwecke einer Spec, die den ganzen Tag strukturieren.<br>
+      <strong>Ziel:</strong> Zeigen, dass eine Spec mehrere Jobs gleichzeitig erfüllt — und dass Zweck 1 und 2 (Arbeitsteilung + Abnahme) die tragenden für unseren Workshop sind.
+      <br>Sagen kann man:
+      <strong>Arbeitsteilung</strong>: eine Partei beschreibt das WAS, eine andere baut. <strong>Abnahme</strong>: ein objektives Kriterium für „fertig und richtig". <strong>Haftung</strong>: das geschuldete Werk, Abweichung = Mangel, Beweismittel. <strong>Austauschbarkeit</strong>: Normen erlauben austauschbare Teile (Whitworth-Gewinde, 1841). <strong>Kommunikation</strong>: persistentes, eindeutiges, geteiltes Wissen über Grenzen hinweg.<br>
+      <strong>Zur Austauschbarkeit/Standardisierung</strong> (falls jemand nachfragt): Eine präzise Spec — genormte Maße, Toleranzen, Schnittstellen — macht Teile <strong>verschiedener Hersteller</strong> kompatibel. Man kann ein Teil durch ein anderes ersetzen, solange beide derselben Spec entsprechen. Anschaulich: das <strong>Whitworth-Schraubgewinde (1841, erste Gewindenorm)</strong> — eine Schraube von Hersteller A passt in eine Mutter von Hersteller B. Weitere Beispiele: Munitionskaliber; und später Software — eine <strong>API-Spec</strong> erlaubt, die Implementierung dahinter auszutauschen, solange der Contract gleich bleibt. Brücke zum Workshop: Genau deshalb ist die <strong>Spec der stabile Bezugspunkt, nicht der Code</strong> — der Code ist austauschbar, die Spec hält.<br>
+      Merkt euch besonders Arbeitsteilung und Abnahme — daraus folgt gleich die zentrale Beobachtung.
+    </aside>
+  </section>
+
+  <!-- 7 Brückenfunktion -->
+  <section class="center-text">
+    <span class="secno">01</span>
+    <p class="big">Eine Spec überbrückt eine<br>Verständnisgrenze —</p>
+    <p class="big" style="margin-top:0.6em">wertvoll erst, wenn man gegen sie<br><span class="accent">abnehmen</span> kann.</p>
+    <aside class="notes">
+      Die Kernbeobachtung des Tages, hergeleitet aus Zweck 1 + 2.<br>
+      <strong>Ziel:</strong> Den roten Faden explizit machen — eine Spec ist kein Selbstzweck, ihr Wert entsteht erst durch die Abnahme dagegen.
+      <br>Sagen kann man:
+      Eine Spec überbrückt die Verständnisgrenze zwischen dem, der etwas will, und dem, der es baut.
+      Aber: Eine Spec, gegen die man nicht abnehmen kann, ist nur ein gut gemeintes Dokument.
+      Erst die Prüfbarkeit macht sie wertvoll. Diesen Satz spielen wir den ganzen Tag durch — und am Ende heißt prüfbare Abnahme bei uns: ein deterministischer Contract.
+    </aside>
+  </section>
+
+  <!-- 8 Trenner -->
+  <section class="center-text" data-nologo>
+    <span class="secno">01</span>
+    <p class="huge">Wie kam die Spec<br>in die Software?</p>
+    <div class="footer-logo"><img src="assets/img/logo-black.svg" alt="codecentric"></div>
+    <aside class="notes">
+      Übergangsfolie — Wechsel vom allgemeinen Spec-Begriff zur Software-Geschichte.<br>
+      <strong>Ziel:</strong> Die Brücke schlagen: Die uralte Idee der prüfbaren Spec kam in die Softwareentwicklung — und dort lief einiges schief, aber die Idee verschwand nie.
+      <br>Sagen kann man:
+      Wir haben gesehen, woher die Spec kommt und wozu sie da ist. Jetzt: Wie kam sie in die Software?
+      Die kurze Antwort vorweg — die Geschichte ist voller Missverständnisse (Stichwort Waterfall), aber der Zweck blieb derselbe. Die nächsten Folien sind vier Stationen: Royce, IEEE 830, Design by Contract, Agile.
+    </aside>
+  </section>
+
+  <!-- 9 Royce -->
+  <section>
+    <span class="secno">01</span>
+    <h2 class="slash">Royce, 1970</h2>
+    <p class="big">Zeichnete die starre Phasenkette —<br>und <em class="u">warnte davor</em>.</p>
+    <div class="flow compact" style="margin-top:0.7em">
+      <span class="step">Requirements</span><span class="arrow">→</span>
+      <span class="step">Design</span><span class="arrow">→</span>
+      <span class="step">Code</span><span class="arrow">→</span>
+      <span class="step">Test</span><span class="arrow">→</span>
+      <span class="step">Betrieb</span>
+    </div>
+    <p class="note">Eine Phase nach der anderen, kein Zurück — später „Waterfall" genannt.<br>DoD-STD-2167 (1985) machte genau diese starre Variante zur Vorschrift.</p>
+    <aside class="notes">
+      Station 1: Winston Royce, 1970 — der berühmte Waterfall-Mythos, richtiggestellt.<br>
+      <strong>Ziel:</strong> Ein verbreitetes Missverständnis korrigieren und damit Glaubwürdigkeit aufbauen — Fakten, nicht Folklore.
+      <br><strong>Zum Phasendiagramm</strong> (Flow auf der Folie): Ein Phasenmodell heißt — jede Phase wird <strong>abgeschlossen, bevor die nächste beginnt</strong>; das Ergebnis jeder Phase ist der Input der nächsten (Requirements → Design → Code → Test → Betrieb). „Wasserfall" heißt es, weil es nur <strong>nach unten fließt — kein Zurück</strong>. Das ist riskant: Fehler und Missverständnisse fallen erst <strong>beim Testen ganz am Ende</strong> auf, wenn Korrekturen teuer sind; und die Anforderungen ändern sich während der langen Bauzeit, das Modell kann das aber nicht aufnehmen.<br>
+      <br>Sagen kann man (Ehrlichkeitsregel, §10 — nicht überverkaufen):
+      Royce hat dieses Phasendiagramm gezeichnet, es aber <strong>nicht</strong> „Waterfall" genannt und ausdrücklich <strong>davor gewarnt</strong>, es starr und einmalig durchzuziehen — er empfahl Iteration.
+      Erst <strong>DoD-STD-2167 (1985)</strong> — ein <strong>verbindlicher US-Militär-Standard für Software-Auftragnehmer</strong> — machte die starre Variante zur Vorschrift.
+      Wichtig: Royce war damit aber auch nicht „eigentlich agil" — bleibt fair. Lehre: Nicht die Spec war das Problem, sondern der Glaube, man könne sie einmal final festschreiben.
+    </aside>
+  </section>
+
+  <!-- 9b Warum Waterfall scheiterte -->
+  <section>
+    <span class="secno">01</span>
+    <h2 class="slash">Warum die starre Kette scheiterte</h2>
+    <ul class="dots">
+      <li class="p">Fehler fallen erst <strong>im Test ganz am Ende</strong> auf</li>
+      <li class="y">Je später entdeckt, desto <strong>teurer</strong> die Korrektur</li>
+      <li class="b">Anforderungen <strong>ändern sich</strong> während der langen Bauzeit</li>
+      <li class="g">Das Modell kennt <strong>kein Zurück</strong> — es kann das nicht aufnehmen</li>
+    </ul>
+    <p class="note">Nicht die Spec war das Problem — sondern der Glaube, sie einmal final festzuschreiben.</p>
+    <aside class="notes">
+      Vertiefung der Royce-Station: warum die starre Phasenkette in der Praxis scheiterte.<br>
+      <strong>Ziel:</strong> Den Mechanismus des Scheiterns greifbar machen — und die Pointe vorbereiten, dass das Problem nicht die Spezifikation selbst war.
+      <br>Sagen kann man:
+      <br>• Der teure Spätfehler: In der starren Kette wird erst ganz am Ende getestet. Ein Missverständnis aus der Anforderungsphase fällt also erst Monate später auf — wenn Design und Code längst darauf aufbauen. Die Korrekturkosten steigen mit jeder Phase (bekannt als „cost of change curve").
+      <br>• Bewegliche Anforderungen: Während der langen Bauzeit ändert sich die Welt — neue Wünsche, neue Erkenntnisse. Ein Modell ohne Rücksprung kann das nicht abbilden.
+      <br>• Die Lehre (Brücke): Das Problem war nicht, dass man spezifiziert hat, sondern der Glaube an die <strong>einmalige, finale</strong> Festschreibung. Eine Spec muss lebendig und prüfbar bleiben — genau dahin führt der Tag.
+    </aside>
+  </section>
+
+  <!-- 10 IEEE 830 -->
+  <section>
+    <span class="secno">01</span>
+    <h2 class="slash">IEEE 830</h2>
+    <p class="big">Erstmals gefordert:<br>Anforderungen müssen <span class="accent">verifizierbar</span> sein.</p>
+    <p class="note">Der SRS-Standard für Software-Anforderungen (1998).</p>
+    <aside class="notes">
+      Station 2: IEEE 830 (SRS-Standard) — das Qualitätskriterium „verifizierbar".<br>
+      <strong>Ziel:</strong> Zeigen, dass die Forderung nach prüfbaren Specs in der Software seit Jahrzehnten existiert — aber lange nur Papier blieb.
+      <br>Sagen kann man:
+      Der IEEE-830-Standard für Software Requirements Specifications forderte schon, dass jede Anforderung unter anderem <strong>verifizierbar</strong> sein müsse.
+      Das war 1998 formuliert — eingelöst wird es technisch eigentlich erst heute, mit ausführbaren, gebundenen Specs.
+      Die Forderung war richtig, es fehlte nur das Werkzeug, sie durchzusetzen. Genau diese Lücke füllen wir im Hands-on-Teil.
+    </aside>
+  </section>
+
+  <!-- 11 Design by Contract -->
+  <section>
+    <span class="secno">01</span>
+    <h2 class="slash">Design by Contract</h2>
+    <p class="big">Der Begriff „Contract" ist<br><em class="u">40 Jahre alt</em>.</p>
+    <ul class="dots compact">
+      <li class="b"><strong>Vorbedingung</strong> — was der Aufrufer garantieren muss</li>
+      <li class="g"><strong>Nachbedingung</strong> — was die Funktion danach garantiert</li>
+      <li class="y"><strong>Invariante</strong> — was immer gilt</li>
+    </ul>
+    <p class="note">Meyer / Eiffel, ab 1986 — prüfbare Zusicherungen direkt im Code.</p>
+    <aside class="notes">
+      Station 3: Design by Contract — der Begriff „Contract" ist 40 Jahre alt.<br>
+      <strong>Ziel:</strong> Den Begriff „Contract", der heute beim KI-Coding zentral wird, historisch verankern — er ist nichts Neues, nur lange unterschätzt.
+      <br>Sagen kann man:
+      <strong>Bertrand Meyer</strong> prägte „Design by Contract" mit seiner Sprache <strong>Eiffel ab 1986</strong>: Vor- und Nachbedingungen sowie Invarianten als <strong>prüfbare Verträge direkt im Code</strong>.<br>
+      <strong>Die drei Begriffe</strong> mit Mini-Beispiel: <strong>Vorbedingung</strong> — was der Aufrufer sicherstellen muss, bevor er ruft (z.B. <code>teile(a, b)</code> verlangt <code>b ≠ 0</code>). <strong>Nachbedingung</strong> — was die Funktion danach garantiert (z.B. nach <code>abheben(betrag)</code> ist der Kontostand um genau <code>betrag</code> kleiner). <strong>Invariante</strong> — was durchgehend und immer gilt, vorher wie nachher (z.B. ein Konto-Saldo wird nie negativ). Warum „Contract": wie ein <strong>Vertrag zwischen Aufrufer und Funktion</strong> mit gegenseitigen Pflichten — hält der Aufrufer die Vorbedingung ein, garantiert die Funktion die Nachbedingung.<br>
+      Das heißt: Die Idee, Erwartungen maschinell prüfbar an den Code zu binden, ist 40 Jahre alt.
+      Das ist die <strong>historische Wurzel des „Contract"-Begriffs</strong>, der heute beim KI-Coding zentral wird — der deterministische, maschinenprüfbare Prüfer gegen den nicht-deterministischen Generator.
+    </aside>
+  </section>
+
+  <!-- 12 Agile -->
+  <section>
+    <span class="secno">01</span>
+    <h2 class="slash">Agile, 2001</h2>
+    <p class="big">Die Spec verschwand nicht.</p>
+    <ul class="dots">
+      <li class="b">wanderte in <strong>Tests</strong></li>
+      <li class="g"><strong>Akzeptanzkriterien</strong></li>
+      <li class="p"><strong>Typen</strong></li>
+      <li class="y"><strong>Contracts</strong></li>
+    </ul>
+    <aside class="notes">
+      Station 4: Agile Manifesto, 2001 — was wirklich mit der Spec geschah.<br>
+      <strong>Ziel:</strong> Das verbreitete Missverständnis „Agile schafft Dokumentation ab" korrigieren — die Spec verschwand nicht, sie wechselte die Form.
+      <br>Sagen kann man (Ehrlichkeitsregel, §10):
+      Das Manifest sagt „working software <strong>over</strong> comprehensive documentation" — das <strong>relativiert</strong> Doku, es wertet sie nicht ab. Das „over" ist eine Priorisierung, kein Verbot.
+      Die Spezifikation verschwand nicht, sie <strong>wanderte</strong>: in <strong>Tests</strong>, in <strong>Akzeptanzkriterien</strong>, in <strong>Typen</strong>, in <strong>Contracts</strong>.
+      Das ist der Clou: Die ausführbaren Formen der Spec sind genau die, die nicht unbemerkt veralten können — die Brücke zu unserer Form.
+    </aside>
+  </section>
+
+  <!-- 12b Spec heute = Prompt/Kontext -->
+  <section>
+    <span class="secno">01</span>
+    <h2 class="slash">Die Spec beim KI-Coding</h2>
+    <p class="big">Heute ist die Spec das, was den Agenten <em class="u">bindet</em>.</p>
+    <ul class="dots compact" style="margin-top:0.5em">
+      <li class="y"><strong>Prompt</strong> — die unmittelbare Absicht</li>
+      <li class="b"><strong>Kontext &amp; Regeln</strong> — <code class="inline">CLAUDE.md</code>, Rule-Files, Konventionen</li>
+      <li class="g"><strong>Tests &amp; Contracts</strong> — die prüfbare, erzwungene Form</li>
+    </ul>
+    <p class="note">Verstreut und implizit — oder bewusst als prüfbare Spec geführt. Das ist die Wahl.</p>
+    <aside class="notes">
+      Brückenfolie: Sie übersetzt den historischen Spec-Begriff in die KI-Coding-Gegenwart.<br>
+      <strong>Ziel:</strong> Den Teilnehmern zeigen, dass sie längst „spezifizieren", wenn sie mit einem Agenten arbeiten — nur oft unbewusst und unprüfbar.
+      <br>Sagen kann man:
+      <br>• Beim KI-Coding ist die Spec alles, was dem Agenten sagt, was er tun soll und woran er gemessen wird: der <strong>Prompt</strong> (die unmittelbare Absicht), der <strong>Kontext und die Regeln</strong> (<code class="inline">CLAUDE.md</code>, Rule-Files, Projektkonventionen) und — am stärksten — <strong>Tests und Contracts</strong> als prüfbare, erzwungene Form.
+      <br>• Die Pointe: Diese Spec existiert sowieso. Die Frage ist nur, ob sie verstreut und implizit bleibt (und damit driftet) oder bewusst als prüfbare Spec geführt wird.
+      <br>• Brücke: Genau darum geht es heute — und dafür schauen wir uns gleich drei Frameworks an.
+    </aside>
+  </section>
+
+  <!-- 13 Brücke -->
+  <section class="center-text">
+    <span class="secno">01</span>
+    <p class="lead">Heute:</p>
+    <p class="huge">derselbe alte Zweck,<br>ein neuer Bauer —<br>der <span class="accent">KI-Agent</span>.</p>
+    <aside class="notes">
+      Abschluss-/Brückenfolie von Akt 1 zu Akt 2.<br>
+      <strong>Ziel:</strong> Den Bogen schließen — die jahrhundertealte Idee der Spec trifft auf einen neuen Akteur, den KI-Agenten — und auf Akt 2 (drei Frameworks) überleiten.
+      <br>Sagen kann man:
+      Der Zweck der Spec ist seit 1833 derselbe: eine Verständnisgrenze überbrücken und Abnahme ermöglichen.
+      Neu ist nur der Bauer: Früher ein anderes Team, heute der KI-Agent — ein <strong>nicht-deterministischer Generator</strong>, der erst recht eine prüfbare Vorgabe braucht.
+      Brücke zu Akt 2: Genau dafür gibt es heute Frameworks. Wir schauen uns gleich drei an — spec-kit, OpenSpec und BMAD — entlang derselben vier Phasen Spec → Plan → Tasks → Implement.
+    </aside>
+  </section>
+
+</div></div>
+<script type="module" src="assets/deck.js"></script>
+</body>
+</html>

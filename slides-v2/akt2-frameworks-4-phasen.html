@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akt 2 · Drei Frameworks, vier Phasen</title>
+  <link rel="stylesheet" href="assets/reset.css">
+  <link rel="stylesheet" href="assets/reveal.css">
+  <link rel="stylesheet" href="assets/theme.css">
+  <link rel="stylesheet" href="assets/plugin/highlight/monokai.css">
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+  <!-- Titel -->
+  <section class="title-slide" data-nologo>
+    <span class="secno">02</span>
+    <h1>Drei Frameworks,<br>vier Phasen</h1>
+    <div class="subtitle">Dieselbe Idee, drei Schweregrade</div>
+    <div class="footer-logo"><img src="assets/img/logo-black.svg" alt="codecentric"></div>
+    <aside class="notes">
+      Titelfolie zu Akt 2 — die Framework-Tour.<br>
+      <strong>Ziel:</strong> Erwartung setzen — wir lehren <em>nicht</em> drei Tools, sondern zeigen eine gemeinsame Struktur in drei Schweregraden.<br>
+      Sagen kannst du:
+      „Wir schauen uns spec-kit, OpenSpec und BMAD an — aber nicht als Tutorial.
+      Die Pointe ist: alle drei laufen denselben Weg, nur unterschiedlich schwer.
+      25 Minuten, reiner Input, eine Leitmatrix als Anker."
+    </aside>
+  </section>
+
+  <!-- Leitsatz -->
+  <section class="center-text">
+    <span class="secno">02</span>
+    <p class="huge">Dieselbe Idee.<br>Drei Schweregrade.</p>
+    <aside class="notes">
+      Leitsatz-Folie, die These des ganzen Akts auf einer Zeile.<br>
+      <strong>Ziel:</strong> Den roten Faden verankern, bevor Details kommen — die Frameworks unterscheiden sich in Ceremony, nicht im Prinzip.<br>
+      Sagen kannst du:
+      „Merkt euch diesen Satz. Egal welches Framework — die Idee dahinter ist immer dieselbe:
+      Intention vor Code, ein versionierbares Artefakt dazwischen.
+      Was sich unterscheidet, ist nur das Gewicht — wie viel Zeremonie das Framework verlangt."
+    </aside>
+  </section>
+
+  <!-- Die vier Phasen -->
+  <section>
+    <span class="secno">02</span>
+    <h2 class="slash">Die vier Phasen</h2>
+    <div class="flow" style="margin-top:0.7em">
+      <span class="step">Spec</span><span class="arrow">→</span>
+      <span class="step">Plan</span><span class="arrow">→</span>
+      <span class="step">Tasks</span><span class="arrow">→</span>
+      <span class="step">Implement</span>
+    </div>
+    <p class="big" style="margin-top:0.8em">Jedes Framework läuft <em class="u">denselben</em> Weg.</p>
+    <aside class="notes">
+      Zeigt die vier Phasen Spec → Plan → Tasks → Implement als gemeinsame Achse.<br>
+      <strong>Ziel:</strong> Die Vergleichs-Achse einführen, an der wir gleich alle drei Frameworks aufreihen — das ist das Raster für die Matrix-Folie.<br>
+      Sagen kannst du:
+      „Vier Phasen: erst <strong>Spec</strong> (was soll gebaut werden), dann <strong>Plan</strong> (wie, Architektur/Contracts),
+      dann <strong>Tasks</strong> (in umsetzbare Häppchen schneiden), dann <strong>Implement</strong> (bauen).
+      Jedes der drei Frameworks geht genau diesen Weg — nur mit anderen Befehlen und anderem Gewicht.
+      Damit habt ihr das Raster für die nächste Folie."
+    </aside>
+  </section>
+
+  <!-- Die Leitmatrix -->
+  <section>
+    <span class="secno">02</span>
+    <h2 class="slash">Drei Frameworks × vier Phasen</h2>
+    <table>
+      <thead><tr><th>Phase</th><th>spec-kit</th><th>OpenSpec</th><th>BMAD</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Spec</strong></td><td><code class="inline">/specify</code></td><td><code class="inline">/opsx:propose</code> + Delta</td><td><code class="inline">bmad-prd</code></td></tr>
+        <tr><td><strong>Plan</strong></td><td><code class="inline">/plan</code> + contracts</td><td><code class="inline">design.md</code> (opt.)</td><td>Architecture + ADRs</td></tr>
+        <tr><td><strong>Tasks</strong></td><td>nach User Story</td><td>flache Checkliste</td><td>Epics → Stories</td></tr>
+        <tr><td><strong>Implement</strong></td><td><code class="inline">/implement</code> + <code class="inline">/analyze</code></td><td><code class="inline">/opsx:apply</code></td><td><code class="inline">dev-story</code>-Loop</td></tr>
+        <tr><td><strong>Default</strong></td><td><span class="pill red">schwer</span></td><td><span class="pill green">leicht</span></td><td><span class="pill red">am schwersten</span></td></tr>
+      </tbody>
+    </table>
+    <aside class="notes">
+      Die zentrale Leitmatrix des Akts — drei Frameworks in den Spalten, vier Phasen in den Zeilen.<br>
+      <strong>Ziel:</strong> Auf einen Blick zeigen, dass dieselben Phasen überall auftauchen, nur unterschiedlich benannt und unterschiedlich schwer. Das ist der didaktische Kern.<br>
+      Sagen kannst du:
+      „Lest die Tabelle <em>zeilenweise</em>: jede Phase, drei Mal.
+      Spec heißt bei spec-kit <code>/specify</code>, bei OpenSpec <code>/opsx:propose</code> plus Delta, bei BMAD ein PRD mit FR1, FR2…
+      Bei den Tasks der sichtbarste Unterschied: spec-kit schneidet <strong>nach User Story</strong>, OpenSpec macht eine <strong>flache Checkliste</strong>, BMAD geht <strong>Epics → Stories</strong>.
+      Unterste Zeile ist die Pointe: spec-kit schwer, OpenSpec leicht, BMAD am schwersten — das vertiefen die nächsten drei Folien."<br>
+      Nicht jede Zelle vorlesen — die Achse zählt.
+    </aside>
+  </section>
+
+  <!-- spec-kit -->
+  <section>
+    <span class="secno">02</span>
+    <h2 class="slash">spec-kit <span class="src-tag">· GitHub</span></h2>
+    <p class="big">Stärkste <em class="u">Gates</em>.</p>
+    <p class="note" style="margin-top:0.3em">Ein <strong>Gate</strong> = ein Prüfschritt, der den nächsten erst freigibt.</p>
+    <ul class="dots compact" style="margin-top:0.5em">
+      <li class="g"><strong>+</strong> <code class="inline">/clarify</code> erzwingt offene Fragen vor dem Plan</li>
+      <li class="g"><strong>+</strong> <code class="inline">/analyze</code> prüft Konsistenz, <strong>Constitution</strong> hält Projektregeln</li>
+      <li class="p"><strong>–</strong> schwergewichtig; „Specs ausführbar" bleibt Vision — keine deterministische Bindung</li>
+    </ul>
+    <aside class="notes">
+      Erstes Framework-Porträt: spec-kit — ein charakteristischer Zug, ein Problem.<br>
+      <strong>Ziel:</strong> spec-kit als das Framework mit den stärksten Kontroll-Gates positionieren — und gleich die Grenze dieser Gates zeigen.<br>
+      Sagen kannst du:
+      „spec-kits Markenzeichen sind die <strong>Gates</strong>: <code>/clarify</code> zwingt offene Fragen vor den Plan,
+      <code>/analyze</code> prüft read-only auf Konsistenz, die <strong>Constitution</strong> hält Projektregeln fest.
+      Tasks werden nach User Story geschnitten — jede Story ein testbares Inkrement.
+      Das Problem: schwergewichtig, und das Versprechen „Specs sind ausführbar" bleibt eine Vision.
+      <code>/analyze</code> ist ein LLM-Urteil, <strong>keine</strong> deterministische Bindung an den Code — wichtig für die Schluss-Pointe."
+    </aside>
+  </section>
+
+  <!-- OpenSpec -->
+  <section>
+    <span class="secno">02</span>
+    <h2 class="slash">OpenSpec</h2>
+    <p class="big"><em class="u">Brownfield</em>-first.</p>
+    <p class="note" style="margin-top:0.3em"><strong>Brownfield</strong> = Arbeit an bestehendem Code, nicht auf grüner Wiese.</p>
+    <ul class="dots compact" style="margin-top:0.5em">
+      <li class="g"><strong>+</strong> beschreibt nur das <strong>Delta</strong>: ADDED / MODIFIED / REMOVED</li>
+      <li class="g"><strong>+</strong> „actions, not phases" — fluide, leichtester der drei</li>
+      <li class="p"><strong>–</strong> <code class="inline">verify</code> ist LLM-basiert &amp; nicht-blockierend — gepflegt, nicht erzwungen</li>
+    </ul>
+    <aside class="notes">
+      Zweites Porträt: OpenSpec — der leichteste, brownfield-orientierte Ansatz.<br>
+      <strong>Ziel:</strong> Den Gegenpol zu spec-kit zeigen — „actions, not phases", fluide statt starr — und seine eigene Schwachstelle benennen.<br>
+      Sagen kannst du:
+      „OpenSpec ist <strong>brownfield-first</strong>: statt einer kompletten Spec beschreibt man nur das <em>Delta</em> —
+      was wird <strong>ADDED, MODIFIED, REMOVED</strong>. Das passt zu bestehenden Codebasen.
+      Es denkt in Aktionen, nicht in Phasen — ein fluider Ablauf, am leichtesten von den dreien.
+      Das Problem: <code>verify</code> ist <strong>LLM-basiert und nicht-blockierend</strong> — die Spec wird gepflegt, aber nicht erzwungen.
+      Wieder dasselbe Muster: lebend, nicht durchgesetzt."
+    </aside>
+  </section>
+
+  <!-- BMAD -->
+  <section>
+    <span class="secno">02</span>
+    <h2 class="slash">BMAD</h2>
+    <p class="big">Rollen &amp; <em class="u">Traceability</em>.</p>
+    <p class="note" style="margin-top:0.3em"><strong>Traceability</strong> = jede Anforderung lückenlos bis zum Code nachverfolgbar.</p>
+    <ul class="dots compact" style="margin-top:0.5em">
+      <li class="g"><strong>+</strong> Rollen-Agenten: Analyst · PM · Architect · Dev</li>
+      <li class="g"><strong>+</strong> Architecture <strong>vor</strong> Stories; FR→Epic-Map verliert keine Anforderung</li>
+      <li class="p"><strong>–</strong> 8–12 Workflows, Persona-Ballast, Gefahr von Artefakt-Drift</li>
+    </ul>
+    <aside class="notes">
+      Drittes Porträt: BMAD — der vollste Lebenszyklus, am schwersten per Default.<br>
+      <strong>Ziel:</strong> BMADs Stärke (Rollen + lückenlose Traceability) fair würdigen und zugleich den Preis dieser Vollständigkeit zeigen — wichtig, weil BMAD später dual gebaut wird.<br>
+      Sagen kannst du:
+      „BMAD bringt <strong>Rollen</strong> mit — Analyst, PM, Architect, Dev — jeweils in eigenem, frischem Chat.
+      Architektur kommt <strong>vor</strong> den Stories, und jede Anforderung wird per FR→Epic-Map lückenlos nachverfolgt — echte <strong>Traceability</strong>.
+      Der Preis: 8–12 Workflows, Persona- und Approval-Ballast, und die Gefahr von Artefakt-Drift, wenn Doku und Code auseinanderlaufen.
+      Das spürt ihr in Akt 5 selbst — dort baut ihr denselben Schnitt einmal mit BMAD."
+    </aside>
+  </section>
+
+  <!-- BMAD im Überblick -->
+  <section>
+    <span class="secno">02</span>
+    <h2 class="slash">BMAD genauer — was steckt drin?</h2>
+    <p class="body"><strong>B</strong>uild <strong>M</strong>ore <strong>A</strong>rchitect <strong>D</strong>reams (v6) —
+    eine offene Community-Methode, an keinen Anbieter gebunden. Statt einzelner Prompts organisiert sie den
+    <strong>ganzen Lebenszyklus</strong> über drei Bausteine:</p>
+    <ul class="dots compact" style="margin-top:0.4em">
+      <li class="y"><strong>Rollen-Agenten</strong> — Analyst · PM · Architect · Dev, jede:r mit eigenem Fokus &amp; frischem Kontext</li>
+      <li class="b"><strong>Strukturierte Artefakte</strong> — Brief, PRD, Architecture, Epics &amp; Stories bauen aufeinander auf</li>
+      <li class="g"><strong>Workflows</strong> — geführte Abläufe pro Schritt; man wählt sie nach Projektgröße</li>
+    </ul>
+    <p class="note">Aktuell: <strong>v6 / BMM</strong> (BMad Method). Skaliert von <code class="inline">quick-dev</code> (überspringt Phasen 1–3) bis zum vollen Lebenszyklus.</p>
+    <aside class="notes">
+      Erste Vertiefungsfolie zu BMAD — gibt den Teilnehmern eine echte Einführung, bevor sie es in Akt 5 selbst bauen.<br>
+      <strong>Ziel:</strong> Die Teilnehmer abholen, die wegen „BMAD" gekommen sind — sie sollen verstehen, was BMAD im Kern ausmacht und dass es eine durchdachte, skalierbare Methode ist.
+      <br>Was du sagen kannst:
+      <br>• Der Name: in v6 steht BMAD für <strong>Build More Architect Dreams</strong> (laut offizieller Doku &amp; README; das ältere v4/v5-Akronym „Breakthrough Method for Agile AI-Driven Development" steht nur noch im GitHub-Metadatenfeld). Eine offene Community-Methode, nicht an einen Vendor gebunden.
+      <br>• Der Unterschied zu „mal eben prompten": BMAD strukturiert den gesamten Weg von der Idee bis zum Code über drei Bausteine — <strong>Rollen</strong> (spezialisierte Agenten), <strong>Artefakte</strong> (die aufeinander aufbauen) und <strong>Workflows</strong> (geführte Abläufe).
+      <br>• Jede Rolle läuft typischerweise in frischem Kontext — gut für Fokus, aber Teil des Gewichts.
+      <br>• Wichtig: BMAD ist <strong>scale-adaptive</strong> — für einen kleinen Fix nimmt man <code class="inline">quick-dev</code> (überspringt die Planungsphasen), für ein großes Vorhaben den vollen Lebenszyklus. Man muss nicht alles fahren.
+      <br>• Aktuelle Generation ist v6, intern „BMM" (BMad Method) genannt — die nächste Folie zeigt die vier Phasen konkret.
+    </aside>
+  </section>
+
+  <!-- BMAD Phasen & Workflows -->
+  <section>
+    <span class="secno">02</span>
+    <h2 class="slash">BMAD — vier Phasen, je eigene Workflows</h2>
+    <table>
+      <thead><tr><th>Phase</th><th>Rolle</th><th>Workflow</th><th>Artefakt</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Analysis</strong></td><td>Analyst</td><td><code class="inline">brainstorm</code> · <code class="inline">research</code></td><td>Project Brief</td></tr>
+        <tr><td><strong>Planning</strong></td><td>PM</td><td><code class="inline">prd</code></td><td>PRD — FR1, FR2 …</td></tr>
+        <tr><td><strong>Solutioning</strong></td><td>Architect</td><td><code class="inline">architecture</code></td><td>Architecture + ADRs</td></tr>
+        <tr><td><strong>Implementation</strong></td><td>Dev</td><td><code class="inline">create-story</code> → <code class="inline">dev-story</code> → <code class="inline">code-review</code></td><td>Stories → Code</td></tr>
+      </tbody>
+    </table>
+    <p class="note" style="margin-top:0.6em"><strong>Architecture vor Stories</strong> (v6) · FR→Epic-Coverage-Map sichert lückenlose Traceability · Phase 4 läuft in einem <code class="inline">dev-story</code>-Loop.</p>
+    <aside class="notes">
+      Zweite Vertiefungsfolie — das Herzstück: die vier BMAD-Phasen mit Rolle, Workflow und Artefakt je Phase.<br>
+      <strong>Ziel:</strong> Konkret zeigen, wie BMAD arbeitet und welche Möglichkeiten (Workflows) es pro Phase gibt — damit niemand das Gefühl hat, BMAD sei nur ein Schlagwort geblieben.
+      <br>Was du sagen kannst:
+      <br>• Lest die Tabelle zeilenweise — jede Phase hat ihre eigene Rolle, ihren Workflow und ihr Artefakt.
+      <br>• <strong>Analysis</strong> (Analyst): optional, klärt mit <code class="inline">brainstorm</code>/<code class="inline">research</code> das Problem → Project Brief.
+      <br>• <strong>Planning</strong> (PM): <code class="inline">prd</code> macht aus dem Brief ein PRD mit nummerierten Anforderungen (FR1, FR2 …).
+      <br>• <strong>Solutioning</strong> (Architect): <code class="inline">architecture</code> trifft die Tech-Entscheidungen und hält sie als ADRs fest — in v6 bewusst <strong>vor</strong> den Stories.
+      <br>• <strong>Implementation</strong> (Dev): <code class="inline">create-story</code> konkretisiert eine Story, <code class="inline">dev-story</code> setzt sie um, <code class="inline">code-review</code> prüft — das läuft als Loop pro Story.
+      <br>• Es gibt weitere Workflows drumherum (z. B. <code class="inline">sprint-planning</code>, <code class="inline">retrospective</code>) — man kombiniert sie nach Bedarf.
+      <br>• Die FR→Epic-Coverage-Map ist BMADs Stärke: keine Anforderung geht zwischen PRD und Stories verloren (Traceability). Das ist der Mehrwert, der die Schwere rechtfertigt — genau das fahrt ihr in Akt 5 selbst.
+    </aside>
+  </section>
+
+  <!-- Pointe -->
+  <section class="center-text">
+    <span class="secno">02</span>
+    <p class="huge">lebend<br>≠<br>erzwungen</p>
+    <p class="lead" style="margin-top:0.6em">Deterministische Drift-Detection hat <strong>keines</strong> der drei.</p>
+    <aside class="notes">
+      Pointe und Überleitung — die Lücke, die alle drei Frameworks teilen.<br>
+      <strong>Ziel:</strong> Die These des Akts zuspitzen und die Brücke zu Akt 3 (unserer eigenen Form) schlagen: alle halten die Spec „lebend", aber keiner erzwingt sie deterministisch.<br>
+      Sagen kannst du:
+      „Hier die faire Pointe: Alle drei zwingen Intention vor Code und schaffen ein versionierbares Artefakt — die Wahl ist Ceremony, Brownfield oder Lock-in, nicht „besser/schlechter".
+      <strong>Aber:</strong> jede Verifikation — spec-kits <code>/analyze</code>, OpenSpecs <code>verify</code>, BMADs <code>code-review</code> — ist ein <strong>LLM-Urteil</strong>: probabilistisch, meist nicht-blockierend.
+      „Lebend" heißt gepflegt, nicht erzwungen. <strong>Deterministische</strong> Drift-Detection gegen den Code hat keines der drei.
+      Genau diese Lücke schließen wir im nächsten Akt."
+    </aside>
+  </section>
+
+</div></div>
+<script type="module" src="assets/deck.js"></script>
+</body>
+</html>

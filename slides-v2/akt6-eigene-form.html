@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akt 6 · Pfad B — Unsere Form</title>
+  <link rel="stylesheet" href="assets/reset.css">
+  <link rel="stylesheet" href="assets/reveal.css">
+  <link rel="stylesheet" href="assets/theme.css">
+  <link rel="stylesheet" href="assets/plugin/highlight/monokai.css">
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+  <!-- Titel -->
+  <section class="title-slide" data-nologo>
+    <span class="secno">06</span>
+    <h1>Pfad B — Unsere Form</h1>
+    <div class="subtitle">Schlank per Default · 🛠</div>
+    <div class="footer-logo"><img src="assets/img/logo-black.svg" alt="codecentric"></div>
+    <aside class="notes">
+      Titelfolie zu Akt 6 — dem Hands-on-Höhepunkt des Workshops (ca. 70 min).<br>
+      Ziel: Den Bogen spannen — wir verlassen die Theorie und bauen jetzt selbst einen ausführbaren, drift-sicheren Contract.<br>
+      Was du sagen kannst: „Pfad B ist unsere schlanke Default-Form." Bewusst kommt dieser Akt <em>nach</em> dem Vergleich — erst die Erleichterung, dann der Payoff. „Schlank per Default" heißt: nur so viel Zeremonie wie nötig. Kurz ankündigen, dass es jetzt praktisch wird.
+    </aside>
+  </section>
+
+  <!-- Einstieg -->
+  <section class="center-text">
+    <span class="secno">06</span>
+    <p class="huge">Pfad B:<br>unsere Form</p>
+    <p class="lead" style="margin-top:0.7em">Dieselben Karten — jetzt zum <span class="accent">Contract</span>.</p>
+    <aside class="notes">
+      Einstiegsfolie: derselbe Input wie zuvor (die grünen Karten aus dem Example Mapping), aber ein neues Ziel.<br>
+      Ziel: Klarmachen, dass wir nichts Neues erfinden — wir nehmen die bekannten grünen Karten und führen sie bis zum ausführbaren Contract.<br>
+      Was du sagen kannst: „Wir starten nicht bei null." Die grünen Karten sind Beispiele „Input → erwartetes Ergebnis". Genau die werden jetzt zur lebenden, erzwungenen Spezifikation. Betone „Contract" als das Wort für eine Spec, die nicht mehr unbemerkt falsch werden kann.
+    </aside>
+  </section>
+
+  <!-- Der Flow -->
+  <section>
+    <span class="secno">06</span>
+    <h2 class="slash">Der Flow</h2>
+    <div class="flow" style="margin-top:0.8em">
+      <span class="step">Grüne Karten</span><span class="arrow">→</span>
+      <span class="step">Gherkin</span><span class="arrow">→</span>
+      <span class="step">binden</span><span class="arrow">→</span>
+      <span class="step">grün</span><span class="arrow">→</span>
+      <span class="step">Drift</span>
+    </div>
+    <p class="note">Binden via Cucumber, <code class="inline">strict</code>. Am Ende: roter Lauf bei Abweichung.</p>
+    <aside class="notes">
+      Diese Folie zeigt den kompletten Ablauf des Akts in fünf Schritten als Pfeil-Kette.<br>
+      Ziel: Den roten Faden geben, bevor wir loslegen — damit jede:r weiß, wohin die Reise geht.<br>
+      Was du sagen kannst:<br>
+      &bull; Grüne Karten werden zu <strong>Gherkin</strong> (Given/When/Then) — der lesbaren Fließtext-Spec.<br>
+      &bull; <strong>Binden</strong> heißt: Step-Definitionen schreiben, die jeden Satz ans echte Verhalten koppeln — via Cucumber, mit <code>strict</code>.<br>
+      &bull; <strong>Grün</strong>: Agent baut den Code, bis der Contract erfüllt ist.<br>
+      &bull; <strong>Drift</strong>: zum Schluss eine Zahl/Grenze ändern → CI wird rot. Das ist der Höhepunkt, auf den alles zuläuft.
+    </aside>
+  </section>
+
+  <!-- Zwei Schichten -->
+  <section>
+    <span class="secno">06</span>
+    <h2 class="slash">Zwei Schichten</h2>
+    <div class="two-col">
+      <div class="card b">
+        <h3>.feature</h3>
+        <p class="lead">Fließtext, lesbar. Ein Domänenexperte stimmt zu.</p>
+      </div>
+      <div class="card g">
+        <h3>steps/*</h3>
+        <p class="lead">Code, einmalig geschrieben. Bindet die Sätze ans Verhalten.</p>
+      </div>
+    </div>
+    <p class="note">Wir <em class="u">binden</em>, wir generieren nicht.</p>
+    <aside class="notes">
+      Die Folie stellt die zwei Schichten gegenüber: die <code>.feature</code>-Fließtext und die <code>steps/*</code>-Code-Übersetzung.<br>
+      Ziel: Die zentrale Einsicht setzen — Lesbarkeit und Ausführbarkeit schließen sich nicht aus, weil sie auf zwei Ebenen liegen.<br>
+      Was du sagen kannst:<br>
+      &bull; Die <code>.feature</code>-Datei ist reine Fließtext — ein Domänenexperte liest und bestätigt sie, ohne je Code zu sehen.<br>
+      &bull; Die Step-Definitionen schreibt man <em>einmal</em>; sie binden jeden Satz-Typ ans System.<br>
+      &bull; Schlüsselsatz: „Wir binden, wir generieren nicht." Es gibt keine generierte zweite Testdatei, die auseinanderdriften könnte — das Szenario <em>ist</em> der Test. Genau deshalb ist Drift hier strukturell unmöglich.
+    </aside>
+  </section>
+
+  <!-- strict -->
+  <section>
+    <span class="secno">06</span>
+    <h2 class="slash">strict</h2>
+    <p class="big">Ein Szenario ohne Step<br>→ <span class="red">roter Lauf</span>.</p>
+    <p class="note">Konstituierend — gehört in die <code class="inline">cucumber.json</code>.</p>
+    <aside class="notes">
+      Die Folie erklärt das <code>strict</code>-Flag: ein Szenario ohne passende Step-Definition lässt den Build rot werden.<br>
+      Ziel: Klarmachen, dass <code>strict</code> nicht optional ist — es schließt die zweite Art von Drift (Spec-Zeile ohne Test).<br>
+      Was du sagen kannst:<br>
+      &bull; Ohne <code>strict</code> wird ein undefiniertes Szenario nur <em>gemeldet</em>, zählt aber als grün — eine Spec-Zeile, die nichts erzwingt, ist genau der Drift, den wir töten wollen.<br>
+      &bull; Mit <code>strict: true</code> wird daraus ein lauter roter Lauf (Exit-Code ≠ 0).<br>
+      &bull; Wichtig: explizit in die <code>cucumber.json</code> setzen — nicht auf den Framework-Default verlassen. Deshalb „konstituierend".
+    </aside>
+  </section>
+
+  <!-- Der Drift-Moment -->
+  <section class="center-text">
+    <span class="secno">06</span>
+    <p class="huge">Der Drift-Moment</p>
+    <div class="flow" style="margin-top:0.7em">
+      <span class="pill green">grün</span><span class="arrow">→</span>
+      <span class="step">Zahl ändern</span><span class="arrow">→</span>
+      <span class="pill red">rot</span>
+    </div>
+    <p class="big" style="margin-top:0.8em">Die Spec kann nicht mehr<br><em class="u">unbemerkt</em> falsch werden.</p>
+    <aside class="notes">
+      Die Folie zeigt den Drift-Moment: grün → Zahl ändern → rot. Das ist der charakteristische Punkt des ganzen Akts.<br>
+      Ziel: Den Aha-Moment erlebbar machen — Drift wird deterministisch sichtbar, statt unbemerkt einzusickern.<br>
+      Was du sagen kannst:<br>
+      &bull; Konkretes Beispiel aus <code>session.feature</code>: das Timeout (15 min) lebt <em>nur</em> in der Fließtext; der Step liest die Zahl zur Laufzeit. Es gibt keine eingefrorene Kopie im Test.<br>
+      &bull; Ändert man die Spec so, dass sie dem Code widerspricht, wirft der Step → CI rot → man <em>muss</em> Spec und Code versöhnen.<br>
+      &bull; Ehrlich bleiben: Nicht jede Änderung wird rot — nur ein echter Widerspruch. „15 → 30 min" kann grün bleiben, wenn die Aussage weiter gilt. Rot heißt: Spec und Code widersprechen sich wirklich.
+    </aside>
+  </section>
+
+  <!-- Eure Aufgabe -->
+  <section>
+    <span class="secno">06</span>
+    <h2 class="slash">Eure Aufgabe</h2>
+    <ul class="dots">
+      <li class="y">Gherkin aus den Karten schreiben.</li>
+      <li class="b">Binden + <code class="inline">strict</code> setzen.</li>
+      <li class="g">Gegen-grün bauen.</li>
+      <li class="p">Drift auslösen.</li>
+    </ul>
+    <p class="note">Charakteristischer Punkt: <strong>Contract grün + Drift rot</strong> — erlebt.</p>
+    <aside class="notes">
+      Die Übergabe-Folie ins Hands-on: vier Schritte, die das Publikum jetzt selbst macht.<br>
+      Ziel: Den Auftrag klar formulieren und das Erfolgskriterium benennen — „Contract grün + Drift rot, selbst erlebt".<br>
+      Was du sagen kannst:<br>
+      &bull; Zuerst Gherkin aus den grünen Karten schreiben, dann binden und <code>strict</code> setzen, dann Code bauen bis grün, schließlich Drift bewusst auslösen.<br>
+      &bull; Erfolg ist nicht „läuft", sondern das <em>Erlebnis</em> beider Zustände — grün und absichtlich rot.<br>
+      &bull; Sicherheitsnetz erwähnen: Wer beim Cucumber-Bootstrapping hängt, schaut in <code>examples-for-bdd/bdd/</code> als Referenz.
+    </aside>
+  </section>
+
+  <!-- Tasks -->
+  <section>
+    <span class="secno">06</span>
+    <h2 class="slash">Wenn der Plan groß wird: Tasks</h2>
+    <ul class="dots">
+      <li class="b">Plan in kontext-große Tasks brechen.</li>
+      <li class="g">Ein Task = passt in einen Agent-Kontext.</li>
+      <li class="p">Nur bei Bedarf.</li>
+    </ul>
+    <p class="note">Die 4. Phase — schlank, bedingt.</p>
+    <aside class="notes">
+      Optionale Folie: die Tasks-Phase — nur einsetzen, wenn das Vorhaben groß genug wirkt.<br>
+      Ziel: Die 4. Phase der Form praktisch zeigen, ohne sie zur Pflicht zu machen.<br>
+      Was du sagen kannst:<br>
+      &bull; Wenn der Plan groß wird, bricht man ihn in kontext-große Tasks: ein Task = passt in einen Agent-Kontext.<br>
+      &bull; Das hält den Agenten fokussiert und die Reviews überschaubar.<br>
+      &bull; Bewusst „nur bei Bedarf" — schlank per Default bleibt das Leitprinzip. Diese Folie überspringen, wenn die Zeit knapp oder das Beispiel klein ist.
+    </aside>
+  </section>
+
+</div></div>
+<script type="module" src="assets/deck.js"></script>
+</body>
+</html>

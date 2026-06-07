@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spec Driven Development &amp; BMAD</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap');
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+      background: #fff; color: #111; padding: 6vh 8vw; line-height: 1.4;
+    }
+    .bar { width: 6px; height: 2.4em; background: #1ee9a0; display: inline-block;
+           vertical-align: middle; margin-right: 0.4em; border-radius: 2px; }
+    h1 { font-size: 3em; font-weight: 900; letter-spacing: -0.02em; display: flex; align-items: center; }
+    .sub { color: #6b7280; font-weight: 500; font-size: 1.2em; margin: 0.4em 0 2.2em 0; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1em; }
+    a.card {
+      display: block; text-decoration: none; color: #111;
+      border: 2px solid #111; border-radius: 16px; padding: 1.1em 1.3em;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    a.card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+    .no { font-weight: 800; color: #6b7280; font-size: .8em; }
+    .ti { font-weight: 800; font-size: 1.35em; margin: .15em 0 .3em; letter-spacing: -0.01em; }
+    .me { color: #6b7280; font-size: .9em; }
+    .dot { display:inline-block; width:.7em; height:.7em; border-radius:50%; margin-right:.4em; }
+    .y{background:#f4e87a}.b{background:#8fd3f4}.g{background:#9ef0c8}.p{background:#f7afc4}
+    .foot { margin-top: 3em; display:flex; align-items:center; }
+    .foot img { height: 1.4em; width:auto; display:block; }
+    .tip { margin-top: 1.5em; color:#6b7280; font-size:.85em; }
+  </style>
+</head>
+<body>
+  <h1><span class="bar"></span>Spec Driven Development &amp; BMAD</h1>
+  <div class="sub">Workshop · ~7 h · von Vibe Coding zu professioneller Softwareentwicklung · codecentric</div>
+
+  <div class="grid">
+    <a class="card" href="akt0-vorstellung.html">
+      <div class="no">00 · 08:50 · 10'</div>
+      <div class="ti"><span class="dot g"></span>Wer wir sind</div>
+      <div class="me">Vorstellung &amp; Ankommen</div>
+    </a>
+    <a class="card" href="akt1-spec-wurzel.html">
+      <div class="no">01 · 09:00 · 30'</div>
+      <div class="ti"><span class="dot b"></span>Was ist eine Spec?</div>
+      <div class="me">Wurzel &amp; Zweck</div>
+    </a>
+    <a class="card" href="akt2-frameworks-4-phasen.html">
+      <div class="no">02 · 09:30 · 25'</div>
+      <div class="ti"><span class="dot y"></span>Drei Frameworks, vier Phasen</div>
+      <div class="me">spec-kit/OpenSpec/BMAD</div>
+    </a>
+    <a class="card" href="akt3-erkenntnisse.html">
+      <div class="no">03 · 09:55 · 20'</div>
+      <div class="ti"><span class="dot g"></span>Von lebend zu erzwungen</div>
+      <div class="me">Contract</div>
+    </a>
+    <a class="card" href="akt4-vision-mapping.html">
+      <div class="no">04 · 10:30 · 65' · 🛠</div>
+      <div class="ti"><span class="dot g"></span>Vision &amp; Discovery</div>
+      <div class="me">Example Mapping</div>
+    </a>
+    <a class="card" href="akt5-bmad.html">
+      <div class="no">05 · 11:35 · 70' · 🛠</div>
+      <div class="ti"><span class="dot p"></span>Pfad A: BMAD</div>
+      <div class="me">schwer per Default</div>
+    </a>
+    <a class="card" href="akt6-eigene-form.html">
+      <div class="no">06 · 13:35 · 70' · 🛠</div>
+      <div class="ti"><span class="dot g"></span>Pfad B: unsere Form</div>
+      <div class="me">Contract &amp; Drift</div>
+    </a>
+    <a class="card" href="akt7-synthese.html">
+      <div class="no">07 · 15:00 · 35'</div>
+      <div class="ti"><span class="dot p"></span>Synthese &amp; Vergleich</div>
+      <div class="me">Was nehmt ihr mit?</div>
+    </a>
+  </div>
+
+  <div class="tip">Navigation in den Decks: Pfeiltasten · <b>F</b> Vollbild · <b>S</b> Speaker-Notes · <b>ESC</b> Übersicht</div>
+  <div class="foot"><img src="assets/img/logo-black.svg" alt="codecentric"></div>
+</body>
+</html>

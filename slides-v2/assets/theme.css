@@ -1,0 +1,425 @@
+/* ===================================================================
+   codecentric-Style Theme für den SDD-Workshop
+   Weißer Hintergrund, fette schwarze Headlines, grüner // Akzent,
+   Section-Nummer oben links, Pastell-Dot-Bullets, Logo unten rechts.
+   =================================================================== */
+
+:root {
+  /* Offizielle codecentric-Markenpalette (aus „Visuelle Identität · Farbe") */
+  --cc-black: #000000;
+  --cc-green: #22F4AE;     /* centric green – Primär, Akzent (// und Linie) */
+  --cc-blue:  #00C9EC;     /* code blue – Sekundär */
+  --cc-mint:  #47D9CB;     /* centric mint */
+  --cc-yellow:#F7EA2D;     /* yellow */
+  --cc-red:   #FF5A5F;     /* red */
+  --cc-iris:  #007286;     /* iris blue */
+  --cc-grey: #6b7280;
+  --cc-light: #f4f4f5;
+  /* Pastell-Töne der Markenfarben für Dot-Bullets (Beispiel-Mapping-Code) */
+  --dot-yellow: #fbf6ab;   /* Ton von yellow */
+  --dot-blue:   #99e9f7;   /* Ton von code blue */
+  --dot-green:  #a6fade;   /* Ton von centric green */
+  --dot-pink:   #ff9c9f;   /* Ton von red */
+}
+
+/* Schrift: Rubik (codecentric Markenschrift), lokal eingebunden */
+@font-face { font-family:'Rubik'; font-weight:300; font-style:normal;
+  src:url('fonts/Rubik-Light.ttf') format('truetype'); font-display:swap; }
+@font-face { font-family:'Rubik'; font-weight:400; font-style:normal;
+  src:url('fonts/Rubik-Regular.ttf') format('truetype'); font-display:swap; }
+@font-face { font-family:'Rubik'; font-weight:500; font-style:normal;
+  src:url('fonts/Rubik-Medium.ttf') format('truetype'); font-display:swap; }
+@font-face { font-family:'Rubik'; font-weight:700; font-style:normal;
+  src:url('fonts/Rubik-Bold.ttf') format('truetype'); font-display:swap; }
+@font-face { font-family:'Rubik'; font-weight:900; font-style:normal;
+  src:url('fonts/Rubik-Black.ttf') format('truetype'); font-display:swap; }
+@font-face { font-family:'Rubik'; font-weight:400; font-style:italic;
+  src:url('fonts/Rubik-Italic.ttf') format('truetype'); font-display:swap; }
+
+.reveal {
+  font-family: 'Rubik', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 32px;
+  color: var(--cc-black);
+  font-weight: 400;
+}
+
+.reveal-viewport { background: #ffffff; }
+
+/* ---------- Headlines ---------- */
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  color: var(--cc-black);
+  font-weight: 700;          /* Standard-Headline-Gewicht – nicht maximal */
+  letter-spacing: -0.02em;
+  text-transform: none;
+  line-height: 1.05;
+  margin: 0 0 0.4em 0;
+}
+.reveal h1 { font-size: 2.5em; font-weight: 800; }   /* Hero etwas kräftiger */
+.reveal h2 { font-size: 1.7em; }
+.reveal h3 { font-size: 1.15em; font-weight: 600; }
+
+/* grüner // Marker vor Section-Headlines */
+.reveal h2.slash::before {
+  content: "// ";
+  color: var(--cc-green);
+  font-weight: 800;
+}
+/* Headline unter die Section-Nummer schieben (Zahl steht darüber) */
+.reveal h2.slash { margin-top: 1.5em; }
+
+/* ---------- Section-Nummer oben links ---------- */
+.reveal .secno {
+  position: absolute;
+  top: 4%;
+  left: 6%;
+  font-size: 0.8em;
+  font-weight: 600;
+  color: var(--cc-black);
+  letter-spacing: 0.02em;
+}
+
+/* ---------- Titel-Folie ---------- */
+.reveal .title-slide h1 {
+  font-size: 3.1em;
+  border-left: 0.12em solid var(--cc-green);
+  padding-left: 0.3em;
+  text-align: left;
+}
+.reveal .title-slide .subtitle {
+  color: var(--cc-grey);
+  font-weight: 500;
+  font-size: 1em;
+  margin-top: 0.6em;
+  padding-left: 0.42em;
+}
+
+/* ---------- Standard-Layout: linksbündig ---------- */
+.reveal .slides section { text-align: left; }
+.reveal .slides section.center-text { text-align: center; }
+
+/* Sections auf volle Folienhöhe — damit das bottom-Logo am Rand sitzt
+   (nicht direkt unter dem Inhalt) und center-text vertikal mittig liegt.
+   Fix B: Standard-Folien als Flex-Container vertikal ausbalancieren —
+   die // -Headline bleibt oben verankert (margin-top), der Inhalt füllt
+   den Raum darunter, statt im oberen Drittel zu kleben. */
+.reveal .slides > section {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 6% 7%;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center !important;   /* Inhaltsblock vertikal in den Raum setzen */
+}
+/* Standard-Inhaltsfolien: // -Headline an FESTER vertikaler Position verankern,
+   damit sie nicht je nach Inhaltsmenge auf- und abspringt. Inhalt fließt darunter.
+   center-text (zentriert) und title-slide (unten) bleiben ausgenommen. */
+.reveal .slides > section:not(.center-text):not(.title-slide) {
+  justify-content: flex-start !important;
+  padding-top: 11%;
+}
+/* mehr Luft zwischen den Inhaltselementen einer Standardfolie */
+.reveal .slides > section > h2.slash { margin-top: 0; }
+.reveal .slides > section > ul.dots,
+.reveal .slides > section > .flow,
+.reveal .slides > section > table,
+.reveal .slides > section > .cards,
+.reveal .slides > section > .two-col { margin-top: 0.7em; }
+.reveal .slides > section.center-text {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center !important;
+  align-items: center;
+}
+.reveal .slides > section.center-text > *:not(.footer-logo):not(.secno):not(.timing) { width: 100%; }
+.reveal .slides > section.center-text > .footer-logo { width: auto; }
+/* Titel-Folien: Titel in der unteren Hälfte wie im codecentric-Original */
+.reveal .slides > section.title-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 12%;
+}
+
+/* ---------- Standard-Fließtext (einheitliche Body-Größe) ---------- */
+.reveal p.body { font-size: 0.92em; line-height: 1.55; }
+
+/* kleines Quell-/Herkunfts-Tag neben einer Headline (z. B. „· GitHub") */
+.reveal .src-tag { color: var(--cc-grey); font-weight: 500; font-size: 0.42em; vertical-align: middle; }
+
+/* ---------- Pastell-Dot-Bullets (Example-Mapping-Farben) ---------- */
+/* Standardgröße für alle Aufzählungen; .compact für dichte Folien. */
+.reveal ul.dots { list-style: none; margin-left: 0; font-size: 0.9em; }
+.reveal ul.dots.compact { font-size: 0.78em; }
+.reveal ul.dots li {
+  position: relative;
+  padding-left: 1.6em;
+  margin: 0.55em 0;
+  line-height: 1.3;
+}
+.reveal ul.dots li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.32em;
+  width: 0.6em;
+  height: 0.6em;
+  border-radius: 50%;
+  background: var(--dot-green);
+}
+.reveal ul.dots li:nth-child(4n+1)::before { background: var(--dot-yellow); }
+.reveal ul.dots li:nth-child(4n+2)::before { background: var(--dot-blue); }
+.reveal ul.dots li:nth-child(4n+3)::before { background: var(--dot-green); }
+.reveal ul.dots li:nth-child(4n+4)::before { background: var(--dot-pink); }
+
+/* fixe Farben, wenn gewünscht */
+.reveal ul.dots li.y::before { background: var(--dot-yellow) !important; }
+.reveal ul.dots li.b::before { background: var(--dot-blue)   !important; }
+.reveal ul.dots li.g::before { background: var(--dot-green)  !important; }
+.reveal ul.dots li.p::before { background: var(--dot-pink)   !important; }
+
+/* schlichte Liste ohne Dots */
+.reveal ul.plain { list-style: none; margin-left: 0; }
+.reveal ul.plain li { margin: 0.5em 0; line-height: 1.3; }
+
+/* nummerierte Schritt-Liste (grüne Zähler) */
+.reveal ol.steps { list-style: none; counter-reset: s; margin: 0.5em 0 0; padding: 0; }
+.reveal ol.steps li {
+  counter-increment: s;
+  position: relative;
+  padding-left: 2em;
+  margin: 0.5em 0;
+  line-height: 1.35;
+  font-size: 0.84em;
+}
+.reveal ol.steps li::before {
+  content: counter(s);
+  position: absolute; left: 0; top: 0.05em;
+  width: 1.35em; height: 1.35em;
+  background: var(--cc-green); color: var(--cc-black);
+  border-radius: 50%;
+  font-weight: 700; font-size: 0.8em;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ---------- große zentrale Aussage ---------- */
+.reveal .big {
+  font-size: 1.6em;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+/* .huge bleibt das einzige Element mit maximalem Gewicht –
+   reserviert für die zentrale Kernaussage einer Folie. */
+.reveal .huge {
+  font-size: 2.2em;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.reveal .lead {
+  color: var(--cc-grey);
+  font-weight: 500;
+  font-size: 0.85em;
+}
+.reveal .accent { color: var(--cc-green); }
+.reveal .red { color: var(--cc-red); }
+.reveal em.u { font-style: normal; border-bottom: 0.12em solid var(--cc-green); }
+
+/* grüne Akzentlinie unter einer Aussage */
+.reveal .underline-green {
+  display: inline-block;
+  border-bottom: 0.14em solid var(--cc-green);
+  padding-bottom: 0.1em;
+}
+
+/* ---------- Karten / Boxen ---------- */
+.reveal .cards { display: flex; gap: 0.6em; margin-top: 0.5em; }
+.reveal .card {
+  flex: 1;
+  border: 2px solid var(--cc-black);
+  border-radius: 14px;
+  padding: 0.7em 0.8em;
+  font-size: 0.8em;
+  background: #fff;
+}
+.reveal .card.y { background: #fdfae3; border-color: #e3d24a; }
+.reveal .card.b { background: #eaf7fd; border-color: #6cc3ec; }
+.reveal .card.g { background: #e9fbf2; border-color: #5fd9a0; }
+.reveal .card.p { background: #fdeef3; border-color: #ef93b1; }
+.reveal .card h3 { font-size: 1em; margin-bottom: 0.2em; }
+
+/* ---------- Code ---------- */
+.reveal pre {
+  width: 100%;
+  box-shadow: 0 6px 20px rgba(0,0,0,.10);
+  font-size: 0.72em;
+  border: none;
+  border-radius: 12px;
+  margin: 0.4em 0;
+}
+.reveal pre code {
+  padding: 1em 1.2em;
+  border-radius: 12px;
+  background: #1f2430;          /* dunkler Block als Kontrast zum hellen Deck */
+  color: #e6e6e6;
+  max-height: none;
+  line-height: 1.45;
+}
+/* Monokai-Akzente an die Marke angleichen, gut lesbar auf dunkel */
+.reveal pre .hljs-keyword,
+.reveal pre .hljs-built_in   { color: #22F4AE; }   /* grün = Akzent */
+.reveal pre .hljs-string     { color: #f7afc4; }   /* pink */
+.reveal pre .hljs-title,
+.reveal pre .hljs-function   { color: #8fd3f4; }   /* blau */
+.reveal pre .hljs-number     { color: #f4e87a; }   /* gelb */
+.reveal pre .hljs-comment    { color: #8a93a3; font-style: italic; }
+/* Gherkin liest sich ohne hljs-Klassen am besten schlicht hell */
+.reveal pre code.language-gherkin { color: #e6e6e6; }
+.reveal pre .hljs-section    { color: #22F4AE; font-weight: 700; }
+/* hervorgehobene Zeilen (data-line-numbers) */
+.reveal .hljs.has-highlights tr:not(.highlight-line) { opacity: 0.35; }
+.reveal code.inline {
+  background: var(--cc-light);
+  padding: 0.05em 0.35em;
+  border-radius: 6px;
+  font-size: 0.92em;
+}
+
+/* ---------- Tabellen ---------- */
+.reveal table { font-size: 0.72em; border-collapse: collapse; margin: 0.5em 0; width: 100%; }
+.reveal table th {
+  background: var(--cc-green);   /* Markengrün als Header statt Pink */
+  color: var(--cc-black);
+  font-weight: 600;
+  text-align: left;
+  padding: 0.55em 0.8em;
+  border: none;
+}
+.reveal table td {
+  padding: 0.55em 0.8em;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: top;
+}
+.reveal table tr:last-child td { border-bottom: none; }
+/* erste Spalte (Phase/Label) hervorheben */
+.reveal table td:first-child { font-weight: 600; }
+
+/* ---------- rot/grün Pills ---------- */
+.reveal .pill {
+  display: inline-block;
+  padding: 0.1em 0.6em;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.8em;
+}
+.reveal .pill.green { background: var(--dot-green); color: #0a4934; }
+.reveal .pill.red   { background: #ffcdcf; color: #b23e42; }
+.reveal .pill.blue  { background: var(--dot-blue); color: #0a4a57; }
+
+/* ---------- Flow / Pfeile ---------- */
+.reveal .flow {
+  display: flex; align-items: center; gap: 0.5em;
+  flex-wrap: wrap; font-weight: 500; font-size: 0.85em;
+}
+.reveal .flow.compact { font-size: 0.72em; }
+.reveal .flow .step {
+  background: var(--cc-light); border-radius: 10px;
+  padding: 0.4em 0.7em;
+}
+.reveal .flow .arrow { color: var(--cc-green); font-weight: 700; }
+.reveal .flow .step .gl { color: var(--cc-grey); font-weight: 400; font-size: 0.8em; font-style: italic; }
+/* Etymologie-Reihe: alle Boxen gleiche Höhe, Begriff + Glosse nebeneinander */
+.reveal .flow.etym { align-items: stretch; }
+.reveal .flow.etym .step { display: flex; align-items: center; gap: 0.4em; }
+
+/* ---------- Footer-Logo (echtes codecentric-Primärlogo) ---------- */
+.reveal .footer-logo {
+  position: absolute;
+  bottom: 4.5%;
+  right: 6%;
+  display: flex;
+  align-items: center;
+}
+.reveal .footer-logo img {
+  height: 2.4em;             /* groß, gut sichtbar */
+  width: auto;
+  display: block;
+}
+
+/* ---------- Agenda-Liste (Akt 0) ---------- */
+.reveal ul.agenda { list-style: none; margin: 0.4em 0 0; padding: 0; font-size: 0.9em; }
+.reveal ul.agenda li {
+  display: flex; align-items: center; gap: 0.8em;
+  padding: 0.32em 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+.reveal ul.agenda li:last-child { border-bottom: none; }
+.reveal ul.agenda .ag-no { color: var(--cc-grey); font-weight: 700; font-size: 0.85em; width: 1.6em; }
+.reveal ul.agenda .ag-ti { flex: 1; }
+.reveal ul.agenda .pill { flex: none; }
+
+/* ---------- Trainer-Vorstellung (Akt 0) ---------- */
+.reveal .trainers { display: flex; gap: 3em; justify-content: center; margin-top: 0.3em; }
+.reveal .trainer { text-align: center; }
+.reveal .trainer img { width: 200px; height: auto; display: block; }
+.reveal .trainer .tname { font-weight: 700; font-size: 0.95em; margin-top: 0.4em; }
+/* Leitfragen-Reihe (Pills, einheitlich) */
+.reveal .guide-q { display: flex; gap: 0.6em; justify-content: center; flex-wrap: wrap; margin-top: 0.6em; }
+.reveal .guide-q span {
+  background: var(--cc-light); border-radius: 999px;
+  padding: 0.4em 1em; font-weight: 500; font-size: 0.8em;
+}
+
+/* ---------- Example-Mapping-Karten (Mini, für HOW-Beispiel) ---------- */
+.reveal .em-card {
+  border-radius: 8px;
+  padding: 0.4em 0.6em;
+  font-size: 0.62em;
+  line-height: 1.25;
+  margin: 0.3em 0;
+}
+.reveal .em-row { display: flex; gap: 0.4em; }
+.reveal .em-row > .em-card { flex: 1; margin: 0.3em 0 0; }
+.reveal .em-story { background: #fdfae3; border: 1.5px solid #e3d24a; }
+.reveal .em-rule  { background: #eaf7fd; border: 1.5px solid #6cc3ec; }
+.reveal .em-ex    { background: #e9fbf2; border: 1.5px solid #5fd9a0; }
+.reveal .em-q     { background: #fdeef3; border: 1.5px solid #ef93b1; }
+
+/* Hinweis / Notiz */
+.reveal .note {
+  color: var(--cc-grey);
+  font-size: 0.72em;
+  font-weight: 500;
+  margin-top: 0.8em;
+}
+
+/* timing badge oben rechts */
+.reveal .timing {
+  position: absolute;
+  top: 4%;
+  right: 5%;
+  font-size: 0.6em;
+  font-weight: 700;
+  color: var(--cc-grey);
+  background: var(--cc-light);
+  padding: 0.25em 0.7em;
+  border-radius: 999px;
+}
+
+/* zweispaltig */
+.reveal .two-col { display: flex; gap: 1.2em; }
+.reveal .two-col > div { flex: 1; }
+
+/* Fortschritts-/Akt-Marker am unteren Rand */
+.reveal .progress-acts {
+  position: absolute; bottom: 3.5%; left: 6%;
+  font-size: 0.55em; font-weight: 700; color: var(--cc-grey);
+  letter-spacing: 0.04em;
+}
+.reveal .progress-acts .on { color: var(--cc-green); }
+
+/* reveal Standard-Controls dezenter */
+.reveal .controls { color: var(--cc-green); }
+.reveal .progress { color: var(--cc-green); }

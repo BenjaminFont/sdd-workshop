@@ -1,0 +1,8 @@
+{
+  "default": {
+    "comment": "strict: true makes an UNDEFINED step (a scenario with no step definition) fail the build (exit code != 0), not pass silently. This is what turns 'spec coverage > test coverage' from a silent gap into a loud red. Do not rely on the framework default — set it explicitly.",
+    "strict": true,
+    "paths": ["examples/bdd/features"],
+    "require": ["examples/bdd/steps/*.js"]
+  }
+}
