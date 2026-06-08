@@ -6,27 +6,11 @@ nologo: true
 
 <span class="secno">06</span>
 <h1>Pfad B — Unsere Form</h1>
-<div class="subtitle">Schlank per Default · 🛠</div>
 
 <!--
 Titelfolie zu Akt 6 — dem Hands-on-Höhepunkt des Workshops (ca. 70 min).
 Ziel: Den Bogen spannen — wir verlassen die Theorie und bauen jetzt selbst einen ausführbaren, drift-sicheren Contract.
-Was du sagen kannst: „Pfad B ist unsere schlanke Default-Form." Bewusst kommt dieser Akt nach dem Vergleich — erst die Erleichterung, dann der Payoff. „Schlank per Default" heißt: nur so viel Zeremonie wie nötig. Kurz ankündigen, dass es jetzt praktisch wird.
--->
-
----
-layout: cc
-variant: center
----
-
-<span class="secno">06</span>
-<p class="huge">Pfad B:<br>unsere Form</p>
-<p class="lead" style="margin-top:0.7em">Dieselben Karten — jetzt zum <span class="accent">Contract</span>.</p>
-
-<!--
-Einstiegsfolie: derselbe Input wie zuvor (die grünen Karten aus dem Example Mapping), aber ein neues Ziel.
-Ziel: Klarmachen, dass wir nichts Neues erfinden — wir nehmen die bekannten grünen Karten und führen sie bis zum ausführbaren Contract.
-Was du sagen kannst: „Wir starten nicht bei null." Die grünen Karten sind Beispiele „Input → erwartetes Ergebnis". Genau die werden jetzt zur lebenden, erzwungenen Spezifikation. Betone „Contract" als das Wort für eine Spec, die nicht mehr unbemerkt falsch werden kann.
+Was du sagen kannst: „Pfad B ist unsere schlanke Default-Form." Bewusst kommt dieser Akt nach dem Vergleich — erst die Erleichterung, dann der Payoff. Wir starten nicht bei null: dieselben grünen Karten aus dem Example Mapping, jetzt zum ausführbaren Contract.
 -->
 
 ---
@@ -86,63 +70,61 @@ layout: cc
 ---
 
 <span class="secno">06</span>
-<h2 class="slash">strict</h2>
-<p class="big">Ein Szenario ohne Step<br>→ <span class="red">roter Lauf</span>.</p>
-<p class="note">Konstituierend — gehört in die <code class="inline">cucumber.json</code>.</p>
-
-<!--
-Die Folie erklärt das strict-Flag: ein Szenario ohne passende Step-Definition lässt den Build rot werden.
-Ziel: Klarmachen, dass strict nicht optional ist — es schließt die zweite Art von Drift (Spec-Zeile ohne Test).
-Was du sagen kannst:
-• Ohne strict wird ein undefiniertes Szenario nur gemeldet, zählt aber als grün — eine Spec-Zeile, die nichts erzwingt, ist genau der Drift, den wir töten wollen.
-• Mit strict: true wird daraus ein lauter roter Lauf (Exit-Code ≠ 0).
-• Wichtig: explizit in die cucumber.json setzen — nicht auf den Framework-Default verlassen. Deshalb „konstituierend".
--->
-
----
-layout: cc
-variant: center
----
-
-<span class="secno">06</span>
-<p class="huge">Der Drift-Moment</p>
-<div class="flow" style="margin-top:0.7em">
-  <span class="pill green">grün</span><span class="arrow">→</span>
-  <span class="step">Zahl ändern</span><span class="arrow">→</span>
-  <span class="pill red">rot</span>
-</div>
-<p class="big" style="margin-top:0.8em">Die Spec kann nicht mehr<br><em class="u">unbemerkt</em> falsch werden.</p>
-
-<!--
-Die Folie zeigt den Drift-Moment: grün → Zahl ändern → rot. Das ist der charakteristische Punkt des ganzen Akts.
-Ziel: Den Aha-Moment erlebbar machen — Drift wird deterministisch sichtbar, statt unbemerkt einzusickern.
-Was du sagen kannst:
-• Konkretes Beispiel aus session.feature: das Timeout (15 min) lebt nur in der Fließtext; der Step liest die Zahl zur Laufzeit. Es gibt keine eingefrorene Kopie im Test.
-• Ändert man die Spec so, dass sie dem Code widerspricht, wirft der Step → CI rot → man muss Spec und Code versöhnen.
-• Ehrlich bleiben: Nicht jede Änderung wird rot — nur ein echter Widerspruch. „15 → 30 min" kann grün bleiben, wenn die Aussage weiter gilt. Rot heißt: Spec und Code widersprechen sich wirklich.
--->
-
----
-layout: cc
----
-
-<span class="secno">06</span>
 <h2 class="slash">Eure Aufgabe</h2>
+<p class="body">Das Example Mapping habt ihr <strong>schon gemacht</strong> — die grünen Karten liegen vor. Jetzt führt ihr sie in unserer Form spec-driven bis zum erzwungenen Contract.</p>
 <ul class="dots">
-  <li class="y">Gherkin aus den Karten schreiben.</li>
-  <li class="b">Binden + <code class="inline">strict</code> setzen.</li>
-  <li class="g">Gegen-grün bauen.</li>
-  <li class="p">Drift auslösen.</li>
+  <li class="y">Grüne Karten (Beispiele) → <strong>Szenarien</strong> in der <code class="inline">.feature</code>.</li>
+  <li class="b">Binden + <code class="inline">strict</code> — Contract steht erst auf <span class="red">rot</span>.</li>
+  <li class="g">Gegen-grün bauen — Schritt für Schritt (innen: TDD).</li>
+  <li class="p">Drift auslösen → roter Lauf.</li>
 </ul>
 <p class="note">Charakteristischer Punkt: <strong>Contract grün + Drift rot</strong> — erlebt.</p>
 
 <!--
-Die Übergabe-Folie ins Hands-on: vier Schritte, die das Publikum jetzt selbst macht.
-Ziel: Den Auftrag klar formulieren und das Erfolgskriterium benennen — „Contract grün + Drift rot, selbst erlebt".
+Übergabe ins Hands-on, Teil 1 — der Auftrag mit Rückgriff auf das gemeinsame Example Mapping.
+Ziel: Klarmachen, dass wir nicht bei null starten — die grünen Karten von vorhin sind der Input — und das Erfolgskriterium benennen: „Contract grün + Drift rot, selbst erlebt".
 Was du sagen kannst:
-• Zuerst Gherkin aus den grünen Karten schreiben, dann binden und strict setzen, dann Code bauen bis grün, schließlich Drift bewusst auslösen.
-• Erfolg ist nicht „läuft", sondern das Erlebnis beider Zustände — grün und absichtlich rot.
-• Sicherheitsnetz erwähnen: Wer beim Cucumber-Bootstrapping hängt, schaut in examples-for-bdd/bdd/ als Referenz.
+• Rückgriff: „Das Example Mapping haben wir vorhin gemeinsam gemacht — die grünen Karten (Input → erwartetes Ergebnis) sind genau das, was wir jetzt zum Contract führen."
+• Die Spec bleibt: Example Map + Feature-Spec tragen das WAS/WARUM; die .feature trägt das Verhalten; Cucumber das Enforcement. Drei Jobs, kein Widerspruch.
+• Zwei Schleifen: außen die .feature-Szenarien (ATDD) als „fertig"-Definition, innen pro Schritt klassisch TDD.
+• Erfolg ist nicht „läuft", sondern beide Zustände erlebt: grün und absichtlich rot.
+-->
+
+---
+layout: cc
+---
+
+<span class="secno">06</span>
+<h2 class="slash">So startet ihr — Schritt für Schritt</h2>
+<ol class="steps" style="font-size:0.95em">
+  <li><strong>Example Map fotografieren</strong> — Screenshot eurer Karten an der Wand</li>
+  <li><strong>Ins Repo laden</strong> — Bild(er) ins Projekt legen</li>
+  <li><strong>Map digitalisieren</strong> — <code class="inline">/digitize-mapping</code> auf den Screenshot → <code class="inline">import-example-mapping.md</code> (tippt ab, erfindet nichts)</li>
+  <li><strong>Szenarien ableiten</strong> — <code class="inline">/gherkin-spec</code> → <code class="inline">features/import.feature</code> (grüne Karten → Given/When/Then)</li>
+  <li><strong>Binden</strong> — <code class="inline">/bind-contract</code> → Cucumber + <code class="inline">strict</code>; Contract erst <span class="red">rot</span></li>
+  <li><strong>Gegen-grün bauen</strong> — bis die <code class="inline">.feature</code> grün ist → dann Drift auslösen → <span class="red">rot</span></li>
+</ol>
+
+<!--
+Übergabe ins Hands-on, Teil 2 — die konkrete Schritt-für-Schritt-Anleitung unserer Form, damit niemand vor leerer IDE sitzt.
+Ziel: Den genauen Weg vom Foto der Example Map bis zum erzwungenen Contract zeigen — mit den echten Skill-Namen.
+Wichtige Begriffsklärung (falls gefragt): die GRÜNEN Karten sind die Beispiele (Input → erwartetes Ergebnis). Die werden zu SZENARIEN (Given/When/Then). Blaue Regeln werden zum Feature/Requirement-Rahmen. Erst die gebundenen Szenarien SIND die Akzeptanzkriterien.
+Was du sagen kannst, Schritt für Schritt:
+• 1 Fotografieren: Macht ein Foto/Screenshot eurer fertigen Example Map (die Karten an der Wand).
+• 2 Ins Repo laden: Legt das Bild ins Projekt, damit der Agent es lesen kann.
+• 3 /digitize-mapping <screenshot>: Der Skill LIEST das Bild und transkribiert die Karten ins kanonische import-example-mapping.md. Disziplin: er tippt nur ab, erfindet keine Regel/kein Beispiel; Unleserliches wird als offene/rote Karte markiert, nicht geraten. (Wer die Map live moderiert hat statt zu fotografieren: /example-mapping liefert dasselbe File.)
+• 4 /gherkin-spec: Macht aus den grünen Karten features/import.feature — jedes Beispiel ein Scenario in Given/When/Then; eine Domäne, eine Datei.
+• 5 /bind-contract: Schreibt die Step-Definitionen, bindet jeden Satz ans echte System und setzt strict in der cucumber.json. Wir binden, wir generieren keine zweite Testdatei. Vor dem Code ist der Contract rot/undefiniert — genau das ist das Ziel (Außen-Loop, ATDD).
+• 6 Gegen-grün: Plan + Code, Schritt für Schritt (innen klassisch TDD), bis alle Akzeptanz-Szenarien grün sind.
+• strict ist konstituierend: ein Szenario ohne Step zählt sonst als grün — genau der Drift, den wir töten.
+• Die Spec bleibt: Example Map + kurze Feature-Spec tragen das WAS/WARUM; die .feature trägt das Verhalten; Cucumber das Enforcement. Drei Jobs, keine Redundanz.
+• Payoff zum Schluss: eine Zahl/Grenze in der .feature ändern, die dem Code widerspricht → roter Lauf. Die Spec kann nicht mehr unbemerkt falsch werden. (Ehrlich: nur ein echter Widerspruch wird rot.)
+• Sicherheitsnetz: examples-for-bdd/bdd/ (session.feature, steps, cucumber.json mit strict) zum Abschauen.
+-->
+
+<!--
+ORIGINAL strict-Folie (entfernt, als Notiz): Ein Szenario ohne Step → roter Lauf. Konstituierend — gehört in die cucumber.json.
+ORIGINAL Drift-Moment-Folie (entfernt): grün → Zahl ändern → rot. Die Spec kann nicht mehr unbemerkt falsch werden.
 -->
 
 ---

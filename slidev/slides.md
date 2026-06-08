@@ -17,7 +17,6 @@ mdc: true
 
 <span class="secno">00</span>
 <h1>Spec Driven Development &amp; BMAD</h1>
-<div class="subtitle">Workshop · ~7 h · von Vibe Coding zu professioneller Softwareentwicklung · codecentric</div>
 
 <!--
 Cover des Decks. Workshop-Überblick: ~7 Stunden, der Bogen von „Vibe Coding" zu professioneller, spec-getriebener Softwareentwicklung. Navigation: Pfeiltasten · F Vollbild · O Übersicht · Presenter-Modus für die Notes.

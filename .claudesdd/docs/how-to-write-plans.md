@@ -45,13 +45,19 @@ Skip the implementation plan for:
 
 Each implementation step should define how it will be tested. **This must be determined interactively with the user** - go through each step one by one and ask about the testing approach.
 
-**If an example-mapping file exists** (`<feature>-example-mapping.md`,
-produced by `/example-mapping` on the Spec track), derive the test
-cases from its **green cards** — each `input → expected output` is a
-concrete scenario to turn into a test. This is where those scenarios
-live: in the plan's testing strategy, not in the spec. Binding them to
-executable (pending) tests is a later, separate step — see the
-`/test-list` TDD path.
+**Acceptance tests come from the `.feature`, not from the plan.** On
+the Spec track the green cards of the example mapping become an
+executable `.feature` via `/gherkin-spec` and an enforced contract via
+`/bind-contract` (Cucumber + strict). Those scenarios are the **outer
+(ATDD) loop** — the acceptance criteria that define "done". Do **not**
+re-list them as prose test cases here; that would duplicate the
+`.feature` and reopen drift. The plan's testing strategy covers the
+**inner (TDD) loop** instead: how each implementation step is unit/
+integration tested on the way to making the `.feature` go green.
+
+If no example mapping / `.feature` exists (Plan track, or a feature
+without business rules worth mapping), define the test cases for each
+step here directly.
 
 Common testing decisions to discuss:
 - Real dependencies vs mocks (e.g., real crypto vs stubbed)

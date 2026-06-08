@@ -6,7 +6,6 @@ nologo: true
 
 <span class="secno">03</span>
 <h1>Die Spec als Source of Truth</h1>
-<div class="subtitle">Ausführbar und an den Code gebunden</div>
 
 <!--
 Titelfolie zu Akt 3 „Die Spec als Source of Truth" (~20 min).
@@ -51,7 +50,6 @@ layout: cc
     <pre style="margin:0"><code class="language-gherkin">Szenario: Konflikt, neuere Version&#10;  Given Rule "x" v1.0 liegt im Repo&#10;  When  ich "x" v1.2 importiere&#10;  Then  wird sie überschrieben</code></pre>
   </div>
 </div>
-<p class="note">Aus BDD (Dan North, ~2006); als <strong>Gherkin</strong> formalisiert durch Cucumber (~2008).</p>
 
 <!--
 Einführungsfolie: Was ist überhaupt ein Given-When-Then-Szenario — bevor wir behaupten, es sei fast ein Test.
@@ -70,7 +68,7 @@ layout: cc
 <div class="two-col" style="margin-top:0.5em">
   <div class="card b">
     <h3>OpenSpec</h3>
-    <p class="lead"><code class="inline">#### Scenario:</code> mit Given/When/Then in den Requirements <strong>und</strong> in den Delta-Specs (ADDED/MODIFIED/REMOVED).</p>
+    <p class="lead"><strong>#### Scenario:</strong> mit Given/When/Then in den Requirements <strong>und</strong> in den Delta-Specs (ADDED/MODIFIED/REMOVED).</p>
   </div>
   <div class="card g">
     <h3>BMAD</h3>
@@ -95,8 +93,6 @@ variant: center
 
 <span class="secno">03</span>
 <p class="big">Ein Szenario ist schon<br>der <em class="u">größte Teil</em> eines Tests.</p>
-<p class="note" style="margin-top:0.5em">Es fehlt nur die Bindung an den Code — die <strong>Step Definitions</strong>.</p>
-<p class="huge" style="margin-top:0.7em">binden statt generieren<br>→ <span class="accent">Contract</span></p>
 
 <!--
 Die zentrale Aha-Folie: Ein Given-When-Then-Szenario ist schon der größte Teil eines ausführbaren Tests.
@@ -155,8 +151,7 @@ variant: center
 
 <span class="secno">03</span>
 <p class="huge">Grün = Konformität,<br>nicht Korrektheit.</p>
-<p class="lead" style="margin-top:0.6em">Korrektheit holt Example Mapping.</p>
-<p class="big" style="margin-top:0.7em"><span class="accent">Erzwingen</span>, wo eine Maschine prüfen kann.<br>Beschreiben, wo nicht.</p>
+<p class="big" style="margin-top:0.7em">Example Mapping holt <span class="accent">Korrektheit</span>.</p>
 
 <!--
 Die ehrliche Grenze unserer Form — bewusst keine Überverkaufsfolie.

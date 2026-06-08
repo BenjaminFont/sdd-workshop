@@ -6,7 +6,6 @@ nologo: true
 
 <span class="secno">02</span>
 <h1>Drei Frameworks,<br>vier Phasen</h1>
-<div class="subtitle">Dieselbe Idee, drei Schweregrade</div>
 
 <!--
 Titelfolie zu Akt 2 — die Framework-Tour.
@@ -23,7 +22,7 @@ variant: center
 ---
 
 <span class="secno">02</span>
-<p class="huge">Dieselbe Idee.<br>Drei Schweregrade.</p>
+<p class="huge">Dieselbe Idee.<br>Drei Umsetzungen.</p>
 
 <!--
 Leitsatz-Folie, die These des ganzen Akts auf einer Zeile.
@@ -71,7 +70,6 @@ layout: cc
     <tr><td><strong>Plan</strong></td><td><code class="inline">/plan</code> + contracts</td><td><code class="inline">design.md</code> (opt.)</td><td>Architecture + ADRs</td></tr>
     <tr><td><strong>Tasks</strong></td><td>nach User Story</td><td>flache Checkliste</td><td>Epics → Stories</td></tr>
     <tr><td><strong>Implement</strong></td><td><code class="inline">/implement</code> + <code class="inline">/analyze</code></td><td><code class="inline">/opsx:apply</code></td><td><code class="inline">dev-story</code>-Loop</td></tr>
-    <tr><td><strong>Default</strong></td><td><span class="pill red">schwer</span></td><td><span class="pill green">leicht</span></td><td><span class="pill red">am schwersten</span></td></tr>
   </tbody>
 </table>
 
@@ -202,7 +200,6 @@ layout: cc
     <tr><td><strong>Implementation</strong></td><td>Dev</td><td><code class="inline">create-story</code> → <code class="inline">dev-story</code> → <code class="inline">code-review</code></td><td>Stories → Code</td></tr>
   </tbody>
 </table>
-<p class="note" style="margin-top:0.6em"><strong>Architecture vor Stories</strong> (v6) · FR→Epic-Coverage-Map sichert lückenlose Traceability · Phase 4 läuft in einem <code class="inline">dev-story</code>-Loop.</p>
 
 <!--
 Zweite Vertiefungsfolie — das Herzstück: die vier BMAD-Phasen mit Rolle, Workflow und Artefakt je Phase.
@@ -248,7 +245,6 @@ layout: cc
     <tr><td><strong>Ebene</strong></td><td>Feature-Snapshot</td><td>Domäne → Requirement → Scenario</td><td>Phasen-Kette, top-down</td></tr>
   </tbody>
 </table>
-<p class="note">Drei völlig verschiedene Zuschnitte: <strong>Feature-Snapshot</strong> vs. <strong>Requirement-Delta</strong> vs. <strong>Phasen-Dokument</strong>.</p>
 
 <!--
 Vergleichsfolie 1: Wie eine Spec überhaupt entsteht — der Genese-Zuschnitt unterscheidet sich fundamental.
@@ -324,7 +320,6 @@ variant: center
   <span class="step">weiterentwickelt</span><span class="arrow">→</span>
   <span class="step">Spec fällt zurück</span>
 </div>
-<p class="note" style="margin-top:0.8em">spec-kit &amp; BMAD: sofort / by-design. OpenSpec: bleibt gepflegt, kann aber driften. <strong>Keine maschinelle Garantie, dass Spec = Code.</strong></p>
 
 <!--
 Vergleichsfolie 4: Der gemeinsame zeitliche Kern — die Spec veraltet, sobald weiterentwickelt wird.
@@ -340,24 +335,36 @@ layout: cc
 ---
 
 <span class="secno">02</span>
-<h2 class="slash">BMAD-Spezialfall: Analyse ja, Automatik nein</h2>
-<p class="body">Ein verbreitetes Vorurteil: „BMAD merkt gar nicht, wenn sich die Spec ändern müsste." Das stimmt <em class="u">nicht</em> — es hat eine Change-Impact-Analyse:</p>
-<ul class="dots compact" style="margin-top:0.4em">
-  <li class="g"><strong>+</strong> <code class="inline">bmad-correct-course</code> — „Artifact Conflict &amp; Impact Analysis" gegen PRD, Architektur (inkl. API-Contracts), UX</li>
-  <li class="g"><strong>+</strong> erzeugt ein <strong>Sprint Change Proposal</strong> mit konkreten Old→New-Edits</li>
-  <li class="p"><strong>–</strong> aber: <strong>agentisch, on-demand, human-in-the-loop</strong> — kein automatisches, deterministisches Urteil</li>
-</ul>
-<p class="note">Der Mangel ist nicht die fehlende Analyse — sondern ihr fehlender <strong>Determinismus</strong>. Niemand muss sie auslösen, nichts erzwingt sie.</p>
+<h2 class="slash">Vor- &amp; Nachteile</h2>
+<table style="font-size:0.6em">
+  <thead><tr><th>&nbsp;</th><th>Stärke</th><th>Schwäche</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>spec-kit</strong></td>
+      <td>Startet ein neues Feature komplett: erzeugt aus einer Idee alle Plan-Dokumente, mit strengen Kontrollschritten. Reif, von GitHub.</td>
+      <td>Jedes Feature lebt für sich — kein Gesamtbild. Specs widersprechen sich mit der Zeit, niemand merkt's. Aufwand fällt jedes Mal neu an.</td>
+    </tr>
+    <tr>
+      <td><strong>OpenSpec</strong></td>
+      <td>Hält als einziges die Spec dauerhaft aktuell. Leicht &amp; schnell, gut für mehrere Leute parallel, später wenig Aufwand. Reines Markdown — kaum Abhängigkeit.</td>
+      <td>Die Prüfung ist nur ein KI-Hinweis, nicht verpflichtend. Funktioniert nur, wenn man diszipliniert pflegt. Kleines Projekt, ein Maintainer.</td>
+    </tr>
+    <tr>
+      <td><strong>BMAD</strong></td>
+      <td>Kompletter Ablauf von Idee bis Code mit klaren Rollen. Architektur zuerst, nichts geht verloren. Anpassbar an die Projektgröße, sehr reif.</td>
+      <td>Spec ist nur Wegwerf-Planung — am Ende zählt der Code. Viel Aufwand, der nicht bleibt. Stärkste Bindung an das Tool selbst.</td>
+    </tr>
+  </tbody>
+</table>
 
 <!--
-Vergleichsfolie 5: Der BMAD-Spezialfall — bewusst fair, korrigiert ein naheliegendes Vorurteil.
-Ziel: Präzision. Die naive These „BMAD hat gar keine Analyse, ob sich die Spec mit-geändert hat" ist FALSCH und würde uns angreifbar machen. Wir benennen genau, was wirklich fehlt.
-FAKTENBASIS (recherchiert): BMAD HAT eine Spec-Change-Impact-Analyse über den Workflow bmad-correct-course. Dessen „Artifact Conflict and Impact Analysis" prüft explizit, ob PRD, Architecture (inkl. API-Contracts) und UX mit-verändert werden müssen, und erzeugt ein „Sprint Change Proposal" mit konkreten Old→New-Edits.
+Zusammengefasste Pro/Contra-Tabelle in einfacher Sprache — ersetzt die drei einzelnen Karten-Folien.
+Ziel: Auf einen Blick, ohne Fachjargon, was jedes Tool gut bzw. schlecht kann. Fair, kein Ranking.
 Was du sagen kannst:
-• Korrektur des Vorurteils: BMAD merkt sehr wohl, wenn Artefakte auseinanderlaufen — correct-course ist genau dafür da.
-• ABER der entscheidende Unterschied: Es ist agentisch (LLM-Urteil), on-demand (jemand muss es starten) und human-in-the-loop. Es ist KEIN automatisches, deterministisches CI rot/grün.
-• Der echte Mangel ist also nicht „keine Analyse", sondern „keine erzwungene, deterministische Analyse". Niemand muss sie auslösen, nichts blockiert ohne sie.
-• Das ist genau die Brücke zur nächsten Folie: alle haben höchstens mahnende, manuelle Checks — keiner erzwingt.
+• spec-kit: super zum Starten eines neuen Features (erzeugt alle Plandokumente, strenge Kontrollschritte, reif/GitHub) — aber jedes Feature steht für sich, es entsteht kein lebendes Gesamtbild, und der Aufwand fällt jedes Mal neu an.
+• OpenSpec: das einzige, das die Spec dauerhaft aktuell hält; leicht, schnell, teamtauglich, wenig Lock-in — aber die Prüfung ist nur ein KI-Hinweis (nicht verpflichtend), hängt an Disziplin, kleines Projekt.
+• BMAD: vollständiger Prozess mit Rollen, Architektur zuerst, skaliert mit Projektgröße, sehr reif — aber die Spec ist Wegwerf-Planung (Code zählt), viel nicht-bleibender Aufwand, stärkste Tool-Bindung.
+• Kernsatz: drei Tools, drei Aufträge — kein universeller Sieger. (Details/Begründung in der Recherche; die Mechanik dahinter zeigen die folgenden Folien.)
 -->
 
 ---

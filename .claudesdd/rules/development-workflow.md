@@ -61,19 +61,23 @@ Bugfixes usually need **no** spec: the business requirement already
 exists ("should do X, wrongly does Y"). There is nothing new to
 clarify -- you only fix the HOW.
 
-## Discovering the WHAT: Example Mapping (Spec track, optional)
+## Discovering the WHAT: Example Mapping (Spec track, recommended)
 
 On the **Spec track** the open question is the WHAT -- and that is
-exactly when collaborative discovery pays off. The Spec track *may*
-begin with `/example-mapping`: an interactive session that surfaces
+exactly when collaborative discovery pays off. The Spec track **should
+begin with `/example-mapping`**: an interactive session that surfaces
 the **rules** (blue cards), **concrete examples** (green cards), and
 **open questions** (red cards) for the feature by asking the user,
 never by assuming.
 
-Fully optional -- the user decides. Offer it when the feature has real
-business rules or behaviour worth surfacing; skip it when the WHAT is
-conceptually simple even though it is new. It never applies to the
-Direct or Plan track (there the WHAT is already clear).
+This is the **recommended default** whenever the feature has real
+business rules or behaviour worth surfacing. Skip it only when the
+WHAT is conceptually simple even though it is new. It never applies to
+the Direct or Plan track (there the WHAT is already clear).
+
+If the cards already exist (a photo of the wall, or a roughly typed
+list), use `/digitize-mapping` to transcribe them into the same file
+instead of running a live session.
 
 The mapping is a **standalone file** (`<feature>-example-mapping.md`),
 not part of the spec. It feeds the workflow without bloating the spec:
@@ -81,10 +85,45 @@ not part of the spec. It feeds the workflow without bloating the spec:
 - **Story** (yellow) -> seeds the spec's Overview.
 - **Rules** (blue) -> seed the spec's Business Constraints & Guardrails.
 - **Open questions** (red) -> become the worklist for the Spec Review.
-- **Examples** (green) -> seed the **Testing Strategy in the plan**
-  (input -> expected output), *not* the spec. The spec stays lean and
-  in domain language; the green cards live in the mapping file and flow
-  into the plan.
+- **Examples** (green) -> become the **executable `.feature`** (next
+  section), *not* prose in the spec or the plan. The spec stays lean
+  and in domain language; the green cards become acceptance tests.
+
+## The executable spec chain (Spec track default)
+
+On the Spec track the default is **Acceptance-Test-Driven**: the green
+cards do not stay as prose, they become an enforced contract. After the
+spec is confirmed, run the chain:
+
+```
+/example-mapping (or /digitize-mapping)
+   │  green cards
+   ▼
+/gherkin-spec   -> features/<domain>.feature   (acceptance criteria, executable)
+   │
+   ▼
+/bind-contract  -> Cucumber + strict           (RED on drift)
+   │  the pending/red scenarios are the OUTER loop
+   ▼
+Plan -> Implement (inner TDD per step) until the .feature is GREEN
+```
+
+Two loops, two jobs:
+
+- **Outer loop (ATDD):** the `.feature` scenarios are the acceptance
+  criteria. They start RED and define "done" -- the feature is finished
+  when they go GREEN. Driven by Example Mapping (the *right* rules and
+  examples = **correctness**).
+- **Inner loop (TDD):** within each plan step, write unit tests and code
+  as usual until that step works, then move outward toward the
+  acceptance scenarios.
+
+The spec is **not** redundant in this chain -- it carries the WHAT/WHY a
+domain expert signs off; the `.feature` carries the behaviour, and
+Cucumber carries the enforcement. Three different jobs (see
+`how-to-write-specs.md` and the `/bind-contract` honest limits). What
+*is* removed is duplicating the green cards as prose test cases in the
+plan -- they live in the `.feature` now.
 
 ## During implementation
 

@@ -4,9 +4,9 @@ description: >
   Interactive Example Mapping facilitator. Discovers
   rules, concrete examples, and open questions for a
   feature through Q&A with the user, then writes a
-  structured mapping markdown file that can be passed to
-  /test-list as the TDD entry path or used as informal
-  context during clarification.
+  structured mapping markdown file that feeds /gherkin-spec
+  (the executable acceptance-test path) or is used as
+  informal context during clarification.
 ---
 
 # /example-mapping
@@ -15,9 +15,9 @@ Conduct an interactive Example Mapping session for a
 feature the user wants to implement. The output is a
 markdown file with the story, rules, examples, and any
 unresolved questions — the canonical input format that
-`/test-list` consumes when the user wants to drive the
-work via TDD, and a useful clarification artifact even
-when the user does not.
+`/gherkin-spec` consumes to produce the executable
+`.feature` (acceptance-test-driven), and a useful
+clarification artifact even when the user does not.
 
 ## When to Invoke
 
@@ -178,16 +178,17 @@ Report after writing the file:
 | Many open questions (>3) | Not ready | Feature needs more discussion before tests can be derived |
 | Many rules (>6) | Too large | Consider splitting into multiple features, each with its own mapping |
 | Few examples per rule (<2) | Thin coverage | More concrete examples would strengthen the eventual test list |
-| Balanced (rules covered by examples, few or no questions) | Ready | Proceed to /test-list or use as clarification context |
+| Balanced (rules covered by examples, few or no questions) | Ready | Proceed to /gherkin-spec or use as clarification context |
 
 ## Next Step
 
 After writing the file, suggest exactly one of:
 
-- **If healthy and the user is doing TDD:** "Invoke
-  `/test-list <path-to-mapping>` to convert the
-  examples into a TDD test list."
-- **If healthy and TDD is not the chosen path:** "The
+- **If healthy (acceptance-test-driven, the default):**
+  "Invoke `/gherkin-spec <path-to-mapping>` to turn the
+  green cards into an executable `.feature` spec, then
+  `/bind-contract` to enforce it with Cucumber."
+- **If healthy and a contract is not wanted:** "The
   mapping is ready as clarification context — describe
   what you want to build and the lead will incorporate
   the rules and examples into the plan."
@@ -198,10 +199,10 @@ After writing the file, suggest exactly one of:
   stories — each with its own mapping — before
   proceeding."
 
-The skill does not commit the user to TDD. The mapping
-file is reusable as project documentation, as input to
-`/test-list`, or as informal context during the lead's
-clarification flow — workflow-neutral by design.
+The mapping file is reusable as project documentation, as
+input to `/gherkin-spec` (the executable acceptance-test
+path), or as informal context during the lead's
+clarification flow.
 
 ## Anti-Patterns
 

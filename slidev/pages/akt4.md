@@ -6,7 +6,6 @@ nologo: true
 
 <span class="secno">04</span>
 <h1>Vision &amp; Discovery</h1>
-<div class="subtitle">Ein Schnitt, eine Discovery · 🛠</div>
 
 <!--
 Titelfolie zu Akt 4 — Start des Hands-on-Teils.
@@ -132,24 +131,6 @@ Was du sagen kannst:
 • Rechts: In Pfad B wird jedes grüne Beispiel zu einem Gherkin-Szenario (Given/When/Then) — und das ist später die Grundlage für den gebundenen, erzwungenen Contract.
 • Wichtig nochmal klarstellen: Diese Gherkin-Umsetzung gehört zu Pfad B. In Pfad A (BMAD) fließt dasselbe Domänenwissen stattdessen ins PRD.
 • Die rote Karte ist bewusst drin — sie zeigt: Unsicherheit wird dokumentiert, nicht geraten.
--->
-
----
-layout: cc
-variant: center
----
-
-<span class="secno">04</span>
-<p class="big">„facilitate, don't invent."</p>
-<p class="lead" style="margin-top:0.7em">Du kennst die Domäne nicht — <strong>frag</strong>.<br>Rote Karten sind ehrlicher als geratene Regeln.</p>
-
-<!--
-Diese Folie gibt die Moderationshaltung für die Discovery vor: „facilitate, don't invent."
-Ziel: Verhindern, dass Gruppen (oder die KI) Domänenwissen erfinden — gerade bei Entwickler:innen mit erster AI-Coding-Erfahrung ist die Versuchung groß, Lücken schnell mit Annahmen zu füllen.
-Was du sagen kannst:
-• Als Moderator:in kennst du die Domäne oft selbst nicht — deine Aufgabe ist fragen und strukturieren, nicht Antworten liefern.
-• Eine rote Karte (offene Frage) ist wertvoller als eine geratene Regel — sie ist ehrlich und wird später bewusst geklärt.
-• Auch beim KI-Einsatz gilt das: lieber explizit offene Punkte markieren, als das Modell raten lassen.
 -->
 
 ---

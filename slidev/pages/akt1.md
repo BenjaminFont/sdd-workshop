@@ -6,7 +6,6 @@ nologo: true
 
 <span class="secno">01</span>
 <h1>Was ist eine Spec?</h1>
-<div class="subtitle">Die Wurzel — und ihr Zweck</div>
 
 <!--
 Titelfolie für Akt 1 „Was ist eine Spec & warum?" (30 min).
@@ -91,30 +90,6 @@ Sagen kann man:
 Im Patentrecht musste die „specification" so präzise sein, dass man einen Anspruch dagegen prüfen und durchsetzen konnte.
 Das ist die DNA der Spec: nicht „ungefähr so soll es sein", sondern „dagegen kann man abnehmen".
 Genau diese Prüfbarkeit ist es, die heute beim KI-Coding wieder gebraucht wird — und an der die meisten Fließtext-Specs scheitern.
--->
-
----
-layout: cc
----
-
-<span class="secno">01</span>
-<h2 class="slash">Wozu Specs? Fünf Zwecke</h2>
-<ul class="dots">
-  <li class="y"><strong>Arbeitsteilung</strong> — einer beschreibt das WAS, ein anderer baut</li>
-  <li class="b"><strong>Abnahme</strong> — objektives Kriterium für „fertig &amp; richtig"</li>
-  <li class="g"><strong>Haftung</strong> — das geschuldete Werk; Abweichung = Mangel</li>
-  <li class="p"><strong>Austauschbarkeit</strong> — gleiche Spec → ersetzbare Teile</li>
-  <li class="y"><strong>Kommunikation</strong> — geteiltes, eindeutiges Wissen über Grenzen</li>
-</ul>
-<p class="note">Tragend für heute: <strong>Arbeitsteilung</strong> + <strong>Abnahme</strong>.</p>
-
-<!--
-Die fünf Zwecke einer Spec, die den ganzen Tag strukturieren.
-Ziel: Zeigen, dass eine Spec mehrere Jobs gleichzeitig erfüllt — und dass Zweck 1 und 2 (Arbeitsteilung + Abnahme) die tragenden für unseren Workshop sind.
-Sagen kann man:
-Arbeitsteilung: eine Partei beschreibt das WAS, eine andere baut. Abnahme: ein objektives Kriterium für „fertig und richtig". Haftung: das geschuldete Werk, Abweichung = Mangel, Beweismittel. Austauschbarkeit: Normen erlauben austauschbare Teile (Whitworth-Gewinde, 1841). Kommunikation: persistentes, eindeutiges, geteiltes Wissen über Grenzen hinweg.
-Zur Austauschbarkeit/Standardisierung (falls jemand nachfragt): Eine präzise Spec — genormte Maße, Toleranzen, Schnittstellen — macht Teile verschiedener Hersteller kompatibel. Man kann ein Teil durch ein anderes ersetzen, solange beide derselben Spec entsprechen. Anschaulich: das Whitworth-Schraubgewinde (1841, erste Gewindenorm) — eine Schraube von Hersteller A passt in eine Mutter von Hersteller B. Weitere Beispiele: Munitionskaliber; und später Software — eine API-Spec erlaubt, die Implementierung dahinter auszutauschen, solange der Contract gleich bleibt. Brücke zum Workshop: Genau deshalb ist die Spec der stabile Bezugspunkt, nicht der Code — der Code ist austauschbar, die Spec hält.
-Merkt euch besonders Arbeitsteilung und Abnahme — daraus folgt gleich die zentrale Beobachtung.
 -->
 
 ---
@@ -271,22 +246,23 @@ layout: cc
 ---
 
 <span class="secno">01</span>
-<h2 class="slash">Die Spec beim KI-Coding</h2>
-<p class="big">Heute ist die Spec das, was den Agenten <em class="u">bindet</em>.</p>
-<ul class="dots compact" style="margin-top:0.5em">
-  <li class="y"><strong>Prompt</strong> — die unmittelbare Absicht</li>
-  <li class="b"><strong>Kontext &amp; Regeln</strong> — <code class="inline">CLAUDE.md</code>, Rule-Files, Konventionen</li>
-  <li class="g"><strong>Tests &amp; Contracts</strong> — die prüfbare, erzwungene Form</li>
+<h2 class="slash">Wozu Specs? Fünf Zwecke</h2>
+<ul class="dots">
+  <li class="y"><strong>Arbeitsteilung</strong> — einer beschreibt das WAS, ein anderer baut</li>
+  <li class="b"><strong>Abnahme</strong> — objektives Kriterium für „fertig &amp; richtig"</li>
+  <li class="g"><strong>Haftung</strong> — das geschuldete Werk; Abweichung = Mangel</li>
+  <li class="p"><strong>Austauschbarkeit</strong> — gleiche Spec → ersetzbare Teile</li>
+  <li class="y"><strong>Kommunikation</strong> — geteiltes, eindeutiges Wissen über Grenzen</li>
 </ul>
-<p class="note">Verstreut und implizit — oder bewusst als prüfbare Spec geführt. Das ist die Wahl.</p>
+<p class="note">Tragend für heute: <strong>Arbeitsteilung</strong> + <strong>Abnahme</strong>.</p>
 
 <!--
-Brückenfolie: Sie übersetzt den historischen Spec-Begriff in die KI-Coding-Gegenwart.
-Ziel: Den Teilnehmern zeigen, dass sie längst „spezifizieren", wenn sie mit einem Agenten arbeiten — nur oft unbewusst und unprüfbar.
+Die fünf Zwecke einer Spec, die den ganzen Tag strukturieren.
+Ziel: Zeigen, dass eine Spec mehrere Jobs gleichzeitig erfüllt — und dass Zweck 1 und 2 (Arbeitsteilung + Abnahme) die tragenden für unseren Workshop sind.
 Sagen kann man:
-• Beim KI-Coding ist die Spec alles, was dem Agenten sagt, was er tun soll und woran er gemessen wird: der Prompt (die unmittelbare Absicht), der Kontext und die Regeln (CLAUDE.md, Rule-Files, Projektkonventionen) und — am stärksten — Tests und Contracts als prüfbare, erzwungene Form.
-• Die Pointe: Diese Spec existiert sowieso. Die Frage ist nur, ob sie verstreut und implizit bleibt (und damit driftet) oder bewusst als prüfbare Spec geführt wird.
-• Brücke: Genau darum geht es heute — und dafür schauen wir uns gleich drei Frameworks an.
+Arbeitsteilung: eine Partei beschreibt das WAS, eine andere baut. Abnahme: ein objektives Kriterium für „fertig und richtig". Haftung: das geschuldete Werk, Abweichung = Mangel, Beweismittel. Austauschbarkeit: Normen erlauben austauschbare Teile (Whitworth-Gewinde, 1841). Kommunikation: persistentes, eindeutiges, geteiltes Wissen über Grenzen hinweg.
+Zur Austauschbarkeit/Standardisierung (falls jemand nachfragt): Eine präzise Spec — genormte Maße, Toleranzen, Schnittstellen — macht Teile verschiedener Hersteller kompatibel. Man kann ein Teil durch ein anderes ersetzen, solange beide derselben Spec entsprechen. Anschaulich: das Whitworth-Schraubgewinde (1841, erste Gewindenorm) — eine Schraube von Hersteller A passt in eine Mutter von Hersteller B. Weitere Beispiele: Munitionskaliber; und später Software — eine API-Spec erlaubt, die Implementierung dahinter auszutauschen, solange der Contract gleich bleibt. Brücke zum Workshop: Genau deshalb ist die Spec der stabile Bezugspunkt, nicht der Code — der Code ist austauschbar, die Spec hält.
+Merkt euch besonders Arbeitsteilung und Abnahme — daraus folgt gleich die zentrale Beobachtung.
 -->
 
 ---
@@ -296,7 +272,7 @@ variant: center
 
 <span class="secno">01</span>
 <p class="lead">Heute:</p>
-<p class="huge">derselbe alte Zweck,<br>ein neuer Bauer —<br>der <span class="accent">KI-Agent</span>.</p>
+<p class="huge">derselbe alte Zweck,<br>ein neuer Abnehmer —<br>der <span class="accent">KI-Agent</span>.</p>
 
 <!--
 Abschluss-/Brückenfolie von Akt 1 zu Akt 2.

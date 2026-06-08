@@ -31,6 +31,11 @@ before moving on.
 3. Read `rules/development-workflow.md` for track selection
 4. If these files don't exist, tell the user to copy them first
 
+On the Spec track the executable chain is driven by sibling skills,
+each with its own `SKILL.md`: `/example-mapping` (or `/digitize-mapping`
+for existing cards) → `/gherkin-spec` → `/bind-contract`. This skill
+orchestrates; those skills own the detail.
+
 ## Step 0: Choose the Track (always do this first)
 
 Two questions decide everything. Ask them before any work.
@@ -88,17 +93,20 @@ Spec-Track (Phase 1).
   - "What should explicitly NOT be included?"
 - Use **AskUserQuestion** for structured questions
 
-**Optional: offer Example Mapping.** If the feature has real
-business rules or behaviour worth surfacing, offer `/example-mapping`
+**Recommended: start with Example Mapping.** If the feature has real
+business rules or behaviour worth surfacing, begin with `/example-mapping`
 instead of ad-hoc questions — it discovers rules (blue), concrete
 examples (green), and open questions (red) collaboratively, by asking
-the user rather than assuming. Fully optional; the user decides. Skip
-it when the WHAT is conceptually simple. The session writes a
-standalone `<feature>-example-mapping.md`. Carry its cards forward:
+the user rather than assuming. This is the recommended default on the
+Spec track; skip it only when the WHAT is conceptually simple. If the
+cards already exist (photo / typed list), use `/digitize-mapping` to
+transcribe them instead. Either writes a standalone
+`<feature>-example-mapping.md`. Carry its cards forward:
 - **Story / Rules** → into the spec draft (Step 3).
 - **Open questions (red)** → into the Spec Review (Phase 1.5).
-- **Examples (green)** → into the plan's Testing Strategy (Phase 2),
-  *not* the spec.
+- **Examples (green)** → into the executable `.feature` via
+  `/gherkin-spec` then `/bind-contract` (Phase 2.5), *not* the spec and
+  *not* as prose in the plan.
 
 ### Step 2: Explore the Codebase
 - Use Glob and Grep to find related existing code
@@ -159,11 +167,12 @@ Write the plan following `docs/how-to-write-plans.md`:
   - Real dependencies vs mocks?
   - Integration vs unit tests?
   - What to stub?
-  - **If an example-mapping file exists**, its **green cards**
-    (input → expected output) are the seed for the test cases per
-    step — derive the testing approach from them rather than
-    inventing cases. This is where the concrete scenarios live —
-    in the plan's testing strategy, not in the spec.
+  - **If an example-mapping file exists**, its **green cards** become
+    the executable `.feature` (Phase 2.5), not prose here. The plan's
+    testing strategy covers the **inner TDD loop** — how each step is
+    unit/integration tested on the way to making the `.feature` green.
+    Do not re-list the acceptance scenarios here (that duplicates the
+    `.feature` and reopens drift).
 - **Key Decision Points**
 - **Risks and Unknowns**
 
@@ -178,6 +187,32 @@ Before presenting the plan, verify:
 - Save to `specs/<feature-name>-implementation-plan.md`
 - Present a summary to the user
 - **STOP — ask for user approval before implementing**
+
+## Phase 2.5: Acceptance Contract (Spec-Track, when a mapping exists)
+
+This is the **outer (ATDD) loop**. When an example-mapping file exists,
+turn its green cards into an enforced acceptance contract *before*
+implementing — so "done" is defined by executable scenarios, not by
+opinion.
+
+1. **Generate the `.feature`** — invoke `/gherkin-spec <mapping-path>`.
+   Green cards (input → expected output) become `Scenario:` blocks in
+   Given/When/Then; blue rules become the `Feature:`/Requirement. One
+   domain per file (`features/<domain>.feature`), stack-neutral.
+2. **Bind it** — invoke `/bind-contract <feature-path>`. This writes the
+   step definitions, wires Cucumber with `strict: true`, and binds the
+   scenarios to the real system under test. **Bind, never generate a
+   second test file** — the `.feature` *is* the test.
+3. **Confirm RED** — before the code exists, the bound scenarios are
+   RED/UNDEFINED. That red is the acceptance target the implementation
+   drives toward.
+
+The `.feature` scenarios are now the **outer loop**: the feature is done
+when they go GREEN. Each plan step (Phase 4) is the **inner TDD loop**
+on the way there.
+
+**STOP — confirm the acceptance contract with the user before
+implementing.**
 
 ## Phase 3: Tasks (conditional — usually skip on Plan-Track)
 
@@ -234,12 +269,17 @@ implementing.**
 
 ## Phase 4: Implement (Step by Step)
 
+**If a `.feature` acceptance contract exists (Phase 2.5)**, it is the
+**outer loop**: drive the implementation toward turning its scenarios
+GREEN. Each plan step below is the **inner TDD loop**.
+
 ### For Each Step in the Plan:
 
 1. **Announce** which step you're implementing
 2. **Implement** the step — minimal code, follow existing
    patterns, respect spec constraints
-3. **Test** according to the agreed testing approach
+3. **Test** — the inner TDD loop for this step (unit/integration per the
+   plan's testing strategy)
 4. **STOP — ask the user to confirm** before moving to the
    next step
 
@@ -255,6 +295,9 @@ respect `[P]`, do one step → get approval → tick `[x]`.
 
 ### After Implementation
 - Verify all spec requirements are met
+- **If a `.feature` contract exists: run Cucumber (strict) and confirm
+  every acceptance scenario is GREEN** — that is the definition of done
+  on the Spec track
 - Run all tests
 - Ask the user if the feature is complete
 
@@ -269,6 +312,11 @@ respect `[P]`, do one step → get approval → tick `[x]`.
 - **Keep specs short** — 1-2 pages max, domain language
 - **Plans evolve** — update them as you learn; the plan never
   re-negotiates the WHAT
+- **Green cards become the `.feature`, not prose** — on the Spec
+  track the example-mapping green cards drive `/gherkin-spec` →
+  `/bind-contract` (executable acceptance contract, outer ATDD loop);
+  never re-list them as plan test cases (that reopens drift). The spec
+  stays: it carries WHAT/WHY, the `.feature` carries behaviour
 - **Tasks are conditional** — break the plan down only when it
   won't fit one implementation context; tasks live in the plan
   (`## Tasks`), never an epic/story layer

@@ -6,7 +6,6 @@ nologo: true
 
 <span class="secno">00</span>
 <h1>Wer wir sind</h1>
-<div class="subtitle">Vorstellung &amp; Ankommen</div>
 
 <!--
 Titelfolie für Akt 0 — das Ankommen, noch vor dem inhaltlichen Einstieg.
