@@ -71,6 +71,7 @@ Moderation: Reihum gehen, pro Person ~30–60 Sek. Bei großer Gruppe ggf. nur E
 
 ---
 layout: cc
+nologo: true
 ---
 
 <span class="secno">00</span>
