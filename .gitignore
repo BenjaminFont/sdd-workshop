@@ -10,5 +10,17 @@
 **/_shots2/
 **/_shots3/
 
+# Node / Slidev
+node_modules/
+.slidev/
+
+# Agent-Skills (lokale Tooling-Artefakte)
+.agents/
+skills-lock.json
+
 # OS
 .DS_Store
+
+# Slidev-Export (regenerierbar via `slidev export`)
+slidev/slides-export.pdf
+slidev/dist/

@@ -1,0 +1,369 @@
+/* ===================================================================
+   codecentric-Style Theme für den SDD-Workshop — Slidev-Port
+   Portiert aus slides-v2/assets/theme.css (reveal.js).
+   Mapping: reveal-Slide-Root  ".reveal .slides > section"  ->  ".cc"
+            reveal-Deskendenten ".reveal X"                 ->  ".cc X"
+   Die Slide-Layouts (layouts/*.vue) setzen die Wrapper-Klasse .cc.
+   =================================================================== */
+
+:root {
+  /* Offizielle codecentric-Markenpalette */
+  --cc-black: #000000;
+  --cc-green: #22F4AE;     /* centric green – Primär, Akzent (// und Linie) */
+  --cc-blue:  #00C9EC;     /* code blue – Sekundär */
+  --cc-mint:  #47D9CB;     /* centric mint */
+  --cc-yellow:#F7EA2D;     /* yellow */
+  --cc-red:   #FF5A5F;     /* red */
+  --cc-iris:  #007286;     /* iris blue */
+  --cc-grey: #6b7280;
+  --cc-light: #f4f4f5;
+  /* Pastell-Töne für Dot-Bullets */
+  --dot-yellow: #fbf6ab;
+  --dot-blue:   #99e9f7;
+  --dot-green:  #a6fade;
+  --dot-pink:   #ff9c9f;
+}
+
+/* Schrift: Rubik (codecentric Markenschrift), lokal aus /public/fonts */
+@font-face { font-family:'Rubik'; font-weight:300; font-style:normal;
+  src:url('/fonts/Rubik-Light.ttf') format('truetype'); font-display:swap; }
+@font-face { font-family:'Rubik'; font-weight:400; font-style:normal;
+  src:url('/fonts/Rubik-Regular.ttf') format('truetype'); font-display:swap; }
+@font-face { font-family:'Rubik'; font-weight:500; font-style:normal;
+  src:url('/fonts/Rubik-Medium.ttf') format('truetype'); font-display:swap; }
+@font-face { font-family:'Rubik'; font-weight:700; font-style:normal;
+  src:url('/fonts/Rubik-Bold.ttf') format('truetype'); font-display:swap; }
+@font-face { font-family:'Rubik'; font-weight:900; font-style:normal;
+  src:url('/fonts/Rubik-Black.ttf') format('truetype'); font-display:swap; }
+@font-face { font-family:'Rubik'; font-weight:400; font-style:italic;
+  src:url('/fonts/Rubik-LightItalic.ttf') format('truetype'); font-display:swap; }
+
+/* Hintergrund des gesamten Decks weiß (reveal: .reveal-viewport) */
+.slidev-layout,
+#slide-content,
+.slidev-page { background: #ffffff; }
+
+/* ---------- Slide-Grundkörper (reveal: .reveal + .slides > section) ---------- */
+.slidev-layout.cc {
+  font-family: 'Rubik', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 32px;
+  color: var(--cc-black);
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: left;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 6% 7%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Standard-Inhaltsfolien: // -Headline an FESTER vertikaler Position verankern.
+   center-text und title-slide bleiben ausgenommen. */
+.slidev-layout.cc:not(.center-text):not(.title-slide) {
+  justify-content: flex-start;
+  padding-top: 11%;
+}
+
+/* center-text: vertikal + horizontal zentriert */
+.slidev-layout.cc.center-text {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.slidev-layout.cc.center-text > *:not(.footer-logo):not(.secno):not(.timing) { width: 100%; }
+.slidev-layout.cc.center-text > .footer-logo { width: auto; }
+
+/* Titel-Folien: Titel in der unteren Hälfte */
+.slidev-layout.cc.title-slide {
+  justify-content: flex-end;
+  padding-bottom: 12%;
+}
+
+/* ---------- Headlines ---------- */
+.cc h1, .cc h2, .cc h3 {
+  color: var(--cc-black);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  line-height: 1.05;
+  margin: 0 0 0.4em 0;
+}
+.cc h1 { font-size: 2.5em; font-weight: 800; }
+.cc h2 { font-size: 1.7em; }
+.cc h3 { font-size: 1.15em; font-weight: 600; }
+
+/* grüner // Marker vor Section-Headlines */
+.cc h2.slash::before { content: "// "; color: var(--cc-green); font-weight: 800; }
+.cc h2.slash { margin-top: 1.5em; }
+.cc.cc > h2.slash { margin-top: 0; }   /* direkt am Slide-Root: kein Extra-Abstand */
+
+/* Abstand zwischen Headline und nachfolgendem Inhaltsblock */
+.cc > ul.dots,
+.cc > .flow,
+.cc > table,
+.cc > .cards,
+.cc > .two-col { margin-top: 0.7em; }
+
+/* ---------- Section-Nummer oben links ---------- */
+.cc .secno {
+  position: absolute;
+  top: 4%;
+  left: 6%;
+  font-size: 0.8em;
+  font-weight: 600;
+  color: var(--cc-black);
+  letter-spacing: 0.02em;
+}
+
+/* ---------- Titel-Folie ---------- */
+.cc.title-slide h1 {
+  font-size: 3.1em;
+  border-left: 0.12em solid var(--cc-green);
+  padding-left: 0.3em;
+  text-align: left;
+}
+.cc.title-slide .subtitle {
+  color: var(--cc-grey);
+  font-weight: 500;
+  font-size: 1em;
+  margin-top: 0.6em;
+  padding-left: 0.42em;
+}
+
+/* ---------- Standard-Fließtext ---------- */
+.cc p.body { font-size: 0.92em; line-height: 1.55; }
+
+/* kleines Quell-/Herkunfts-Tag neben einer Headline */
+.cc .src-tag { color: var(--cc-grey); font-weight: 500; font-size: 0.42em; vertical-align: middle; }
+
+/* ---------- Pastell-Dot-Bullets ---------- */
+.cc ul.dots { list-style: none; margin-left: 0; font-size: 0.9em; padding-left: 0; }
+.cc ul.dots.compact { font-size: 0.78em; }
+.cc ul.dots li {
+  position: relative;
+  padding-left: 1.6em;
+  margin: 0.55em 0;
+  line-height: 1.3;
+}
+.cc ul.dots li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.32em;
+  width: 0.6em;
+  height: 0.6em;
+  border-radius: 50%;
+  background: var(--dot-green);
+}
+.cc ul.dots li:nth-child(4n+1)::before { background: var(--dot-yellow); }
+.cc ul.dots li:nth-child(4n+2)::before { background: var(--dot-blue); }
+.cc ul.dots li:nth-child(4n+3)::before { background: var(--dot-green); }
+.cc ul.dots li:nth-child(4n+4)::before { background: var(--dot-pink); }
+.cc ul.dots li.y::before { background: var(--dot-yellow) !important; }
+.cc ul.dots li.b::before { background: var(--dot-blue)   !important; }
+.cc ul.dots li.g::before { background: var(--dot-green)  !important; }
+.cc ul.dots li.p::before { background: var(--dot-pink)   !important; }
+
+/* schlichte Liste ohne Dots */
+.cc ul.plain { list-style: none; margin-left: 0; padding-left: 0; }
+.cc ul.plain li { margin: 0.5em 0; line-height: 1.3; }
+
+/* nummerierte Schritt-Liste (grüne Zähler) */
+.cc ol.steps { list-style: none; counter-reset: s; margin: 0.5em 0 0; padding: 0; }
+.cc ol.steps li {
+  counter-increment: s;
+  position: relative;
+  padding-left: 2em;
+  margin: 0.5em 0;
+  line-height: 1.35;
+  font-size: 0.84em;
+}
+.cc ol.steps li::before {
+  content: counter(s);
+  position: absolute; left: 0; top: 0.05em;
+  width: 1.35em; height: 1.35em;
+  background: var(--cc-green); color: var(--cc-black);
+  border-radius: 50%;
+  font-weight: 700; font-size: 0.8em;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ---------- große zentrale Aussage ---------- */
+.cc .big { font-size: 1.6em; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; }
+.cc .huge { font-size: 2.2em; font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; }
+.cc .lead { color: var(--cc-grey); font-weight: 500; font-size: 0.85em; }
+.cc .accent { color: var(--cc-green); }
+.cc .red { color: var(--cc-red); }
+.cc em.u { font-style: normal; border-bottom: 0.12em solid var(--cc-green); }
+
+.cc .underline-green {
+  display: inline-block;
+  border-bottom: 0.14em solid var(--cc-green);
+  padding-bottom: 0.1em;
+}
+
+/* ---------- Karten / Boxen ---------- */
+.cc .cards { display: flex; gap: 0.6em; margin-top: 0.5em; }
+.cc .card {
+  flex: 1;
+  border: 2px solid var(--cc-black);
+  border-radius: 14px;
+  padding: 0.7em 0.8em;
+  font-size: 0.8em;
+  background: #fff;
+}
+.cc .card.y { background: #fdfae3; border-color: #e3d24a; }
+.cc .card.b { background: #eaf7fd; border-color: #6cc3ec; }
+.cc .card.g { background: #e9fbf2; border-color: #5fd9a0; }
+.cc .card.p { background: #fdeef3; border-color: #ef93b1; }
+.cc .card h3 { font-size: 1em; margin-bottom: 0.2em; }
+
+/* ---------- Code ---------- */
+.cc pre {
+  width: 100%;
+  box-shadow: 0 6px 20px rgba(0,0,0,.10);
+  font-size: 0.72em;
+  border: none;
+  border-radius: 12px;
+  margin: 0.4em 0;
+}
+.cc pre code {
+  display: block;
+  padding: 1em 1.2em;
+  border-radius: 12px;
+  background: #1f2430;
+  color: #e6e6e6;
+  max-height: none;
+  line-height: 1.45;
+  font-family: 'Fira Code', 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+  white-space: pre;
+}
+.cc code.inline {
+  background: var(--cc-light);
+  padding: 0.05em 0.35em;
+  border-radius: 6px;
+  font-size: 0.92em;
+  font-family: 'Fira Code', 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+}
+
+/* ---------- Tabellen ---------- */
+.cc table { font-size: 0.72em; border-collapse: collapse; margin: 0.5em 0; width: 100%; }
+.cc table th {
+  background: var(--cc-green);
+  color: var(--cc-black);
+  font-weight: 600;
+  text-align: left;
+  padding: 0.55em 0.8em;
+  border: none;
+}
+.cc table td {
+  padding: 0.55em 0.8em;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: top;
+}
+.cc table tr:last-child td { border-bottom: none; }
+.cc table td:first-child { font-weight: 600; }
+
+/* ---------- rot/grün Pills ---------- */
+.cc .pill {
+  display: inline-block;
+  padding: 0.1em 0.6em;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.8em;
+}
+.cc .pill.green { background: var(--dot-green); color: #0a4934; }
+.cc .pill.red   { background: #ffcdcf; color: #b23e42; }
+.cc .pill.blue  { background: var(--dot-blue); color: #0a4a57; }
+
+/* ---------- Flow / Pfeile ---------- */
+.cc .flow {
+  display: flex; align-items: center; gap: 0.5em;
+  flex-wrap: wrap; font-weight: 500; font-size: 0.85em;
+}
+.cc .flow.compact { font-size: 0.72em; }
+.cc .flow .step { background: var(--cc-light); border-radius: 10px; padding: 0.4em 0.7em; }
+.cc .flow .arrow { color: var(--cc-green); font-weight: 700; }
+.cc .flow .step .gl { color: var(--cc-grey); font-weight: 400; font-size: 0.8em; font-style: italic; }
+.cc .flow.etym { align-items: stretch; flex-wrap: nowrap; font-size: 0.78em; gap: 0.35em; }
+.cc .flow.etym .step { display: flex; align-items: center; gap: 0.35em; padding: 0.4em 0.6em; white-space: nowrap; }
+.cc .flow.etym .arrow { flex: none; }
+
+/* ---------- Footer-Logo ---------- */
+.cc .footer-logo {
+  position: absolute;
+  bottom: 4.5%;
+  right: 6%;
+  display: flex;
+  align-items: center;
+}
+.cc .footer-logo img { height: 2.4em; width: auto; display: block; }
+
+/* ---------- Agenda-Liste (Akt 0) ---------- */
+.cc ul.agenda { list-style: none; margin: 0.4em 0 0; padding: 0; font-size: 0.9em; }
+.cc ul.agenda li {
+  display: flex; align-items: center; gap: 0.8em;
+  padding: 0.32em 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+.cc ul.agenda li:last-child { border-bottom: none; }
+.cc ul.agenda .ag-no { color: var(--cc-grey); font-weight: 700; font-size: 0.85em; width: 1.6em; }
+.cc ul.agenda .ag-ti { flex: 1; }
+.cc ul.agenda .pill { flex: none; }
+
+/* ---------- Trainer-Vorstellung (Akt 0) ---------- */
+.cc .trainers { display: flex; gap: 3em; justify-content: center; margin-top: 0.3em; }
+.cc .trainer { text-align: center; }
+.cc .trainer img { width: 200px; height: auto; display: block; }
+.cc .trainer .tname { font-weight: 700; font-size: 0.95em; margin-top: 0.4em; }
+.cc .guide-q { display: flex; gap: 0.6em; justify-content: center; flex-wrap: wrap; margin-top: 0.6em; }
+.cc .guide-q span {
+  background: var(--cc-light); border-radius: 999px;
+  padding: 0.4em 1em; font-weight: 500; font-size: 0.8em;
+}
+
+/* ---------- Example-Mapping-Karten (Mini) ---------- */
+.cc .em-card { border-radius: 8px; padding: 0.4em 0.6em; font-size: 0.62em; line-height: 1.25; margin: 0.3em 0; }
+.cc .em-row { display: flex; gap: 0.4em; }
+.cc .em-row > .em-card { flex: 1; margin: 0.3em 0 0; }
+.cc .em-story { background: #fdfae3; border: 1.5px solid #e3d24a; }
+.cc .em-rule  { background: #eaf7fd; border: 1.5px solid #6cc3ec; }
+.cc .em-ex    { background: #e9fbf2; border: 1.5px solid #5fd9a0; }
+.cc .em-q     { background: #fdeef3; border: 1.5px solid #ef93b1; }
+
+/* Hinweis / Notiz */
+.cc .note { color: var(--cc-grey); font-size: 0.72em; font-weight: 500; margin-top: 0.8em; }
+
+/* timing badge oben rechts */
+.cc .timing {
+  position: absolute;
+  top: 4%;
+  right: 5%;
+  font-size: 0.6em;
+  font-weight: 700;
+  color: var(--cc-grey);
+  background: var(--cc-light);
+  padding: 0.25em 0.7em;
+  border-radius: 999px;
+}
+
+/* zweispaltig */
+.cc .two-col { display: flex; gap: 1.2em; }
+.cc .two-col > div { flex: 1; }
+
+/* Inline-Helfer */
+.cc strong { font-weight: 700; }
+.cc a { color: inherit; }
+.cc p { margin: 0; }
+
+/* Slidev-Standard-Controls/Progress an die Marke angleichen */
+.slidev-controls { color: var(--cc-green); }
+
+/* Dev-Modus: Das "Go to"-Panel (Goto.vue) parkt geschlossen mit .-top-20
+   oberhalb des Viewports, seine Vorschlagsliste ragt aber wieder ins Bild.
+   Liste im geschlossenen Zustand ausblenden — die g-Sprungfunktion bleibt. */
+.fixed.right-5.-top-20 .autocomplete-list { display: none !important; }
