@@ -330,9 +330,11 @@
 }
 .reveal .flow .arrow { color: var(--cc-green); font-weight: 700; }
 .reveal .flow .step .gl { color: var(--cc-grey); font-weight: 400; font-size: 0.8em; font-style: italic; }
-/* Etymologie-Reihe: alle Boxen gleiche Höhe, Begriff + Glosse nebeneinander */
-.reveal .flow.etym { align-items: stretch; }
-.reveal .flow.etym .step { display: flex; align-items: center; gap: 0.4em; }
+/* Etymologie-Reihe: alle vier Boxen in EINER Reihe, gleiche Höhe,
+   Begriff + Glosse nebeneinander. nowrap erzwingt die einzelne Zeile. */
+.reveal .flow.etym { align-items: stretch; flex-wrap: nowrap; font-size: 0.78em; gap: 0.35em; }
+.reveal .flow.etym .step { display: flex; align-items: center; gap: 0.35em; padding: 0.4em 0.6em; white-space: nowrap; }
+.reveal .flow.etym .arrow { flex: none; }
 
 /* ---------- Footer-Logo (echtes codecentric-Primärlogo) ---------- */
 .reveal .footer-logo {

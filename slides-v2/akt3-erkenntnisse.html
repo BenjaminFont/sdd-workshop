@@ -41,15 +41,72 @@
     </aside>
   </section>
 
+  <!-- Was ist ein Szenario (Given-When-Then) -->
+  <section>
+    <span class="secno">03</span>
+    <h2 class="slash">Das Given-When-Then-Szenario</h2>
+    <p class="body">Ein Szenario beschreibt Verhalten in drei Schritten — lesbar für Mensch <em>und</em> Maschine:</p>
+    <div class="two-col" style="margin-top:0.5em">
+      <div>
+        <ul class="dots compact">
+          <li class="b"><strong>Given</strong> — die Vorbedingung (Ausgangslage)</li>
+          <li class="g"><strong>When</strong> — die Aktion (was passiert)</li>
+          <li class="y"><strong>Then</strong> — das erwartete Ergebnis</li>
+        </ul>
+      </div>
+      <div>
+        <pre style="margin:0"><code class="language-gherkin">Szenario: Konflikt, neuere Version
+  Given Rule "x" v1.0 liegt im Repo
+  When  ich "x" v1.2 importiere
+  Then  wird sie überschrieben</code></pre>
+      </div>
+    </div>
+    <p class="note">Aus BDD (Dan North, ~2006); als <strong>Gherkin</strong> formalisiert durch Cucumber (~2008).</p>
+    <aside class="notes">
+      Einführungsfolie: Was ist überhaupt ein Given-When-Then-Szenario — bevor wir behaupten, es sei fast ein Test.<br>
+      <strong>Ziel:</strong> Das Format konkret machen, damit die folgende „fast ein Test"-Aussage trägt.<br>
+      Sprech-Faden: Ein Szenario hat immer dieselben drei Teile — <strong>Given</strong> (die Ausgangslage/Vorbedingung), <strong>When</strong> (die Aktion) und <strong>Then</strong> (das erwartete Ergebnis). Das ist bewusst so geschrieben, dass es sowohl ein Mensch lesen als auch eine Maschine ausführen kann. Beispiel rechts in unserer Domäne: Liegt eine Rule in v1.0 im Repo und ich importiere v1.2, wird sie überschrieben.<br>
+      Herkunft kurz einordnen: Das stammt aus <strong>BDD</strong> (Behavior-Driven Development, Dan North, ~2006) und wurde als <strong>Gherkin</strong>-Sprache durch das Tool <strong>Cucumber</strong> (~2008) formalisiert. Jahreszahlen sind die etablierten Community-Eckdaten.
+    </aside>
+  </section>
+
+  <!-- Schon im Einsatz: OpenSpec & BMAD -->
+  <section>
+    <span class="secno">03</span>
+    <h2 class="slash">Schon im Einsatz</h2>
+    <p class="body">Dieses Format ist kein Nischending — die Frameworks nutzen es längst:</p>
+    <div class="two-col" style="margin-top:0.5em">
+      <div class="card b">
+        <h3>OpenSpec</h3>
+        <p class="lead"><code class="inline">#### Scenario:</code> mit Given/When/Then in den Requirements <strong>und</strong> in den Delta-Specs (ADDED/MODIFIED/REMOVED).</p>
+      </div>
+      <div class="card g">
+        <h3>BMAD</h3>
+        <p class="lead">Das Epics-Template schreibt <strong>Akzeptanzkriterien im Given/When/Then-Format</strong> für jede Story fest vor.</p>
+      </div>
+    </div>
+    <p class="note">Nur: dort bleibt es <strong>Prosa/Markdown</strong>. Wir machen es gleich <em class="u">ausführbar</em>.</p>
+    <aside class="notes">
+      Glaubwürdigkeitsfolie: Das Given-When-Then-Format ist etabliert — zwei der vorgestellten Frameworks bauen direkt darauf.<br>
+      <strong>Ziel:</strong> Zeigen, dass wir nichts Exotisches einführen; wir machen nur konsequent ausführbar, was andere als Prosa stehen lassen. (Recherchiert aus den offiziellen Repos.)<br>
+      Stichpunkte:
+      <br>• <strong>OpenSpec</strong> nutzt <code class="inline">#### Scenario:</code> mit Given/When/Then sowohl in den festen Specs als auch in den Delta-Specs (ADDED/MODIFIED/REMOVED) — die Doku nennt Szenarien ausdrücklich „concrete examples that can be verified".
+      <br>• <strong>BMAD</strong> verdrahtet im Epics-Template die Akzeptanzkriterien jeder Story im Given/When/Then-Format („Each AC should be independently testable").
+      <br>• Der entscheidende Unterschied: In beiden bleibt das GWT <strong>Markdown/Prosa</strong> — es wird nicht an den Code gebunden. Genau diesen letzten Schritt (ausführbar machen) gehen wir gleich.
+    </aside>
+  </section>
+
   <!-- Der Sprung: Szenario = Test -->
   <section class="center-text">
     <span class="secno">03</span>
-    <p class="big">Ein Szenario ist zu 90&nbsp;%<br>schon ein Test.</p>
-    <p class="huge" style="margin-top:0.6em">binden statt generieren<br>→ <span class="accent">Contract</span></p>
+    <p class="big">Ein Szenario ist schon<br>der <em class="u">größte Teil</em> eines Tests.</p>
+    <p class="note" style="margin-top:0.5em">Es fehlt nur die Bindung an den Code — die <strong>Step Definitions</strong>.</p>
+    <p class="huge" style="margin-top:0.7em">binden statt generieren<br>→ <span class="accent">Contract</span></p>
     <aside class="notes">
-      Die zentrale Aha-Folie: Ein Given-When-Then-Szenario ist zu ~90&nbsp;% schon ein ausführbarer Test.<br>
+      Die zentrale Aha-Folie: Ein Given-When-Then-Szenario ist schon der größte Teil eines ausführbaren Tests.<br>
       <strong>Ziel:</strong> Den gedanklichen Sprung verankern — der Weg zum erzwungenen Contract ist viel kürzer, als man denkt.<br>
-      Stichpunkte: Ein Szenario hat bereits Vorbedingung, Aktion und erwartetes Ergebnis — es fehlt nur die Bindung an den echten Code. Entscheidend ist „<strong>binden statt generieren</strong>": Wir lassen die KI den Test nicht aus der Spec generieren (dann driftet er wieder weg), sondern binden das Szenario fest an den Code. Aus „⚠ wahrscheinlich korrekt" wird ein deterministisches rot/grün — ein Contract. Das „binden vs. generieren" greifen wir auf der nächsten Folie konkret auf.
+      Ehrliche Präzisierung (bewusst keine erfundene Prozentzahl): Ein Szenario ist bereits die vollständige <strong>Test-Spezifikation</strong> — Vorbedingung, Aktion, erwartetes Ergebnis stehen drin. Was zum lauffähigen Test fehlt, ist die technische Anbindung: die <strong>Step Definitions</strong> (Glue Code), die jeden Given/When/Then-Satz an echten Code knüpfen.<br>
+      Entscheidend ist „<strong>binden statt generieren</strong>": Wir lassen die KI den Test nicht aus der Spec generieren (dann driftet er wieder weg), sondern binden das Szenario fest an den Code. Aus „⚠ wahrscheinlich korrekt" wird ein deterministisches rot/grün — ein Contract. Das „binden vs. generieren" greifen wir auf der nächsten Folie konkret auf.
     </aside>
   </section>
 
