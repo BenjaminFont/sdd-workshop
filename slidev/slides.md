@@ -19,7 +19,9 @@ mdc: true
 <h1>Spec Driven Development &amp; BMAD</h1>
 
 <!--
-Cover des Decks. Workshop-Überblick: ~7 Stunden, der Bogen von „Vibe Coding" zu professioneller, spec-getriebener Softwareentwicklung. Navigation: Pfeiltasten · F Vollbild · O Übersicht · Presenter-Modus für die Notes.
+• Cover · Workshop-Überblick ~7 Std
+• Bogen: „Vibe Coding" → professionelle, spec-getriebene Entwicklung
+• Navigation: Pfeiltasten · F Vollbild · O Übersicht · Presenter-Modus für Notes
 -->
 
 ---

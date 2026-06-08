@@ -8,11 +8,11 @@ nologo: true
 <h1>Pfad A — BMAD</h1>
 
 <!--
-Titelfolie für Akt 5 „Pfad A: BMAD" - der erste der beiden Hands-on-Pfade.
-Ziel: Den Rahmen setzen - wir fahren jetzt denselben import-Schnitt aus dem gemeinsamen Example Mapping durch BMAD. Das Stichwort „schwer per Default" ist programmatisch.
-• BMAD bewusst zuerst - dramaturgisch, damit ihr die Schwere/Zeremonie körperlich spürt, bevor in Akt 6 die schlanke Form die Erleichterung bringt.
-• 70 Minuten, Einzelarbeit. Wir bauen nicht bis zum fertigen Feature.
-• Erinnern: BMAD ist vorab installiert, hier nur loslegen.
+• Pfad A: BMAD, erster Hands-on-Pfad
+• gleicher import-Schnitt aus Example Mapping, jetzt durch BMAD
+• „schwer per Default" — Schwere/Zeremonie bewusst zuerst spüren
+• 70 Min, Einzelarbeit, nicht bis fertiges Feature
+• BMAD vorab installiert, nur loslegen
 -->
 
 ---
@@ -29,11 +29,11 @@ layout: cc
 <p class="note">Charakteristischer Punkt — <strong>nicht</strong> bis zum fertigen Feature.</p>
 
 <!--
-Die konkrete Hands-on-Aufgabe: Den import-Schnitt durch BMAD fahren, bis Stories vorliegen, plus ein erster dev-story-Lauf.
-Ziel: Den Stopp-Punkt glasklar setzen - der „charakteristische Punkt" ist nicht das fertige Feature.
-• Der Aha liegt im Weg: Rollen, PRD→Arch→Epics, Traceability, frische Chats, viele Approvals - nicht im fertigen Code.
-• Stoppt bewusst, sobald Stories liegen und ihr dev-story einmal angestoßen habt.
-• Notausgang, falls die Zeit kippt: bmad-quick-dev (schlanker Modus, nicht default) fährt nicht die volle 4-Phasen-Pipeline, sondern routet zum kleinsten sicheren Pfad - aber dann verliert ihr genau die Rollen/Artefakte. Primär den vollen Pfad fahren.
+• Aufgabe: import-Schnitt durch BMAD, bis Stories vorliegen, + erster dev-story-Lauf
+• Stopp-Punkt: nicht fertiges Feature
+• Aha liegt im Weg: Rollen, PRD→Arch→Epics, Traceability, frische Chats, viele Approvals
+• Stoppen, sobald Stories da + dev-story einmal angestoßen
+• Notausgang bei Zeitnot: bmad-quick-dev (schlank, nicht default), aber verliert Rollen/Artefakte → primär voller Pfad
 -->
 
 ---
@@ -54,15 +54,11 @@ Unsicher, was als Nächstes dran ist? <code class="inline">bmad-help</code> navi
 </ol>
 
 <!--
-Konkrete Vorgehens-Folie: Wie startet man den BMAD-Prozess praktisch, nachdem BMAD aufgesetzt ist - mit den echten v6/BMM-Befehlen.
-Ziel: Die Teilnehmer handlungsfähig machen - sie sollen wissen, welche Skills sie in welcher Reihenfolge aufrufen, statt vor einer leeren IDE zu sitzen.
-Faktenbasis: recherchiert aus offizieller BMAD-Doku (docs.bmad-method.org) und README; Aufruf in v6 erfolgt über bmad-*-Skill-Namen (kein /bmad:-Slash, kein @agent), primär in der IDE (Claude Code / Cursor).
-Was du sagen kannst:
-• Voraussetzung: BMAD ist vorab via npx bmad-method install (Modul „BMad Method / BMM") eingerichtet - heute nur verifizieren.
-• Aufruf-Mechanik: Workflows ruft ihr über ihren Skill-Namen auf, die IDE erkennt sie. Faustregel: pro Workflow ein frischer Chat (sauberer Kontext). bmad-help ist der Navigator und sagt euch kontextabhängig den nächsten Schritt.
-• Reihenfolge (BMM, v6): Planning bmad-prd → Solutioning bmad-create-architecture + bmad-create-epics-and-stories (Architektur bewusst vor den Stories) → bmad-check-implementation-readiness → Implementation bmad-sprint-planning, dann pro Story der Loop bmad-create-story → bmad-dev-story → bmad-code-review.
-• Optionale Analysis-Phase (Analyst: bmad-brainstorming, bmad-product-brief) überspringen wir heute - euer Domänenverständnis aus dem Mapping reicht als Input fürs PRD.
-• Stopp-Punkt: Sobald Stories vorliegen und ihr bmad-dev-story einmal angestoßen habt - nicht bis zum fertigen Feature.
-• Notausgang bei Zeitnot: bmad-quick-dev (schlanker Modus, nicht default) komprimiert Intent → lässt eine Spec bestätigen → routet zum kleinsten sicheren Pfad (One-Shot direkt, sonst leichte Planung) und läuft dann länger autonom - genauer als „überspringt Architektur/Phasen". Dann verliert ihr aber genau die Rollen/Artefakte, die den Aha ausmachen. Und auch quick-dev fügt KEINE Drift-Detection hinzu (Spec bleibt generativ, Review agentisch). Primär den vollen Pfad fahren.
-• Reflexion zum Schluss (Brücke zu Akt 6): „Spürt das Gewicht - wie viel Prozess pro Zeile Code?" Gleich dieselbe Domäne durch die schlanke, contract-getriebene Form, dann urteilt ihr selbst.
+• Voraussetzung: BMAD via npx bmad-method install (Modul BMM), heute nur verifizieren
+• Aufruf-Mechanik: Workflows über Skill-Namen, IDE erkennt sie; pro Workflow frischer Chat; bmad-help navigiert
+• Reihenfolge: Planning bmad-prd → Solutioning bmad-create-architecture + bmad-create-epics-and-stories (Arch vor Stories) → bmad-check-implementation-readiness → Implementation bmad-sprint-planning, dann Loop create-story → dev-story → code-review
+• Optionale Analysis-Phase (brainstorming, product-brief) überspringen, Mapping reicht als PRD-Input
+• Stopp: Stories da + dev-story einmal angestoßen, nicht fertiges Feature
+• Notausgang Zeitnot: bmad-quick-dev (schlank, nicht default), kleinster sicherer Pfad, aber verliert Rollen/Artefakte; keine Drift-Detection → primär voller Pfad
+• Reflexion / Brücke Akt 6: „Spürt das Gewicht, wie viel Prozess pro Zeile Code?"
 -->

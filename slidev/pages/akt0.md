@@ -8,9 +8,10 @@ nologo: true
 <h1>Wer wir sind</h1>
 
 <!--
-Titelfolie für Akt 0 — das Ankommen, noch vor dem inhaltlichen Einstieg.
-Ziel: Eine kurze, persönliche Eröffnung. Wir stellen uns als Trainer vor und holen danach die Teilnehmer ab, bevor es um Specs geht.
-Was du sagen kannst: „Bevor wir inhaltlich starten — kurz zu uns, und dann sind wir gespannt auf euch."
+• Akt 0: Ankommen, vor dem Einstieg
+• Kurze persönliche Eröffnung
+• Erst wir, dann Teilnehmer abholen
+• „Kurz zu uns, dann sind wir gespannt auf euch"
 -->
 
 ---
@@ -37,14 +38,13 @@ layout: cc
 </div>
 
 <!--
-Vorstellungsfolie der beiden Trainer mit Profilbildern und Namen — darunter die Leitfragen, an denen wir uns entlanghangeln.
-Ziel: Persönlich werden, Glaubwürdigkeit aufbauen und gleichzeitig das Format der Leitfragen vorgeben, das wir gleich ans Publikum weitergeben.
-Was du sagen kannst — an den vier Leitfragen entlang:
-• Name & Rolle: Wer bin ich.
-• Position: Was ich bei codecentric mache.
-• Erfahrung mit AI: Womit ich bei KI-Coding arbeite, was ich schon ausprobiert habe.
-• Erwartung an heute: Was ich mir vom Tag erhoffe.
-Kurz halten (~je 1–2 min) — die Bühne gehört gleich den Teilnehmern.
+• Zwei Trainer, persönlich werden, Glaubwürdigkeit
+• Format der Leitfragen vorgeben (gleich ans Publikum)
+• Name & Rolle: wer bin ich
+• Position: was bei codecentric
+• Erfahrung mit AI: womit ich arbeite, ausprobiert
+• Erwartung an heute
+• Kurz halten (~1–2 min je), Bühne gehört Teilnehmern
 -->
 
 ---
@@ -62,10 +62,12 @@ variant: center
 </div>
 
 <!--
-Übergabe ans Publikum — dieselben vier Leitfragen, jetzt für die Teilnehmer.
-Ziel: Jede:n einmal kurz zu Wort kommen lassen — das senkt die Hemmschwelle für den restlichen Tag und gibt uns ein Bild von Vorerfahrung und Erwartungen.
-Was du sagen kannst: „Gleiche vier Fragen, eine kurze Runde — Name, Position, eure Erfahrung mit AI, und was ihr euch von heute erhofft."
-Moderation: Reihum gehen, pro Person ~30–60 Sek. Bei großer Gruppe ggf. nur Erfahrung mit AI + Erwartung abfragen, um in der Zeit zu bleiben. Die Erwartungen kurz mitnotieren — am Ende (Akt 7) lässt sich daran anknüpfen.
+• Übergabe ans Publikum: dieselben vier Leitfragen
+• Jede:n kurz zu Wort, senkt Hemmschwelle
+• Bild von Vorerfahrung & Erwartungen
+• Moderation: reihum, ~30–60 Sek pro Person
+• Große Gruppe: nur AI-Erfahrung + Erwartung
+• Erwartungen mitnotieren, Anknüpfung in Akt 7
 -->
 
 ---
@@ -78,7 +80,7 @@ nologo: true
 <ul class="agenda">
   <li><span class="ag-no">01</span><span class="ag-ti">Was ist eine Spec?</span><span class="pill green">Theorie</span></li>
   <li><span class="ag-no">02</span><span class="ag-ti">Drei Frameworks, vier Phasen</span><span class="pill green">Theorie</span></li>
-  <li><span class="ag-no">03</span><span class="ag-ti">Von lebend zu erzwungen</span><span class="pill green">Theorie</span></li>
+  <li><span class="ag-no">03</span><span class="ag-ti">Die Spec als Source of Truth</span><span class="pill green">Theorie</span></li>
   <li><span class="ag-no">04</span><span class="ag-ti">Vision &amp; Discovery — Example Mapping</span><span class="pill blue">Hands-on 🛠</span></li>
   <li><span class="ag-no">05</span><span class="ag-ti">Pfad A — BMAD</span><span class="pill blue">Hands-on 🛠</span></li>
   <li><span class="ag-no">06</span><span class="ag-ti">Pfad B — unsere Form</span><span class="pill blue">Hands-on 🛠</span></li>
@@ -87,11 +89,10 @@ nologo: true
 <p class="note">Vormittags die Grundlagen, ab Mittag baut ihr selbst — zweimal denselben Schnitt.</p>
 
 <!--
-Agenda-Überblick: der grobe Fahrplan des Tages mit klarer Theorie/Praxis-Kennzeichnung.
-Ziel: Orientierung geben und die Erwartung setzen — der Tag ist kein Vortrag, der größere Teil ist Hands-on. Das motiviert und nimmt die Angst vor „zu viel Theorie".
-Was du sagen kannst:
-• Drei kompakte Theorie-Blöcke am Vormittag (Akt 1–3): Was ist eine Spec, die Framework-Landschaft, und der Sprung zum erzwungenen Contract.
-• Ab Mittag der große praktische Teil (Akt 4–6): erst gemeinsame Discovery, dann baut ihr denselben Schnitt zweimal — einmal mit BMAD, einmal mit unserer schlanken Form.
-• Zum Abschluss (Akt 7) ziehen wir gemeinsam im Plenum das Fazit.
-• Betonen: Der Schwerpunkt liegt klar auf dem Selbermachen — die Theorie ist nur das Fundament dafür.
+• Fahrplan, Theorie/Praxis gekennzeichnet
+• Orientierung: kein Vortrag, größter Teil Hands-on
+• Vormittag (Akt 1–3): Was ist Spec, Frameworks, erzwungener Contract
+• Mittag (Akt 4–6): erst Discovery, dann Schnitt zweimal (BMAD + schlanke Form)
+• Akt 7: Fazit im Plenum
+• Schwerpunkt Selbermachen, Theorie nur Fundament
 -->

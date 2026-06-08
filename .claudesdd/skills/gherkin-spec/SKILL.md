@@ -84,22 +84,41 @@ Feature: Rule import
 > **RED happens ⟺ (what the scenario asserts) ≠ (what the code does).**
 > A requirement that never reaches Given/When/Then can never reach RED.
 
-### Domain form: file = one domain, not one feature
+### Domain form: file = one domain, Rule = requirement
 
 A `.feature` file is **one domain / bounded context**, not one feature.
-Inside it (OpenSpec form, Kap. 4):
+Gherkin allows **exactly one `Feature:` per file** — so the `Feature:`
+is the *domain*, never a single requirement. A requirement is a
+**`Rule:`** block nested under it; the examples are `Scenario:` blocks
+nested under the rule (OpenSpec form, Kap. 4):
 
 ```
 import.feature        ← the domain (one file)
-  Feature: …          ← Requirement (smallest add/modify/remove unit)
-    Scenario: …       ← Given/When/Then, testable
-    Scenario: …
+  Feature: …          ← the DOMAIN (exactly one per file)
+    Rule: …           ← Requirement (smallest add/modify/remove unit)
+      Scenario: …     ← Given/When/Then, testable
+      Scenario: …
+    Rule: …           ← next requirement
+      Scenario: …
 ```
 
-New behaviour is a **new Scenario inside an existing domain file**, not
+This is a hard Gherkin constraint, not a style choice: a file with two
+`Feature:` lines is a **parse error**. Multiple requirements in one
+domain therefore become multiple `Rule:` blocks, never multiple
+`Feature:` blocks.
+
+The card mapping is 1:1:
+
+| Example Mapping card | Gherkin |
+|---|---|
+| Story / domain (the file) | one `Feature:` |
+| blue **Rule** card | `Rule:` |
+| green **Example** card | `Scenario:` |
+
+New behaviour is a **new Scenario** under the matching `Rule:` (or a
+new `Rule:` for a new requirement) inside the existing domain file, not
 a new file per feature — so `features/` grows per domain, not per
-feature. A blue **Rule** card becomes a Requirement; a green **Example**
-card becomes a Scenario.
+feature.
 
 ### Vocabulary discipline — reuse sentence building blocks
 
@@ -125,11 +144,14 @@ behavioural reason. Therefore:
    `import`). One domain per file; if the cards span two domains, ask
    the user whether to split.
 
-3. **Phrase one Scenario per green card.** Each `input → expected
-   output` becomes `Given (input/context) / When (action) / Then
-   (expected output)`. Include boundary cards (equal version, downgrade,
-   first install) — they are exactly the scenarios that expose `<` vs.
-   `<=` style bugs.
+3. **Phrase one Scenario per green card, grouped under its Rule.** The
+   file gets **one** `Feature:` (the domain). Each blue card becomes a
+   `Rule:` block; each green card under it becomes a `Scenario:` with
+   `Given (input/context) / When (action) / Then (expected output)`.
+   Include boundary cards (equal version, downgrade, first install) —
+   they are exactly the scenarios that expose `<` vs. `<=` style bugs.
+   Never emit a second `Feature:` for a second requirement; that is a
+   parse error — use another `Rule:`.
 
 4. **Fix the vocabulary.** Before writing, settle the canonical sentence
    stems and the parametrised slots. Use `AskUserQuestion` only if a
@@ -167,28 +189,36 @@ Feature: Rule import
   comparison to decide, on a name conflict, whether to overwrite —
   so a repo never silently downgrades a rule.
 
-  Scenario: First install of a rule
-    Given a repo with no rule named "no-emojis"
-    When the rule "no-emojis" at version "1.2.0" is imported
-    Then the rule "no-emojis" is installed at version "1.2.0"
+  Rule: A rule with no name conflict is installed as-is
 
-  Scenario: Newer version overwrites the existing rule
-    Given an installed rule "no-emojis" at version "1.2.0"
-    When the rule "no-emojis" at version "1.3.0" is imported
-    Then the rule "no-emojis" is installed at version "1.3.0"
+    Scenario: First install of a rule
+      Given a repo with no rule named "no-emojis"
+      When the rule "no-emojis" at version "1.2.0" is imported
+      Then the rule "no-emojis" is installed at version "1.2.0"
 
-  Scenario: Older version is rejected
-    Given an installed rule "no-emojis" at version "1.2.0"
-    When the rule "no-emojis" at version "1.1.0" is imported
-    Then the import is rejected
-    And the rule "no-emojis" is installed at version "1.2.0"
+  Rule: On a name conflict, only a strictly newer version overwrites
 
-  Scenario: Equal version is rejected
-    Given an installed rule "no-emojis" at version "1.2.0"
-    When the rule "no-emojis" at version "1.2.0" is imported
-    Then the import is rejected
-    And the rule "no-emojis" is installed at version "1.2.0"
+    Scenario: Newer version overwrites the existing rule
+      Given an installed rule "no-emojis" at version "1.2.0"
+      When the rule "no-emojis" at version "1.3.0" is imported
+      Then the rule "no-emojis" is installed at version "1.3.0"
+
+    Scenario: Older version is rejected
+      Given an installed rule "no-emojis" at version "1.2.0"
+      When the rule "no-emojis" at version "1.1.0" is imported
+      Then the import is rejected
+      And the rule "no-emojis" is installed at version "1.2.0"
+
+    Scenario: Equal version is rejected
+      Given an installed rule "no-emojis" at version "1.2.0"
+      When the rule "no-emojis" at version "1.2.0" is imported
+      Then the import is rejected
+      And the rule "no-emojis" is installed at version "1.2.0"
 ```
+
+Note how the two blue cards became two `Rule:` blocks under the single
+`Feature:`, and the four green cards became `Scenario:` blocks nested
+under the rule they belong to.
 
 Note the shared stems — `an installed rule {string} at version {string}`,
 `the rule {string} at version {string} is imported`, `installed at
@@ -202,6 +232,10 @@ cards that pin down the SemVer rule precisely.
   `Feature:` instead of in a Scenario. → Wrong. It runs GREEN forever.
 - **One file per feature.** Creating `overwrite.feature`,
   `reject.feature`, … → Wrong. One domain file, many Scenarios.
+- **One `Feature:` per requirement.** Emitting a second `Feature:` block
+  for the next blue card. → Wrong. Gherkin allows exactly one `Feature:`
+  per file; a second is a **parse error**. A requirement is a `Rule:`,
+  not a `Feature:`.
 - **Inventing a scenario.** No green card for the equal-version case but
   writing it anyway. → Wrong. Ask, or send the user back to
   `/example-mapping`.

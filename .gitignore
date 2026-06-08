@@ -24,3 +24,6 @@ skills-lock.json
 # Slidev-Export (regenerierbar via `slidev export`)
 slidev/slides-export.pdf
 slidev/dist/
+
+# Lokales Spielprojekt zum Workflow-Testen (nicht Teil des Decks)
+example-project/

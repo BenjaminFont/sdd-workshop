@@ -8,9 +8,11 @@ nologo: true
 <h1>Pfad B — Unsere Form</h1>
 
 <!--
-Titelfolie zu Akt 6 — dem Hands-on-Höhepunkt des Workshops (ca. 70 min).
-Ziel: Den Bogen spannen — wir verlassen die Theorie und bauen jetzt selbst einen ausführbaren, drift-sicheren Contract.
-Was du sagen kannst: „Pfad B ist unsere schlanke Default-Form." Bewusst kommt dieser Akt nach dem Vergleich — erst die Erleichterung, dann der Payoff. Wir starten nicht bei null: dieselben grünen Karten aus dem Example Mapping, jetzt zum ausführbaren Contract.
+• Akt 6: Hands-on-Höhepunkt, ca. 70 min
+• Pfad B = schlanke Default-Form
+• Theorie verlassen → ausführbarer, drift-sicherer Contract
+• nach dem Vergleich: erst Erleichterung, dann Payoff
+• Start nicht bei null: grüne Karten aus Example Mapping
 -->
 
 ---
@@ -29,13 +31,11 @@ layout: cc
 <p class="note">Binden via Cucumber, <code class="inline">strict</code>. Am Ende: roter Lauf bei Abweichung.</p>
 
 <!--
-Diese Folie zeigt den kompletten Ablauf des Akts in fünf Schritten als Pfeil-Kette.
-Ziel: Den roten Faden geben, bevor wir loslegen — damit jede:r weiß, wohin die Reise geht.
-Was du sagen kannst:
-• Grüne Karten werden zu Gherkin (Given/When/Then) — der lesbaren Fließtext-Spec.
-• Binden heißt: Step-Definitionen schreiben, die jeden Satz ans echte Verhalten koppeln — via Cucumber, mit strict.
-• Grün: Agent baut den Code, bis der Contract erfüllt ist.
-• Drift: zum Schluss eine Zahl/Grenze ändern → CI wird rot. Das ist der Höhepunkt, auf den alles zuläuft.
+• roter Faden vorab: 5 Schritte als Pfeil-Kette
+• grüne Karten → Gherkin (Given/When/Then)
+• binden: Step-Defs koppeln Satz ans Verhalten, Cucumber strict
+• grün: Agent baut Code bis Contract erfüllt
+• Drift: Zahl/Grenze ändern → CI rot, der Höhepunkt
 -->
 
 ---
@@ -57,12 +57,12 @@ layout: cc
 <p class="note">Wir <em class="u">binden</em>, wir generieren nicht.</p>
 
 <!--
-Die Folie stellt die zwei Schichten gegenüber: die .feature-Fließtext und die steps/*-Code-Übersetzung.
-Ziel: Die zentrale Einsicht setzen — Lesbarkeit und Ausführbarkeit schließen sich nicht aus, weil sie auf zwei Ebenen liegen.
-Was du sagen kannst:
-• Die .feature-Datei ist reine Fließtext — ein Domänenexperte liest und bestätigt sie, ohne je Code zu sehen.
-• Die Step-Definitionen schreibt man einmal; sie binden jeden Satz-Typ ans System.
-• Schlüsselsatz: „Wir binden, wir generieren nicht." Es gibt keine generierte zweite Testdatei, die auseinanderdriften könnte — das Szenario ist der Test. Genau deshalb ist Drift hier strukturell unmöglich.
+• zwei Schichten: .feature-Fließtext vs. steps/*-Code
+• Lesbarkeit + Ausführbarkeit kein Widerspruch, zwei Ebenen
+• .feature: Domänenexperte liest/bestätigt, kein Code
+• Step-Defs einmal geschrieben, binden jeden Satz-Typ
+• Schlüssel: binden, nicht generieren
+• keine zweite Testdatei → Drift strukturell unmöglich
 -->
 
 ---
@@ -81,13 +81,11 @@ layout: cc
 <p class="note">Charakteristischer Punkt: <strong>Contract grün + Drift rot</strong> — erlebt.</p>
 
 <!--
-Übergabe ins Hands-on, Teil 1 — der Auftrag mit Rückgriff auf das gemeinsame Example Mapping.
-Ziel: Klarmachen, dass wir nicht bei null starten — die grünen Karten von vorhin sind der Input — und das Erfolgskriterium benennen: „Contract grün + Drift rot, selbst erlebt".
-Was du sagen kannst:
-• Rückgriff: „Das Example Mapping haben wir vorhin gemeinsam gemacht — die grünen Karten (Input → erwartetes Ergebnis) sind genau das, was wir jetzt zum Contract führen."
-• Die Spec bleibt: Example Map + Feature-Spec tragen das WAS/WARUM; die .feature trägt das Verhalten; Cucumber das Enforcement. Drei Jobs, kein Widerspruch.
-• Zwei Schleifen: außen die .feature-Szenarien (ATDD) als „fertig"-Definition, innen pro Schritt klassisch TDD.
-• Erfolg ist nicht „läuft", sondern beide Zustände erlebt: grün und absichtlich rot.
+• Hands-on Teil 1: Auftrag, Rückgriff Example Mapping
+• nicht bei null: grüne Karten (Input → Ergebnis) sind Input
+• Spec bleibt: Example Map + Feature-Spec = WAS/WARUM; .feature = Verhalten; Cucumber = Enforcement
+• zwei Schleifen: außen .feature-Szenarien (ATDD), innen TDD
+• Erfolg = beide Zustände erlebt: grün + absichtlich rot
 -->
 
 ---
@@ -106,25 +104,22 @@ layout: cc
 </ol>
 
 <!--
-Übergabe ins Hands-on, Teil 2 — die konkrete Schritt-für-Schritt-Anleitung unserer Form, damit niemand vor leerer IDE sitzt.
-Ziel: Den genauen Weg vom Foto der Example Map bis zum erzwungenen Contract zeigen — mit den echten Skill-Namen.
-Wichtige Begriffsklärung (falls gefragt): die GRÜNEN Karten sind die Beispiele (Input → erwartetes Ergebnis). Die werden zu SZENARIEN (Given/When/Then). Blaue Regeln werden zum Feature/Requirement-Rahmen. Erst die gebundenen Szenarien SIND die Akzeptanzkriterien.
-Was du sagen kannst, Schritt für Schritt:
-• 1 Fotografieren: Macht ein Foto/Screenshot eurer fertigen Example Map (die Karten an der Wand).
-• 2 Ins Repo laden: Legt das Bild ins Projekt, damit der Agent es lesen kann.
-• 3 /digitize-mapping <screenshot>: Der Skill LIEST das Bild und transkribiert die Karten ins kanonische import-example-mapping.md. Disziplin: er tippt nur ab, erfindet keine Regel/kein Beispiel; Unleserliches wird als offene/rote Karte markiert, nicht geraten. (Wer die Map live moderiert hat statt zu fotografieren: /example-mapping liefert dasselbe File.)
-• 4 /gherkin-spec: Macht aus den grünen Karten features/import.feature — jedes Beispiel ein Scenario in Given/When/Then; eine Domäne, eine Datei.
-• 5 /bind-contract: Schreibt die Step-Definitionen, bindet jeden Satz ans echte System und setzt strict in der cucumber.json. Wir binden, wir generieren keine zweite Testdatei. Vor dem Code ist der Contract rot/undefiniert — genau das ist das Ziel (Außen-Loop, ATDD).
-• 6 Gegen-grün: Plan + Code, Schritt für Schritt (innen klassisch TDD), bis alle Akzeptanz-Szenarien grün sind.
-• strict ist konstituierend: ein Szenario ohne Step zählt sonst als grün — genau der Drift, den wir töten.
-• Die Spec bleibt: Example Map + kurze Feature-Spec tragen das WAS/WARUM; die .feature trägt das Verhalten; Cucumber das Enforcement. Drei Jobs, keine Redundanz.
-• Payoff zum Schluss: eine Zahl/Grenze in der .feature ändern, die dem Code widerspricht → roter Lauf. Die Spec kann nicht mehr unbemerkt falsch werden. (Ehrlich: nur ein echter Widerspruch wird rot.)
-• Sicherheitsnetz: examples-for-bdd/bdd/ (session.feature, steps, cucumber.json mit strict) zum Abschauen.
+• Hands-on Teil 2: Schritt-für-Schritt, echte Skill-Namen
+• Begriffe: grüne Karten = Beispiele → Szenarien; blaue Regeln = Feature-Rahmen; gebundene Szenarien = Akzeptanzkriterien
+• 1 fotografieren: Screenshot der fertigen Example Map
+• 2 ins Repo laden: Bild ins Projekt, Agent kann lesen
+• 3 /digitize-mapping: liest Bild → import,example,mapping.md; nur abtippen, nichts erfinden, Unleserliches = rote Karte (live moderiert: /example-mapping)
+• 4 /gherkin-spec: grüne Karten → features/import.feature, je Beispiel ein Scenario, eine Domäne eine Datei
+• 5 /bind-contract: Step-Defs, jeden Satz binden, strict in cucumber.json; vor Code rot/undefiniert = Ziel (Außen-Loop ATDD)
+• 6 gegen-grün: Plan + Code (innen TDD) bis alle Szenarien grün
+• strict konstituierend: Szenario ohne Step zählt sonst grün = Drift
+• Payoff: Zahl/Grenze in .feature ändern, widerspricht Code → roter Lauf; nur echter Widerspruch wird rot
+• Sicherheitsnetz: examples-for-bdd/bdd/ zum Abschauen
 -->
 
 <!--
-ORIGINAL strict-Folie (entfernt, als Notiz): Ein Szenario ohne Step → roter Lauf. Konstituierend — gehört in die cucumber.json.
-ORIGINAL Drift-Moment-Folie (entfernt): grün → Zahl ändern → rot. Die Spec kann nicht mehr unbemerkt falsch werden.
+• Reserve strict: Szenario ohne Step → roter Lauf, konstituierend, in cucumber.json
+• Reserve Drift: grün → Zahl ändern → rot, Spec nicht mehr unbemerkt falsch
 -->
 
 ---
@@ -141,10 +136,9 @@ layout: cc
 <p class="note">Die 4. Phase — schlank, bedingt.</p>
 
 <!--
-Optionale Folie: die Tasks-Phase — nur einsetzen, wenn das Vorhaben groß genug wirkt.
-Ziel: Die 4. Phase der Form praktisch zeigen, ohne sie zur Pflicht zu machen.
-Was du sagen kannst:
-• Wenn der Plan groß wird, bricht man ihn in kontext-große Tasks: ein Task = passt in einen Agent-Kontext.
-• Das hält den Agenten fokussiert und die Reviews überschaubar.
-• Bewusst „nur bei Bedarf" — schlank per Default bleibt das Leitprinzip. Diese Folie überspringen, wenn die Zeit knapp oder das Beispiel klein ist.
+• optional: Tasks-Phase, nur bei großem Vorhaben
+• 4. Phase, keine Pflicht
+• großer Plan → kontext-große Tasks, ein Task = ein Agent-Kontext
+• hält Agent fokussiert, Reviews überschaubar
+• nur bei Bedarf, schlank per Default; bei Zeitnot überspringen
 -->

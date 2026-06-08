@@ -9,9 +9,10 @@ nologo: true
 <div class="subtitle">Was nehmt ihr mit?</div>
 
 <!--
-Titelfolie zu Akt 7 — dem abschließenden Synthese- und Vergleichsteil (35 min, Plenum).
-Ziel: Den Bogen schließen. Nach dem dualen Bau (BMAD in Akt 5, unsere Form in Akt 6) ordnen wir das selbst Erlebte ein, statt es zu bewerten.
-Das könnt ihr sagen: „Ihr habt jetzt beide Pfade mit den eigenen Händen gebaut — BMAD und unsere schlanke Form. Jetzt machen wir daraus ein Urteil." Kurz ankündigen: erst der ehrliche Vergleich, dann die eine Architektur dahinter, dann die Grenzen, dann was ihr mitnehmt. Betonen: Es geht nicht darum, einen Sieger zu küren.
+• Akt 7: Synthese & Vergleich, 35 min, Plenum
+• Bogen schließen: beide Pfade selbst gebaut (BMAD Akt 5, schlanke Form Akt 6)
+• Ablauf: Vergleich → eine Architektur → Grenzen → Mitnehmen
+• kein Sieger küren
 -->
 
 ---
@@ -33,9 +34,12 @@ layout: cc
 <p class="note">Ihr habt beide gebaut — wie haben sie sich angefühlt?</p>
 
 <!--
-Die Folie stellt beide Methoden sachlich gegenüber: BMAD mit Rollen, PRD, Architektur, Epics & Stories — gegen unsere Form mit Example Mapping, Gherkin und erzwungenem Contract. Bewusst ohne Wertung — die Einordnung sollen die Teilnehmer selbst treffen.
-Ziel: Den fairen Rahmen setzen, aber kein Urteil vorgeben. Die Folie beschreibt nur, was jede Methode tut; die Frage nach dem „Gewicht" stellt das Plenum selbst auf dem Miro-Board (nächste Folie).
-Das könnt ihr sagen: „Ihr habt beide Pfade mit eigenen Händen gebaut. Schaut euch an, was jede Methode mitbringt — und denkt nach, wie sich das angefühlt hat." Nicht selbst „schwer/schlank per Default" sagen — genau das sollen sie gleich selbst erkennen. Offene Fragen anbieten: Wann lohnt BMADs Maschinerie? Wann reicht der schlanke Weg? Wo war der Unterschied am deutlichsten spürbar?
+• sachliche Gegenüberstellung, bewusst ohne Wertung
+• BMAD: Rollen, PRD, Architektur, Epics & Stories
+• unsere Form: Example Mapping, Gherkin, erzwungener Contract
+• „Gewicht“ stellt Plenum selbst aufs Miro-Board (nächste Folie)
+• NICHT selbst „schwer/schlank“ sagen
+• offene Fragen: wann lohnt BMADs Maschinerie? wann reicht schlank? wo Unterschied am deutlichsten?
 -->
 
 ---
@@ -47,10 +51,13 @@ layout: cc
 <p class="body">Geht jetzt auf das <strong>Miro-Board</strong> — wir sammeln eure Eindrücke aus beiden Pfaden gemeinsam und ziehen das Fazit zusammen, statt dass ich es euch vorsetze.</p>
 
 <!--
-Interaktive Reflexionsfolie: Das Plenum erarbeitet das Fazit gemeinsam auf einem Miro-Board, statt es vorgesetzt zu bekommen.
-Ziel: Die Einordnung des Tages aus den Teilnehmern selbst herausholen — sie sollen „schwer vs. schlank per Default" und den Wert des Contracts selbst formulieren. Das verankert stärker als jede Aussage von vorne.
-Ablauf-Hinweis: Board-Link/QR einblenden (vorbereiten!). Drei Spalten passend zu den Karten: (1) Pro Methode — wo war welche stark, was hat genervt; (2) Default-Gewicht — welche Methode startet leicht/schwer, wann lohnt welche; (3) Der Contract — was der deterministische rot/grün-Moment verändert hat.
-Moderation: ~5–7 min sammeln lassen, dann 2–3 Cluster laut vorlesen und zusammenführen. Wichtig: selbst kein Urteil vorgeben — moderieren, nicht bewerten. Die zentralen Punkte, die ohnehin fallen sollten, dürfen aus dem Board kommen: dass beide zur Aufgabe skalieren (nur das Default-Gewicht unterscheidet sich); dass die tragende Architektur „nicht-deterministischer Generator gegen deterministischen Prüfer/Contract" ist; und die ehrlichen Grenzen (Konformität ≠ Korrektheit, nur szenarioisiertes Verhalten geschützt, nicht alles ist gherkin-bar). Wenn das Plenum sie nicht selbst nennt, behutsam als Frage anstoßen.
+• Fazit gemeinsam aufs Miro-Board, nicht vorsetzen
+• Board-Link/QR einblenden (vorbereiten!)
+• 3 Spalten: Pro Methode (stark/genervt) · Default-Gewicht (leicht/schwer, wann lohnt) · Contract (rot/grün-Moment)
+• ~5–7 min sammeln, dann 2–3 Cluster vorlesen & zusammenführen
+• moderieren, nicht bewerten
+• Kernpunkte dürfen vom Board kommen: beide skalieren (nur Default-Gewicht unterscheidet); Architektur = nicht-det. Generator gegen det. Prüfer/Contract; Grenzen (Konformität ≠ Korrektheit, nur szenarioisiertes Verhalten, nicht alles gherkin-bar)
+• sonst behutsam als Frage anstoßen
 -->
 
 ---
@@ -66,7 +73,9 @@ layout: cc
 </ul>
 
 <!--
-Die Abschlussfolie fasst das Mitnehmbare zusammen: die SDD-Skills, das eigene Repo, ein begründetes Urteil über BMAD.
-Ziel: Konkretheit am Ende — kein vages „war spannend", sondern drei greifbare Dinge, die heute Abend noch auf dem Rechner liegen.
-Das könnt ihr sagen: Ihr nehmt die SDD-Skills mit (example-mapping, gherkin-spec, bind-contract, der erweiterte sdd-Skill mit Tasks-Phase) — direkt wiederverwendbar im eigenen Tool. Ihr nehmt euer Repo mit, an dem ihr beide Pfade gebaut habt. Und ihr nehmt ein eigenes, aus erster Hand begründetes Urteil über BMAD mit — nicht meine Meinung, sondern eure. Optional als Ausblick: Context Engineering rekursiv — eine CLAUDE.md plus Rule fürs eigene Tool, falls in der Puffer-Zeit Lust besteht.
+• 3 greifbare Dinge, heute Abend auf dem Rechner
+• SDD-Skills: example-mapping, gherkin-spec, bind-contract, erweiterter sdd (Tasks-Phase) — direkt wiederverwendbar
+• eigenes Repo, beide Pfade selbst gebaut
+• eigenes Urteil über BMAD aus erster Hand, nicht meine Meinung
+• optionaler Ausblick: Context Engineering rekursiv (CLAUDE.md + Rule fürs eigene Tool)
 -->

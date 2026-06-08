@@ -8,12 +8,10 @@ nologo: true
 <h1>Vision &amp; Discovery</h1>
 
 <!--
-Titelfolie zu Akt 4 — Start des Hands-on-Teils.
-Ziel: Den Wechsel vom Konzept-Bogen in die praktische Gruppenarbeit markieren und die Leitidee setzen: ein Schnitt, eine gemeinsame Discovery, die später zwei Pfade speist.
-Was du sagen kannst:
-• Ab jetzt arbeiten wir selbst — erst Setup, dann gemeinsam Example Mapping.
-• Wir bauen heute nichts fertig; wir üben an EINEM kleinen Schnitt, den wir gleich gemeinsam aufschließen.
-• Diese eine Discovery ist der gemeinsame Ausgangspunkt für Pfad A (BMAD) und Pfad B (unsere Form) — so wird der Vergleich später sauber.
+• Start Hands-on, Wechsel von Konzept zu Praxis
+• ab jetzt selbst: erst Setup, dann Example Mapping
+• nichts fertig bauen, EIN kleiner Schnitt
+• eine Discovery → Ausgangspunkt für Pfad A (BMAD) und Pfad B
 -->
 
 ---
@@ -34,13 +32,11 @@ dorthin, wo sie gebraucht werden.</p>
 </div>
 
 <!--
-Diese Folie stellt das durchgehende Projekt vor: eine CLI, die AI-Coding-Artefakte zentral verwaltet — jetzt mit mehr Kontext zur Produktvision.
-Ziel: Die Teilnehmer sollen die Idee des Tools wirklich verstehen, damit der gleich folgende verengte Schnitt als bewusster Fokus auf einen Befehl erkennbar wird — nicht als das ganze Tool.
-Was du sagen kannst:
-• Das Problem: In jedem Projekt sammeln sich AI-Artefakte — Skills, Rules, CLAUDE.md, MCP-Configs. Sie liegen verstreut, werden kopiert, driften auseinander, niemand pflegt sie zentral.
-• Die Lösung: ein zentraler Katalog + eine CLI, die diese Artefakte per Kommando in Ziel-Repos bringt: import (holen), augment (bestehende ergänzen), diff (Abweichungen zeigen), mcp add / list.
-• Warum die Idee passt: Meta-Dogfooding — das Tool verwaltet genau die Artefakte, über die der Workshop lehrt; existiert real in Ansätzen (Stichwort .claude/-dotfiles, ruler).
-• Wichtig zu betonen: Das wird heute nicht fertig — es ist nur das Vehikel, an dem wir die Methoden üben. Gleich verengen wir auf einen einzigen Befehl.
+• durchgehendes Projekt: CLI verwaltet AI-Artefakte zentral
+• Problem: Skills, Rules, CLAUDE.md, MCP-Configs verstreut, kopiert, driften
+• Lösung: zentraler Katalog + CLI: import, augment, diff, mcp add/list
+• Meta-Dogfooding: Tool verwaltet genau die Workshop-Artefakte (.claude-dotfiles, ruler)
+• wird nicht fertig: nur Vehikel, gleich Fokus auf einen Befehl
 -->
 
 ---
@@ -63,14 +59,13 @@ oder abbrechen?</p>
 </div>
 
 <!--
-Diese Folie ist der Kern des Hands-on-Setups: Sie beschreibt die heute zu lösende Aufgabe als Fließtext und erklärt die zentrale Idee — denselben Schnitt zweimal bauen.
-Ziel: Den Teilnehmern eine große, klare Idee der Aufgabe geben und den dualen Bau (mit/ohne BMAD) verständlich machen, bevor es in die Gruppenarbeit geht.
-Was du sagen kannst:
-• Die Aufgabe: aus der Vision nur import — ein beliebiges Artefakt (Rule, Skill, CLAUDE.md, MCP-Config) aus dem Katalog in ein bestehendes Repo holen.
-• Warum es nicht trivial ist: die Geschäftsregeln — Existiert das Ziel? Welche Version (major/minor/patch)? Überschreiben, überspringen, abbrechen? Was macht dry-run? Klein genug für die Zeit, regelreich genug für echte Methodik.
-• Die zentrale Idee — dual bauen: Denselben Schnitt fahren wir einmal mit BMAD (Pfad A) und einmal mit unserer schlanken, contract-getriebenen Form (Pfad B).
-• Wichtig — die beiden Pfade starten unterschiedlich: Pfad B beginnt mit Example Mapping in der Gruppe; die grünen Karten werden direkt zur Spec (→ Gherkin → Contract). Pfad A (BMAD) leitet seine Anforderungen über sein eigenes PRD ab — Example Mapping ist kein BMAD-Artefakt. Das gemeinsame Mapping liefert beiden Pfaden dasselbe Domänenverständnis, aber nur Pfad B nutzt die Karten als formale Spec.
-• Stopp-Punkt (erst auf den späteren Aufgaben-Folien betonen): beide Pfade nur bis zum charakteristischen Punkt, nicht bis zum fertigen Feature.
+• Aufgabe: nur import, Artefakt aus Katalog in Repo holen
+• nicht trivial: Geschäftsregeln (existiert? Version? überschreiben/skip/abbrechen? dry-run?)
+• zentrale Idee: denselben Schnitt zweimal bauen
+• Pfad A mit BMAD, Pfad B schlank contract-getrieben
+• unterschiedlicher Start: B mit Example Mapping → grüne Karten zur Spec; A leitet PRD ab
+• gemeinsames Mapping = gleiches Domänenwissen, nur B nutzt Karten als Spec
+• Stopp-Punkt (später betonen): nur bis charakteristischer Punkt, nicht fertig
 -->
 
 ---
@@ -87,12 +82,10 @@ layout: cc
 </div>
 
 <!--
-Diese Folie führt die Technik Example Mapping mit ihren vier Kartenfarben ein.
-Ziel: Den Gruppen ein einfaches, gemeinsames Format geben, um den import-Schnitt strukturiert aufzuschließen, bevor irgendein Tool ins Spiel kommt.
-Was du sagen kannst:
-• Gelb = Story (was wollen wir?), blau = Rules (die Geschäftsregeln dahinter), grün = Examples (konkrete Fälle pro Regel), rot = Open Questions (was noch offen ist).
-• Der Fluss: eine Story nehmen, Regeln benennen, jede Regel mit konkreten Beispielen abklopfen — Unklarheiten werden zu roten Karten.
-• Moderationshinweis: timeboxen, eine Karte nach der anderen; lieber viele kleine konkrete Beispiele als abstrakte Regeln.
+• Technik Example Mapping, vier Kartenfarben
+• Gelb Story, Blau Rules, Grün Examples, Rot Open Questions
+• Fluss: Story → Regeln benennen → Beispiele abklopfen → Unklares = rote Karte
+• Moderation: timeboxen, Karte für Karte, lieber viele konkrete Beispiele
 -->
 
 ---
@@ -124,13 +117,11 @@ layout: cc
 <p class="note" style="margin-top:0.6em">Grüne Karten → Gherkin-Szenarien → später gebundener Contract.</p>
 
 <!--
-Konkretes Beispiel, wie Example Mapping am import-Schnitt aussieht — nachgebaut nach dem EXACT-Coding-Schaubild, aber in unserer Domäne.
-Ziel: Den Gruppen ein greifbares Muster zeigen, bevor sie selbst mappen — links die vier Kartenfarben am echten Beispiel, rechts wohin die grünen Karten in Pfad B wandern.
-Was du sagen kannst:
-• Links, gemeinsam im Team entwickelt: eine gelbe Story, darunter blaue Rules (z. B. „existiert nicht → kopieren", „Konflikt → höhere SemVer gewinnt"), pro Regel grüne Examples mit konkretem Ergebnis (✓/✗), und eine rote offene Frage („Was bei gleicher Version?").
-• Rechts: In Pfad B wird jedes grüne Beispiel zu einem Gherkin-Szenario (Given/When/Then) — und das ist später die Grundlage für den gebundenen, erzwungenen Contract.
-• Wichtig nochmal klarstellen: Diese Gherkin-Umsetzung gehört zu Pfad B. In Pfad A (BMAD) fließt dasselbe Domänenwissen stattdessen ins PRD.
-• Die rote Karte ist bewusst drin — sie zeigt: Unsicherheit wird dokumentiert, nicht geraten.
+• konkretes Beispiel: Example Mapping am import-Schnitt
+• links: gelbe Story, blaue Rules (existiert nicht → kopieren; Konflikt → höhere SemVer), grüne Examples (✓/✗), rote Frage (gleiche Version?)
+• rechts (Pfad B): jedes grüne Beispiel → Gherkin Given/When/Then → später Contract
+• Gherkin = Pfad B; in Pfad A fließt Domänenwissen ins PRD
+• rote Karte bewusst: Unsicherheit dokumentieren, nicht raten
 -->
 
 ---
@@ -150,12 +141,10 @@ wird eine <em class="u">rote Karte</em>.</p>
 </div>
 
 <!--
-Übergangsfolie: Sie übersetzt die Technik in den konkreten Arbeitsauftrag und leitet in die Gruppenarbeit über.
-Ziel: Die Gruppen organisatorisch sauber loslassen — Vierergruppen, Miro-Board, klarer Mapping-Auftrag.
-Was du sagen kannst:
-• Organisation: Bitte in Vierergruppen zusammenfinden. Jede Gruppe hat ein eigenes Miro-Board — ihr seid bereits draufgekommen, dort arbeitet ihr gemeinsam.
-• Auftrag: Mappt den import-Schnitt — Story, Geschäftsregeln (Existiert das Ziel? Welche Version? Wie bei Konflikt? Was macht dry-run?), konkrete Beispiele pro Regel, rote Karten für alles Offene.
-• Format/Timebox: vier Kartenfarben, ~20–30 min, eine Karte nach der anderen; lieber viele kleine konkrete Beispiele als abstrakte Regeln.
-• Was danach passiert: Die Karten sind das gemeinsame Domänenverständnis. Wichtig: In Pfad B werden die grünen Karten direkt zur formalen Spec (→ Gherkin → Contract); Pfad A (BMAD) nutzt dasselbe Verständnis, formuliert aber sein eigenes PRD — Example Mapping ist kein BMAD-Schritt.
-• Setup-Hinweis: Repo steht, BMAD ist vorab installiert — hier nur verifizieren, nicht installieren.
+• Übergang in Gruppenarbeit
+• Organisation: Vierergruppen, eigenes Miro-Board (schon drauf)
+• Auftrag: import-Schnitt mappen — Story, Regeln (existiert? Version? Konflikt? dry-run?), Beispiele, rote Karten
+• Format: vier Farben, ~20–30 min, Karte für Karte, viele konkrete Beispiele
+• danach: Karten = Domänenverständnis; B → grüne Karten zur Spec (Gherkin, Contract), A nutzt PRD
+• Setup: Repo steht, BMAD vorab installiert, nur verifizieren
 -->

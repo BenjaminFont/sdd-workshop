@@ -169,16 +169,34 @@ boundary in the `.feature` file and re-run.
    `Then` step. Keep the captured value flowing from the
    `.feature` file; never hard-code a duplicate constant.
 
+   **Assert the rejection, do not catch every error.** A
+   "rejected" / "abgewiesen" scenario must assert a
+   **specific, defined contract** — the SUT throws a *typed*
+   error (`ValidationError`, `NotFoundError`, …) or returns a
+   defined failure value. The step catches **only that**;
+   any other error propagates and fails the scenario. A bare
+   `try { … } catch { rejected = true }` is the trap: it also
+   swallows `not implemented`, `undefined is not a function`,
+   typos — so the scenario passes **before any code exists**.
+   That is a *vacuously green* test: green that proves
+   nothing. The litmus test below makes this concrete.
+
 5. **Set strict in the config, not the step file.** Create
    or edit `cucumber.json` (or the stack's equivalent) with
    `strict: true`, plus `paths` (features) and `require`
    (steps). Mirror `examples-for-bdd/bdd/cucumber.json`.
 
-6. **Run green.** Execute the runner against the config and
-   confirm every bound scenario passes. Resolve any
-   `UNDEFINED` step (under strict, these are red): either add
-   the missing step + the code behind it, or remove the
-   scenario. The red forces the choice.
+6. **Run red first, then green.** If you bind *before* the
+   SUT exists (the spec-first / ATDD case), run the suite once
+   now and confirm **every** scenario is RED — including the
+   rejection scenarios. A rejection scenario that is already
+   GREEN against an empty/stub SUT is the vacuous-green trap
+   from step 4: fix the step so it only catches the typed
+   failure, until it too goes red. The whole contract red is
+   the correct starting line. *Then* implement until green.
+   Resolve any `UNDEFINED` step (under strict, these are red):
+   either add the missing step + the code behind it, or remove
+   the scenario. The red forces the choice.
 
 7. **Demonstrate drift (optional but recommended).** Change
    one number/boundary in the `.feature` file per the rule
@@ -227,6 +245,11 @@ as a runnable fallback to copy from.
   the `.feature` line with `{int}`.
 - **A requirement in the description text** instead of a
   scenario. → Wrong: it is never run, never enforced.
+- **Catch-all in a rejection step** (`try { … } catch {
+  rejected = true }`). → Wrong: it swallows `not implemented`
+  and every bug too, so the scenario is *vacuously green*
+  before any code exists. Catch only the **typed** failure the
+  contract defines; let everything else propagate.
 - **Binding scenarios that are still churning.** → Wrong:
   stabilize the boundary first, then freeze it as a contract.
 - **One step definition per sentence instead of per shape.**
